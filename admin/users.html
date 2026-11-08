@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management - Connectly</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B7CFA'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/user.css">
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- ================= SIDEBAR (Offcanvas on Mobile, Fixed on Desktop) ================= -->
+    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+
+      <!-- Offcanvas Header (Mobile Only) -->
+      <div class="offcanvas-header d-lg-none border-bottom border-custom">
+        <h5 class="offcanvas-title d-flex align-items-center gap-2 mb-0" id="sidebarMenuLabel">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span class="fw-bold">Connectly</span>
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+      </div>
+
+      <!-- Offcanvas Body -->
+      <div class="offcanvas-body p-3">
+
+        <!-- Desktop Logo -->
+        <a href="../index.html" class="brand d-none d-lg-flex align-items-center gap-2 mb-4 text-decoration-none">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span class="fs-5 fw-bold text-white">Connectly</span>
+        </a>
+
+        <!-- Workspace Selector -->
+        <button type="button" class="workspace-selector mb-4">
+          <span class="workspace-icon"><i class="bi bi-shield-check"></i></span>
+          <span class="workspace-text">
+            <span class="workspace-title">Admin workspace</span>
+            <span class="workspace-sub">Platform administration</span>
+          </span>
+          <i class="bi bi-chevron-expand ms-auto text-muted-custom"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <p class="nav-heading">WORKSPACE</p>
+        <ul class="nav nav-pills flex-column mb-4">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link"><i class="bi bi-grid"></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="users.html" class="nav-link active"><i class="bi bi-people"></i> User Management</a>
+          </li>
+        </ul>
+
+        <p class="nav-heading">ACCOUNT</p>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="profile.html" class="nav-link"><i class="bi bi-person"></i> My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="setting.html" class="nav-link"><i class="bi bi-sliders"></i> System Settings</a>
+          </li>
+        </ul>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer mt-auto pt-3 border-top border-custom px-2 rounded-2">
+          <div class="d-flex align-items-center gap-2 px-2 mb-3">
+            <span class="status-dot"></span>
+            <small class="text-muted-custom">All systems operational</small>
+          </div>
+          <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <div class="avatar avatar-md">JL</div>
+              <div class="lh-sm">
+                <div class="fw-semibold text-white user-name">Jordan Lee</div>
+                <div class="text-muted-custom user-role">Administrator</div>
+              </div>
+            </div>
+            <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="app-main">
+
+      <!-- Top Navbar -->
+      <nav class="topbar px-3 px-md-4 py-2">
+        <div class="d-flex justify-content-between align-items-center gap-2">
+
+          <div class="d-flex align-items-center gap-2">
+            <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-label="Open menu">
+              <i class="bi bi-list fs-5"></i>
+            </button>
+
+            <div class="breadcrumb-text d-none d-sm-flex align-items-center gap-1">
+              <span class="text-muted-custom">Admin workspace</span>
+              <i class="bi bi-chevron-right"></i>
+              <span class="text-white">User Management</span>
+            </div>
+            <div class="fw-semibold d-sm-none">User Management</div>
+          </div>
+
+          <div class="d-flex align-items-center gap-2 gap-md-3">
+            <div class="search-box d-none d-md-flex">
+              <i class="bi bi-search"></i>
+              <input type="text" placeholder="Search anything...">
+            </div>
+
+            <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
+
+            <button class="icon-btn position-relative" aria-label="Notifications">
+              <i class="bi bi-bell"></i>
+              <span class="notif-dot"></span>
+            </button>
+
+            <div class="avatar avatar-sm">JL</div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Content -->
+      <div class="container-fluid p-3 p-md-4">
+
+        <!-- Header -->
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
+          <div>
+            <h3 class="page-title mb-1">User Management</h3>
+            <p class="text-muted-custom mb-0 small">Manage access, roles and accounts across your platform.</p>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn-export"><i class="bi bi-download"></i> Export</button>
+            <button class="btn-primary-glow"><i class="bi bi-plus-lg"></i> Create user</button>
+          </div>
+        </div>
+
+        <!-- Mini stats -->
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-xl-3">
+            <div class="card mini-stat">
+              <span class="stat-icon stat-primary"><i class="bi bi-people"></i></span>
+              <div>
+                <div class="mini-stat-value">1,284</div>
+                <div class="mini-stat-label">Total users</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="card mini-stat">
+              <span class="stat-icon stat-success"><i class="bi bi-person-check"></i></span>
+              <div>
+                <div class="mini-stat-value">1,108</div>
+                <div class="mini-stat-label">Active users</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="card mini-stat">
+              <span class="stat-icon stat-danger"><i class="bi bi-person-x"></i></span>
+              <div>
+                <div class="mini-stat-value">176</div>
+                <div class="mini-stat-label">Inactive users</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="card mini-stat">
+              <span class="stat-icon stat-info"><i class="bi bi-shield-lock"></i></span>
+              <div>
+                <div class="mini-stat-value">12</div>
+                <div class="mini-stat-label">Administrators</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-3">
+          <div class="filter-tabs" role="tablist" aria-label="User filters">
+            <button type="button" class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+              All users <span class="tab-count">1,284</span>
+            </button>
+            <button type="button" class="filter-tab" data-filter="active" role="tab" aria-selected="false">
+              Active <span class="tab-count">1,108</span>
+            </button>
+            <button type="button" class="filter-tab" data-filter="inactive" role="tab" aria-selected="false">
+              Inactive <span class="tab-count">176</span>
+            </button>
+          </div>
+          <span class="text-muted-custom small"><span id="visibleCount">8</span> users shown</span>
+        </div>
+
+        <!-- Table Card -->
+        <div class="card overflow-hidden">
+          <div class="toolbar border-bottom border-custom">
+            <div class="search-box">
+              <i class="bi bi-search"></i>
+              <input type="text" id="userSearch" placeholder="Search users by name or email...">
+            </div>
+            <div class="d-flex flex-wrap gap-2 ms-lg-auto">
+              <select class="form-select form-select-dark" aria-label="Filter by role">
+                <option>All roles</option>
+                <option>Admin</option>
+                <option>Editor</option>
+                <option>User</option>
+                <option>Viewer</option>
+              </select>
+              <select class="form-select form-select-dark" aria-label="Filter by status">
+                <option>All statuses</option>
+                <option>Active</option>
+                <option>Pending</option>
+                <option>Inactive</option>
+              </select>
+              <select class="form-select form-select-dark" aria-label="Sort by">
+                <option>Newest first</option>
+                <option>Oldest first</option>
+                <option>Name A-Z</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-dark table-hover align-middle mb-0 users-table">
+              <thead>
+                <tr>
+                  <th class="ps-4" style="width: 44px;">
+                    <input class="form-check-input" type="checkbox" id="selectAll" aria-label="Select all users">
+                  </th>
+                  <th>Name</th>
+                  <th>Email Address</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Registered</th>
+                  <th class="text-end pe-4">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="user-row" data-status="active">
+                  <td class="ps-4"><input class="form-check-input row-check" type="checkbox" aria-label="Select Maya Chen"></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="avatar avatar-sm avatar-primary">MC</span>
+                      <span class="fw-semibold">Maya Chen</span>
+                    </div>
+                  </td>
+                  <td class="text-muted-custom">maya@linear.app</td>
+                  <td><span class="badge-role">User</span></td>
+                  <td><span class="status-badge status-active"><i class="bi bi-circle-fill"></i> Active</span></td>
+                  <td class="text-muted-custom">Nov 5, 2026</td>
+                  <td class="text-end pe-4">
+                    <button class="row-action" aria-label="View Maya Chen"><i class="bi bi-eye"></i></button>
+                    <button class="row-action" aria-label="Edit Maya Chen"><i class="bi bi-pencil"></i></button>
+                    <button class="row-action danger" aria-label="Delete Maya Chen"><i class="bi bi-trash3"></i></button>
+                  </td>
+                </tr>
+
+                <tr class="user-row" data-status="active">
+                  <td class="ps-4"><input class="form-check-input row-check" type="checkbox" aria-label="Select James Wilson"></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="avatar avatar-sm avatar-info">JW</span>
+                      <span class="fw-semibold">James Wilson</span>
+                    </div>
+                  </td>
+                  <td class="text-muted-custom">james@vercel.com</td>
+                  <td><span class="badge-role">User</span></td>
+                  <td><span class="status-badge status-active"><i class="bi bi-circle-fill"></i> Active</span></td>
+                  <td class="text-muted-custom">Nov 5, 2026</td>
+                  <td class="text-end pe-4">
+                    <button class="row-action" aria-label="View James Wilson"><i class="bi bi-eye"></i></button>
+                    <button class="row-action" aria-label="Edit James Wilson"><i class="bi bi-pencil"></i></button>
+                    <button class="row-action danger" aria-label="Delete James Wilson"><i class="bi bi-trash3"></i></button>
+                  </td>
+                </tr>
+
+                <tr class="user-row" data-status="active">
+                  <td class="ps-4"><input class="form-check-input row-check" type="checkbox" aria-label="Select Sofia Anderson"></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="avatar avatar-sm avatar-warning">SA</span>
+                      <span class="fw-semibold">Sofia Anderson</span>
+                    </div>
+                  </td>
+                  <td class="text-muted-custom">sofia@layers.studio</td>
+                  <td><span class="badge-role badge-role-admin">Admin</span></td>
+                  <td><span class="status-badge status-active"><i class="bi bi-circle-fill"></i> Active</span></td>
+                  <td class="text-muted-custom">Oct 30, 2026</td>
+                  <td class="text-end pe-4">
+                    <button class="row-action" aria-label="View Sofia Anderson"><i class="bi bi-eye"></i></button>
+                    <button class="row-action" aria-label="Edit Sofia Anderson"><i class="bi bi-pencil"></i></button>
+                    <button class="row-action danger" aria-label="Delete Sofia Anderson"><i class="bi bi-trash3"></i></button>
+                  </td>
+                </tr>
+
+                <tr class="user-row" data-status="inactive">
+                  <td class="ps-4"><input class="form-check-input row-check" type="checkbox" aria-label="Select Ethan Brown"></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="avatar avatar-sm avatar-danger">EB</span>
+                      <span class="fw-semibold">Ethan Brown</span>
+                    </div>
+                  </td>
+                  <td class="text-muted-custom">ethan@mercury.com</td>
+                  <td><span class="badge-role">User</span></td>
+                  <td><span class="status-badge status-inactive"><i class="bi bi-circle-fill"></i> Inactive</span></td>
+                  <td class="text-muted-custom">Oct 28, 2026</td>
+                  <td class="text-end pe-4">
+                    <button class="row-action" aria-label="View Ethan Brown"><i class="bi bi-eye"></i></button>
+                    <button class="row-action" aria-label="Edit Ethan Brown"><i class="bi bi-pencil"></i></button>
+                    <button class="row-action danger" aria-label="Delete Ethan Brown"><i class="bi bi-trash3"></i></button>
+                  </td>
+                </tr>
+
+                <tr class="user-row" data-status="active">
+                  <td class="ps-4"><input class="form-check-input row-check" type="checkbox" aria-label="Select Liam Patel"></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="avatar avatar-sm avatar-success">LP</span>
+                      <span class="fw-semibold">Liam Patel</span>
+                    </div>
+                  </td>
+                  <td class="text-muted-custom">liam@acme.io</td>
+                  <td><span class="badge-role badge-role-editor">Editor</span></td>
+                  <td><span class="status-badge status-active"><i class="bi bi-circle-fill"></i> Active</span></td>
+                  <td class="text-muted-custom">Oct 24, 2026</td>
+                  <td class="text-end pe-4">
+                    <button class="row-action" aria-label="View Liam Patel"><i class="bi bi-eye"></i></button>
+                    <button class="row-action" aria-label="Edit Liam Patel"><i class="bi bi-pencil"></i></button>
+                    <button class="row-action danger" aria-label="Delete Liam Patel"><i class="bi bi-trash3"></i></button>
+                  </td>
+                </tr>
+
+                <tr class="user-row" data-status="pending">
+                  <td class="ps-4"><input class="form-check-input row-check" type="checkbox" aria-label="Select Sara Nolan"></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="avatar avatar-sm avatar-warning">SN</span>
+                      <span class="fw-semibold">Sara Nolan</span>
+                    </div>
+                  </td>
+                  <td class="text-muted-custom">sara@design.co</td>
+                  <td><span class="badge-role badge-role-viewer">Viewer</span></td>
+                  <td><span class="status-badge status-pending"><i class="bi bi-circle-fill"></i> Pending</span></td>
+                  <td class="text-muted-custom">Oct 22, 2026</td>
+                  <td class="text-end pe-4">
+                    <button class="row-action" aria-label="View Sara Nolan"><i class="bi bi-eye"></i></button>
+                    <button class="row-action" aria-label="Edit Sara Nolan"><i class="bi bi-pencil"></i></button>
+                    <button class="row-action danger" aria-label="Delete Sara Nolan"><i class="bi bi-trash3"></i></button>
+                  </td>
+                </tr>
+
+                <tr class="user-row" data-status="active">
+                  <td class="ps-4"><input class="form-check-input row-check" type="checkbox" aria-label="Select David Osei"></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="avatar avatar-sm avatar-info">DO</span>
+                      <span class="fw-semibold">David Osei</span>
+                    </div>
+                  </td>
+                  <td class="text-muted-custom">david@north.app</td>
+                  <td><span class="badge-role badge-role-editor">Editor</span></td>
+                  <td><span class="status-badge status-active"><i class="bi bi-circle-fill"></i> Active</span></td>
+                  <td class="text-muted-custom">Oct 19, 2026</td>
+                  <td class="text-end pe-4">
+                    <button class="row-action" aria-label="View David Osei"><i class="bi bi-eye"></i></button>
+                    <button class="row-action" aria-label="Edit David Osei"><i class="bi bi-pencil"></i></button>
+                    <button class="row-action danger" aria-label="Delete David Osei"><i class="bi bi-trash3"></i></button>
+                  </td>
+                </tr>
+
+                <tr class="user-row" data-status="inactive">
+                  <td class="ps-4"><input class="form-check-input row-check" type="checkbox" aria-label="Select Emma Kim"></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="avatar avatar-sm avatar-danger">EK</span>
+                      <span class="fw-semibold">Emma Kim</span>
+                    </div>
+                  </td>
+                  <td class="text-muted-custom">emma@studio.dev</td>
+                  <td><span class="badge-role badge-role-viewer">Viewer</span></td>
+                  <td><span class="status-badge status-inactive"><i class="bi bi-circle-fill"></i> Inactive</span></td>
+                  <td class="text-muted-custom">Oct 15, 2026</td>
+                  <td class="text-end pe-4">
+                    <button class="row-action" aria-label="View Emma Kim"><i class="bi bi-eye"></i></button>
+                    <button class="row-action" aria-label="Edit Emma Kim"><i class="bi bi-pencil"></i></button>
+                    <button class="row-action danger" aria-label="Delete Emma Kim"><i class="bi bi-trash3"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table Footer / Pagination -->
+          <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 p-3 border-top border-custom">
+            <span class="text-muted-custom small">Showing 1-8 of 1,284 users</span>
+
+            <nav aria-label="User pagination">
+              <ul class="pagination pagination-sm pagination-custom mb-0 gap-1">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1" aria-disabled="true" aria-label="Previous"><i class="bi bi-chevron-left"></i></a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item disabled"><span class="page-link">...</span></li>
+                <li class="page-item"><a class="page-link" href="#">161</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next"><i class="bi bi-chevron-right"></i></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const selectAll = document.getElementById('selectAll');
+    const searchInput = document.getElementById('userSearch');
+    const visibleCount = document.getElementById('visibleCount');
+    const tabs = document.querySelectorAll('.filter-tab');
+    const rows = () => Array.from(document.querySelectorAll('.user-row'));
+    let activeFilter = 'all';
+
+    function applyFilters() {
+      const query = (searchInput?.value || '').toLowerCase().trim();
+      let shown = 0;
+
+      rows().forEach((row) => {
+        const statusMatch = activeFilter === 'all' || row.dataset.status === activeFilter;
+        const searchMatch = !query || row.textContent.toLowerCase().includes(query);
+        const show = statusMatch && searchMatch;
+        row.style.display = show ? '' : 'none';
+        if (show) shown++;
+      });
+
+      if (visibleCount) visibleCount.textContent = shown;
+    }
+
+    selectAll?.addEventListener('change', () => {
+      rows().forEach((row) => {
+        const check = row.querySelector('.row-check');
+        if (check && row.style.display !== 'none') check.checked = selectAll.checked;
+      });
+    });
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        activeFilter = tab.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    searchInput?.addEventListener('input', applyFilters);
+  </script>
+</body>
+</html>

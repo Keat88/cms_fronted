@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - Connectly</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B7CFA'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- ================= SIDEBAR (Offcanvas on Mobile, Fixed on Desktop) ================= -->
+    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+
+      <!-- Offcanvas Header (Mobile Only) -->
+      <div class="offcanvas-header d-lg-none border-bottom border-custom">
+        <h5 class="offcanvas-title d-flex align-items-center gap-2 mb-0" id="sidebarMenuLabel">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span class="fw-bold">Connectly</span>
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+      </div>
+
+      <!-- Offcanvas Body -->
+      <div class="offcanvas-body p-3">
+
+        <!-- Desktop Logo -->
+        <a href="../index.html" class="brand d-none d-lg-flex align-items-center gap-2 mb-4 text-decoration-none">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span class="fs-5 fw-bold text-white">Connectly</span>
+        </a>
+
+        <!-- Workspace Selector -->
+        <button type="button" class="workspace-selector mb-4">
+          <span class="workspace-icon"><i class="bi bi-shield-check"></i></span>
+          <span class="workspace-text">
+            <span class="workspace-title">Admin workspace</span>
+            <span class="workspace-sub">Platform administration</span>
+          </span>
+          <i class="bi bi-chevron-expand ms-auto text-muted-custom"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <p class="nav-heading">WORKSPACE</p>
+        <ul class="nav nav-pills flex-column mb-4">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link"><i class="bi bi-grid"></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="users.html" class="nav-link"><i class="bi bi-people"></i> User Management</a>
+          </li>
+        </ul>
+
+        <p class="nav-heading">ACCOUNT</p>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="profile.html" class="nav-link active"><i class="bi bi-person"></i> My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="setting.html" class="nav-link"><i class="bi bi-sliders"></i> System Settings</a>
+          </li>
+        </ul>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer mt-auto pt-3 border-top border-custom px-2 rounded-2">
+          <div class="d-flex align-items-center gap-2 px-2 mb-3">
+            <span class="status-dot"></span>
+            <small class="text-muted-custom">All systems operational</small>
+          </div>
+          <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <div class="avatar avatar-md">JL</div>
+              <div class="lh-sm">
+                <div class="fw-semibold text-white user-name">Jordan Lee</div>
+                <div class="text-muted-custom user-role">Administrator</div>
+              </div>
+            </div>
+            <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="app-main">
+
+      <!-- Top Navbar -->
+      <nav class="topbar px-3 px-md-4 py-2">
+        <div class="d-flex justify-content-between align-items-center gap-2">
+
+          <div class="d-flex align-items-center gap-2">
+            <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-label="Open menu">
+              <i class="bi bi-list fs-5"></i>
+            </button>
+
+            <div class="breadcrumb-text d-none d-sm-flex align-items-center gap-1">
+              <span class="text-muted-custom">Admin workspace</span>
+              <i class="bi bi-chevron-right"></i>
+              <span class="text-white">My Profile</span>
+            </div>
+            <div class="fw-semibold d-sm-none">My Profile</div>
+          </div>
+
+          <div class="d-flex align-items-center gap-2 gap-md-3">
+            <div class="search-box d-none d-md-flex">
+              <i class="bi bi-search"></i>
+              <input type="text" placeholder="Search anything...">
+            </div>
+
+            <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
+
+            <button class="icon-btn position-relative" aria-label="Notifications">
+              <i class="bi bi-bell"></i>
+              <span class="notif-dot"></span>
+            </button>
+
+            <div class="avatar avatar-sm">JL</div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Content -->
+      <div class="container-fluid p-3 p-md-4">
+
+        <!-- Header -->
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
+          <div>
+            <h3 class="page-title mb-1">My Profile</h3>
+            <p class="text-muted-custom mb-0 small">Your personal information and account credentials.</p>
+          </div>
+          <span class="role-chip"><i class="bi bi-shield-check"></i> Administrator</span>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- ================= LEFT COLUMN ================= -->
+          <div class="col-12 col-lg-4">
+
+            <!-- Profile Card -->
+            <div class="card overflow-hidden mb-3">
+              <div class="profile-cover"></div>
+
+              <div class="profile-body">
+                <div class="profile-avatar-wrap">
+                  <div class="profile-avatar">JL</div>
+                  <button type="button" class="avatar-upload" aria-label="Upload new photo">
+                    <i class="bi bi-camera"></i>
+                  </button>
+                </div>
+
+                <h4 class="profile-name">Jordan Lee</h4>
+                <p class="profile-email">jordan@connectly.app</p>
+                <span class="badge-soft-primary"><i class="bi bi-shield-check"></i> Administrator</span>
+
+                <div class="mt-4">
+                  <button type="button" class="btn btn-secondary-custom w-100 justify-content-center">
+                    <i class="bi bi-upload"></i> Upload new photo
+                  </button>
+                  <p class="text-muted-custom mt-2 mb-2" style="font-size: 11px;">JPG, PNG or WebP &mdash; up to 5 MB</p>
+                  <a href="#" class="text-muted-custom text-decoration-none" style="font-size: 12px;">Remove photo</a>
+                </div>
+
+                <hr class="border-custom my-4">
+
+                <div class="info-list">
+                  <div class="info-row">
+                    <span class="info-icon"><i class="bi bi-calendar3"></i></span>
+                    <div>
+                      <div class="info-label">Member since</div>
+                      <div class="info-value">January 12, 2025</div>
+                    </div>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-icon"><i class="bi bi-geo-alt"></i></span>
+                    <div>
+                      <div class="info-label">Location</div>
+                      <div class="info-value">San Francisco, CA</div>
+                    </div>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-icon"><i class="bi bi-envelope-check"></i></span>
+                    <div>
+                      <div class="info-label">Email status</div>
+                      <div class="info-value">Verified</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="profile-progress text-start mt-4 pt-3 border-top border-custom">
+                  <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted-custom" style="font-size: 12px;">Profile completion</span>
+                    <span class="fw-semibold" style="font-size: 12px;">85%</span>
+                  </div>
+                  <div class="progress" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 85%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Info Alert -->
+            <div class="alert-custom-blue p-3 d-flex align-items-start">
+              <i class="bi bi-info-circle text-primary mt-1 me-3"></i>
+              <div>
+                <h6 class="text-white mb-1" style="font-size: 13px;">Your profile, your space</h6>
+                <p class="text-muted-custom mb-0" style="font-size: 12px; line-height: 1.55;">
+                  Your admin role is managed by the platform owner. Profile changes do not affect your permissions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ================= RIGHT COLUMN ================= -->
+          <div class="col-12 col-lg-8">
+
+            <!-- Personal Information Card -->
+            <div class="card p-3 p-md-4 mb-4">
+              <div class="d-flex justify-content-between align-items-start mb-4">
+                <div>
+                  <h5 class="card-title mb-1">Personal information</h5>
+                  <p class="text-muted-custom small mb-0">Keep your profile details up to date.</p>
+                </div>
+                <span class="badge-soft-primary"><i class="bi bi-pencil"></i> Editing</span>
+              </div>
+
+              <form>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label-custom" for="firstName">First name <span class="req">*</span></label>
+                    <div class="input-wrap">
+                      <i class="bi bi-person"></i>
+                      <input id="firstName" type="text" class="form-control form-control-dark" value="Jordan">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-custom" for="lastName">Last name <span class="req">*</span></label>
+                    <div class="input-wrap">
+                      <i class="bi bi-person"></i>
+                      <input id="lastName" type="text" class="form-control form-control-dark" value="Lee">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label-custom" for="email">Email address <span class="req">*</span></label>
+                    <div class="input-wrap">
+                      <i class="bi bi-envelope"></i>
+                      <input id="email" type="email" class="form-control form-control-dark" value="jordan@connectly.app">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-custom" for="phone">Phone number</label>
+                    <div class="input-wrap">
+                      <i class="bi bi-telephone"></i>
+                      <input id="phone" type="text" class="form-control form-control-dark" value="+1 (415) 555-0100">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label-custom" for="company">Company</label>
+                    <div class="input-wrap">
+                      <i class="bi bi-building"></i>
+                      <input id="company" type="text" class="form-control form-control-dark" value="Connectly">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-custom" for="jobTitle">Job title</label>
+                    <div class="input-wrap">
+                      <i class="bi bi-briefcase"></i>
+                      <input id="jobTitle" type="text" class="form-control form-control-dark" value="Platform Administrator">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label-custom" for="location">Location</label>
+                  <div class="input-wrap">
+                    <i class="bi bi-geo-alt"></i>
+                    <input id="location" type="text" class="form-control form-control-dark" value="San Francisco, California, United States">
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end gap-2 border-top border-custom pt-4">
+                  <button type="button" class="btn-secondary-custom">Cancel</button>
+                  <button type="button" class="btn-primary-glow" id="saveProfile"><i class="bi bi-check2"></i> Save changes</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Change Password Card -->
+            <div class="card p-3 p-md-4">
+              <div class="mb-4">
+                <h5 class="card-title mb-1">Change password</h5>
+                <p class="text-muted-custom small mb-0">Use a strong password that you don't use elsewhere.</p>
+              </div>
+
+              <form>
+                <div class="mb-3">
+                  <label class="form-label-custom" for="currentPassword">Current password</label>
+                  <div class="input-group input-group-dark">
+                    <input id="currentPassword" type="password" class="form-control form-control-dark" value="password123">
+                    <button type="button" class="input-group-text toggle-password" aria-label="Show current password">
+                      <i class="bi bi-eye-slash"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label-custom" for="newPassword">New password</label>
+                    <div class="input-group input-group-dark">
+                      <input id="newPassword" type="password" class="form-control form-control-dark" value="password123">
+                      <button type="button" class="input-group-text toggle-password" aria-label="Show new password">
+                        <i class="bi bi-eye-slash"></i>
+                      </button>
+                    </div>
+                    <div class="strength level-3">
+                      <span></span><span></span><span></span><span></span>
+                    </div>
+                    <span class="strength-label">Strong password</span>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-custom" for="confirmPassword">Confirm new password</label>
+                    <div class="input-group input-group-dark">
+                      <input id="confirmPassword" type="password" class="form-control form-control-dark" value="password123">
+                      <button type="button" class="input-group-text toggle-password" aria-label="Show confirm password">
+                        <i class="bi bi-eye-slash"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center border-top border-custom pt-4 gap-3">
+                  <span class="text-success small fw-medium d-flex align-items-center">
+                    <i class="bi bi-check2-circle me-1"></i> 12+ characters, a number and a symbol
+                  </span>
+                  <button type="button" class="btn-secondary-custom">
+                    <i class="bi bi-key"></i> Update password
+                  </button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Save toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="saveToast" class="toast app-toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex align-items-center gap-2 p-3">
+        <i class="bi bi-check-circle-fill text-success"></i>
+        <span>Profile updated successfully</span>
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('.toggle-password').forEach((button) => {
+      button.addEventListener('click', () => {
+        const input = button.closest('.input-group').querySelector('input');
+        const icon = button.querySelector('i');
+        const show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        icon.className = show ? 'bi bi-eye' : 'bi bi-eye-slash';
+      });
+    });
+
+    const saveButton = document.getElementById('saveProfile');
+    const saveToast = document.getElementById('saveToast');
+    if (saveButton && saveToast) {
+      saveButton.addEventListener('click', () => {
+        new bootstrap.Toast(saveToast, { delay: 2500 }).show();
+      });
+    }
+  </script>
+</body>
+</html>
