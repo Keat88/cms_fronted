@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories - Connectly</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B7CFA'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/d-dash.css">
+  <link rel="stylesheet" href="../css/u-category.css">
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- ================= SIDEBAR (Offcanvas on Mobile, Fixed on Desktop) ================= -->
+    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+
+      <!-- Offcanvas Header (Mobile Only) -->
+      <div class="offcanvas-header d-lg-none border-bottom border-custom">
+        <h5 class="offcanvas-title d-flex align-items-center gap-2 mb-0" id="sidebarMenuLabel">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span class="fw-bold">Connectly</span>
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+      </div>
+
+      <!-- Offcanvas Body -->
+      <div class="offcanvas-body p-3">
+
+        <!-- Desktop Logo -->
+        <a href="dashboard.html" class="brand d-none d-lg-flex align-items-center gap-2 mb-4 text-decoration-none">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span class="fs-5 fw-bold text-white">Connectly</span>
+        </a>
+
+        <!-- Workspace Selector -->
+        <button type="button" class="workspace-selector mb-4">
+          <span class="workspace-icon"><i class="bi bi-person-vcard"></i></span>
+          <span class="workspace-text">
+            <span class="workspace-title">Personal workspace</span>
+            <span class="workspace-sub">Contacts & connections</span>
+          </span>
+          <i class="bi bi-chevron-expand ms-auto text-muted-custom"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <p class="nav-heading">WORKSPACE</p>
+        <ul class="nav nav-pills flex-column mb-4">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link"><i class="bi bi-grid"></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link"><i class="bi bi-person-lines-fill"></i> Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a href="favorites.html" class="nav-link"><i class="bi bi-star"></i> Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a href="categories.html" class="nav-link active" aria-current="page"><i class="bi bi-tags"></i> Categories</a>
+          </li>
+          <li class="nav-item">
+            <a href="notes.html" class="nav-link"><i class="bi bi-journal-text"></i> Notes</a>
+          </li>
+        </ul>
+
+        <p class="nav-heading">ACCOUNT</p>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="profile.html" class="nav-link"><i class="bi bi-person"></i> My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="setting.html" class="nav-link"><i class="bi bi-sliders"></i> Settings</a>
+          </li>
+        </ul>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer mt-auto pt-3 border-top border-custom">
+          <div class="d-flex align-items-center gap-2 px-2 mb-3">
+            <span class="status-dot"></span>
+            <small class="text-muted-custom">All systems operational</small>
+          </div>
+          <div class="d-flex align-items-center justify-content-between gap-2">
+            <div class="d-flex align-items-center gap-2">
+              <div class="avatar avatar-md avatar-info">AM</div>
+              <div class="lh-sm">
+                <div class="fw-semibold text-white user-name">Alex Morgan</div>
+                <div class="text-muted-custom user-role">Member</div>
+              </div>
+            </div>
+            <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="app-main">
+
+      <!-- Top Navbar -->
+      <nav class="topbar px-3 px-md-4 py-2">
+        <div class="d-flex justify-content-between align-items-center gap-2">
+
+          <div class="d-flex align-items-center gap-2">
+            <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-label="Open menu">
+              <i class="bi bi-list fs-5"></i>
+            </button>
+
+            <div class="breadcrumb-text d-none d-sm-flex align-items-center gap-1">
+              <span class="text-muted-custom">Personal workspace</span>
+              <i class="bi bi-chevron-right"></i>
+              <span class="text-white">Categories</span>
+            </div>
+            <div class="fw-semibold d-sm-none">Categories</div>
+          </div>
+
+          <div class="d-flex align-items-center gap-2 gap-md-3">
+            <div class="search-box d-none d-md-flex">
+              <i class="bi bi-search"></i>
+              <input type="text" placeholder="Search contacts...">
+            </div>
+
+            <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
+
+            <button class="icon-btn position-relative" aria-label="Notifications">
+              <i class="bi bi-bell"></i>
+              <span class="notif-dot"></span>
+            </button>
+
+            <div class="avatar avatar-sm avatar-info">AM</div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Categories Container -->
+      <div class="container-fluid p-3 p-md-4">
+
+        <!-- Page Header -->
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
+          <div>
+            <h3 class="page-title mb-1">Categories</h3>
+            <p class="text-muted-custom mb-0 small">A little organization for every kind of connection. 8 categories, endless possibilities.</p>
+          </div>
+          <button class="btn-primary-glow" type="button"><i class="bi bi-plus-lg"></i> Create category</button>
+        </div>
+
+        <!-- Global Search -->
+        <div class="search-box w-100 mb-4">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search categories..." aria-label="Search categories">
+        </div>
+
+        <!-- Split Layout: Grid (Left) and Side Panels (Right) -->
+        <div class="row g-4 mb-4">
+
+          <!-- ================= LEFT COLUMN: CATEGORIES GRID ================= -->
+          <div class="col-lg-8">
+            <div class="row g-3">
+
+              <!-- 1. Work (Active State) -->
+              <div class="col-12 col-md-6 col-xl-4">
+                <div class="card p-3 h-100 category-card active d-flex flex-column">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="folder-icon folder-blue"><i class="bi bi-folder"></i></div>
+                    <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
+                  </div>
+                  <h6 class="fw-semibold text-white mb-1">Work</h6>
+                  <p class="contact-role mb-4">Professional connections</p>
+                  <div class="mt-auto d-flex justify-content-between align-items-center">
+                    <span class="contact-time">86 contacts</span>
+                    <i class="bi bi-check-circle text-primary fs-5"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Friends -->
+              <div class="col-12 col-md-6 col-xl-4">
+                <div class="card p-3 h-100 category-card d-flex flex-column">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="folder-icon folder-green"><i class="bi bi-folder"></i></div>
+                    <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
+                  </div>
+                  <h6 class="fw-semibold text-white mb-1">Friends</h6>
+                  <p class="contact-role mb-4">The people who know you best</p>
+                  <div class="mt-auto d-flex justify-content-between align-items-center">
+                    <span class="contact-time">64 contacts</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Family -->
+              <div class="col-12 col-md-6 col-xl-4">
+                <div class="card p-3 h-100 category-card d-flex flex-column">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="folder-icon folder-yellow"><i class="bi bi-folder"></i></div>
+                    <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
+                  </div>
+                  <h6 class="fw-semibold text-white mb-1">Family</h6>
+                  <p class="contact-role mb-4">Your closest circle</p>
+                  <div class="mt-auto d-flex justify-content-between align-items-center">
+                    <span class="contact-time">28 contacts</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Clients -->
+              <div class="col-12 col-md-6 col-xl-4">
+                <div class="card p-3 h-100 category-card d-flex flex-column">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="folder-icon folder-purple"><i class="bi bi-folder"></i></div>
+                    <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
+                  </div>
+                  <h6 class="fw-semibold text-white mb-1">Clients</h6>
+                  <p class="contact-role mb-4">Building things together</p>
+                  <div class="mt-auto d-flex justify-content-between align-items-center">
+                    <span class="contact-time">42 contacts</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. Community -->
+              <div class="col-12 col-md-6 col-xl-4">
+                <div class="card p-3 h-100 category-card d-flex flex-column">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="folder-icon folder-teal"><i class="bi bi-folder"></i></div>
+                    <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
+                  </div>
+                  <h6 class="fw-semibold text-white mb-1">Community</h6>
+                  <p class="contact-role mb-4">People with shared interests</p>
+                  <div class="mt-auto d-flex justify-content-between align-items-center">
+                    <span class="contact-time">18 contacts</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. Design -->
+              <div class="col-12 col-md-6 col-xl-4">
+                <div class="card p-3 h-100 category-card d-flex flex-column">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="folder-icon folder-purple"><i class="bi bi-folder"></i></div>
+                    <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
+                  </div>
+                  <h6 class="fw-semibold text-white mb-1">Design</h6>
+                  <p class="contact-role mb-4">Ideas, craft and inspiration</p>
+                  <div class="mt-auto d-flex justify-content-between align-items-center">
+                    <span class="contact-time">31 contacts</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 7. Partners -->
+              <div class="col-12 col-md-6 col-xl-4">
+                <div class="card p-3 h-100 category-card d-flex flex-column">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="folder-icon folder-blue"><i class="bi bi-folder"></i></div>
+                    <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
+                  </div>
+                  <h6 class="fw-semibold text-white mb-1">Partners</h6>
+                  <p class="contact-role mb-4">Better together</p>
+                  <div class="mt-auto d-flex justify-content-between align-items-center">
+                    <span class="contact-time">22 contacts</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 8. Other -->
+              <div class="col-12 col-md-6 col-xl-4">
+                <div class="card p-3 h-100 category-card d-flex flex-column">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="folder-icon folder-grey"><i class="bi bi-folder"></i></div>
+                    <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
+                  </div>
+                  <h6 class="fw-semibold text-white mb-1">Other</h6>
+                  <p class="contact-role mb-4">A place for everyone else</p>
+                  <div class="mt-auto d-flex justify-content-between align-items-center">
+                    <span class="contact-time">15 contacts</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- ================= RIGHT COLUMN: SIDE PANELS ================= -->
+          <div class="col-lg-4 d-flex flex-column gap-3">
+
+            <!-- Panel 1: Edit Category -->
+            <div class="card p-3 p-md-4">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="card-title mb-0">Edit category</h5>
+                <i class="bi bi-x text-muted-custom fs-4 cursor-pointer hover-white"></i>
+              </div>
+
+              <form>
+                <div class="mb-3">
+                  <label class="form-label-custom" for="categoryName">Category name *</label>
+                  <input type="text" class="form-control form-control-dark" id="categoryName" value="Work">
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label-custom" for="categoryDesc">Description</label>
+                  <textarea class="form-control form-control-dark" id="categoryDesc" rows="2">Professional connections</textarea>
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label-custom mb-2">Category color</label>
+                  <div class="d-flex gap-2">
+                    <div class="color-picker-circle bg-picker-blue"><i class="bi bi-check2"></i></div>
+                    <div class="color-picker-circle bg-picker-green"></div>
+                    <div class="color-picker-circle bg-picker-purple"></div>
+                    <div class="color-picker-circle bg-picker-yellow"></div>
+                    <div class="color-picker-circle bg-picker-red"></div>
+                    <div class="color-picker-circle bg-picker-grey"></div>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <button type="button" class="btn-export flex-grow-1 justify-content-center">Cancel</button>
+                  <button type="button" class="btn-primary-glow flex-grow-1 justify-content-center">Save changes</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Panel 2: Assigned Contacts -->
+            <div class="card p-3 p-md-4">
+              <div class="d-flex justify-content-between align-items-start mb-4">
+                <div>
+                  <h5 class="card-title mb-1">Assigned contacts</h5>
+                  <p class="text-muted-custom small mb-0">86 people in Work</p>
+                </div>
+                <button class="btn-filter" type="button"><i class="bi bi-plus-lg"></i> Assign</button>
+              </div>
+
+              <!-- Nested Search -->
+              <div class="search-box w-100 mb-3">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Find contacts to assign..." aria-label="Find contacts to assign">
+              </div>
+
+              <!-- Contact List -->
+              <div class="d-flex flex-column gap-2 mb-3">
+                <!-- Person 1 -->
+                <div class="contact-row">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="avatar avatar-md avatar-primary">MC</span>
+                    <div>
+                      <div class="contact-name">Maya Chen</div>
+                      <div class="contact-role">Linear</div>
+                    </div>
+                  </div>
+                  <i class="bi bi-x text-muted-custom fs-5 cursor-pointer hover-white"></i>
+                </div>
+                <!-- Person 2 -->
+                <div class="contact-row">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="avatar avatar-md avatar-success">JW</span>
+                    <div>
+                      <div class="contact-name">James Wilson</div>
+                      <div class="contact-role">Vercel</div>
+                    </div>
+                  </div>
+                  <i class="bi bi-x text-muted-custom fs-5 cursor-pointer hover-white"></i>
+                </div>
+                <!-- Person 3 -->
+                <div class="contact-row">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="avatar avatar-md avatar-info">LP</span>
+                    <div>
+                      <div class="contact-name">Liam Patel</div>
+                      <div class="contact-role">Orbit</div>
+                    </div>
+                  </div>
+                  <i class="bi bi-x text-muted-custom fs-5 cursor-pointer hover-white"></i>
+                </div>
+              </div>
+
+              <a href="#" class="link-more">View all 86 contacts <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center pt-3 border-top border-custom mt-2 gap-3">
+          <span class="text-muted-custom small mb-0">
+            Contacts can belong to multiple categories. Deleting a category never deletes its contacts.
+          </span>
+          <button type="button" class="btn-danger-custom d-flex align-items-center px-4 py-2">
+            <i class="bi bi-trash me-2"></i> Delete category
+          </button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

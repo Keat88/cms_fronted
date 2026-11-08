@@ -1,0 +1,297 @@
+.btn-primary-glow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--color-primary), #7D95FF);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 12px 26px -14px rgba(91, 124, 250, 0.95);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary-glow:hover {
+  color: #fff;
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 16px 30px -14px rgba(91, 124, 250, 1);
+}
+
+.stat-warning {
+  background-color: rgba(245, 183, 89, 0.13);
+  color: var(--color-warning);
+}
+
+.form-select-dark {
+  background-color: var(--color-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 7px 34px 7px 12px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238B94A7'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 11px center;
+  background-size: 11px;
+}
+
+.form-select-dark:focus {
+  background-color: var(--color-elevated);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.form-select-dark option {
+  background-color: var(--color-surface);
+  color: var(--text-main);
+}
+
+/* ================= Chart ================= */
+.chart-grid {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 200px;
+  padding-top: 10px;
+  border-bottom: 1px solid var(--border-color);
+  background-image: linear-gradient(to top, rgba(35, 42, 54, 0.55) 1px, transparent 1px);
+  background-size: 100% 25%;
+}
+
+.chart-bar-lg {
+  flex: 1;
+  min-width: 12px;
+  max-width: 54px;
+  margin: 0 6px;
+  border-radius: 8px 8px 3px 3px;
+  background: linear-gradient(180deg, rgba(91, 124, 250, 0.55), rgba(91, 124, 250, 0.1));
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.chart-bar-lg:hover {
+  background: linear-gradient(180deg, #7D95FF, rgba(91, 124, 250, 0.4));
+  transform: translateY(-2px);
+}
+
+.chart-bar-lg.active {
+  background: linear-gradient(180deg, #8AA0FF, var(--color-primary));
+  box-shadow: 0 0 22px rgba(91, 124, 250, 0.45);
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.chart-labels span {
+  flex: 1;
+  margin: 0 6px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ================= Birthdays ================= */
+.birthday-highlight {
+  background: linear-gradient(135deg, rgba(91, 124, 250, 0.18), rgba(91, 124, 250, 0.05));
+  border: 1px solid rgba(91, 124, 250, 0.32);
+  border-radius: 12px;
+}
+
+.birthday-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.birthday-item:hover {
+  background-color: var(--color-elevated);
+}
+
+.birthday-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.birthday-date {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.birthday-days {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background-color: var(--color-elevated);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.birthday-days.soon {
+  background-color: rgba(245, 183, 89, 0.14);
+  color: var(--color-warning);
+}
+
+/* ================= Recent contacts ================= */
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-row + .contact-row {
+  margin-top: 4px;
+}
+
+.contact-row:hover {
+  background-color: var(--color-elevated);
+  border-color: var(--border-color);
+  color: inherit;
+}
+
+.contact-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.contact-role {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.contact-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.contact-time {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ================= Tags ================= */
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 7px;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-tag-work {
+  background-color: rgba(91, 124, 250, 0.15);
+  color: #8C9EFF;
+  border: 1px solid rgba(91, 124, 250, 0.22);
+}
+
+.badge-tag-clients {
+  background-color: rgba(144, 97, 255, 0.15);
+  color: #C6B3FF;
+  border: 1px solid rgba(144, 97, 255, 0.22);
+}
+
+.badge-tag-friends {
+  background-color: rgba(61, 220, 151, 0.14);
+  color: var(--color-success);
+  border: 1px solid rgba(61, 220, 151, 0.24);
+}
+
+/* ================= Quick actions ================= */
+.quick-action-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  background-color: var(--color-canvas);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.quick-action-item:hover {
+  background-color: var(--color-elevated);
+  border-color: var(--border-strong);
+  transform: translateX(2px);
+}
+
+.quick-action-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+.quick-action-icon.success {
+  background-color: rgba(61, 220, 151, 0.13);
+  color: var(--color-success);
+}
+
+.quick-action-icon.warning {
+  background-color: rgba(245, 183, 89, 0.13);
+  color: var(--color-warning);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 575.98px) {
+  .chart-grid {
+    height: 150px;
+  }
+
+  .chart-bar-lg {
+    margin: 0 3px;
+  }
+
+  .chart-labels span {
+    margin: 0 3px;
+    font-size: 10px;
+  }
+
+  .contact-row {
+    padding: 10px 6px;
+  }
+
+  .contact-meta {
+    gap: 8px;
+  }
+}

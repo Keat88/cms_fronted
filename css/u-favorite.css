@@ -1,0 +1,183 @@
+.favorites-banner {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-2) 100%);
+  box-shadow: var(--shadow-card);
+}
+
+.favorites-banner::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91, 124, 250, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.favorites-banner-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background-color: var(--color-primary-soft);
+  border: 1px solid rgba(91, 124, 250, 0.3);
+  color: var(--color-primary);
+}
+
+.favorite-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background-color: var(--color-primary-soft);
+  border: 1px solid rgba(91, 124, 250, 0.3);
+  color: var(--color-primary);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ================= Soft buttons ================= */
+.btn-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--color-surface);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-soft:hover {
+  background-color: var(--color-elevated);
+  border-color: var(--border-strong);
+  color: var(--text-main);
+}
+
+.btn-soft.is-active {
+  background-color: var(--color-primary-soft);
+  border-color: rgba(91, 124, 250, 0.35);
+  color: var(--color-primary);
+}
+
+.btn-danger-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 8px 14px;
+  border: 1px solid rgba(241, 98, 137, 0.35);
+  border-radius: 10px;
+  background-color: rgba(241, 98, 137, 0.12);
+  color: var(--color-danger);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-danger-soft:hover:not(:disabled) {
+  background-color: rgba(241, 98, 137, 0.2);
+  border-color: rgba(241, 98, 137, 0.5);
+}
+
+.btn-danger-soft:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ================= Favorite card ================= */
+.favorite-card {
+  position: relative;
+}
+
+.favorite-card.removing {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* ================= Manage mode ================= */
+.fav-check {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: none;
+  z-index: 2;
+}
+
+.manage-mode .fav-check {
+  display: flex;
+}
+
+.manage-mode .btn-favorite {
+  display: none;
+}
+
+.fav-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.contact-card.selected {
+  border-color: rgba(91, 124, 250, 0.5);
+  box-shadow: 0 0 0 1px rgba(91, 124, 250, 0.35), 0 18px 40px -24px rgba(0, 0, 0, 0.85);
+}
+
+.manage-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(91, 124, 250, 0.3);
+  border-radius: 12px;
+  background-color: var(--color-primary-soft);
+  color: var(--text-main);
+  font-size: 13px;
+}
+
+/* ================= Footer hint ================= */
+.hint-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.hint-text i {
+  color: var(--color-primary);
+  margin-top: 1px;
+}
+
+@media (max-width: 575.98px) {
+  .favorites-banner {
+    padding: 16px !important;
+  }
+
+  .btn-soft,
+  .btn-danger-soft {
+    padding: 8px 11px;
+    font-size: 12.5px;
+  }
+}
