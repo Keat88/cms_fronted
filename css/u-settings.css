@@ -1,0 +1,375 @@
+/* ===================================================================
+   User Settings — Connectly
+   Companion styles for user/setting.html.
+   Consumes the design tokens defined in style.css and mirrors the
+   visual language of the dashboard (d-dash.css).
+   =================================================================== */
+
+/* ================= Utilities ================= */
+.bg-canvas {
+  background-color: var(--color-canvas) !important;
+}
+
+/* ================= Page header ================= */
+.role-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background-color: var(--color-primary-soft);
+  border: 1px solid rgba(91, 124, 250, 0.35);
+  color: #B4C2FF;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ================= Tabs ================= */
+.nav-tabs-custom {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background-color: var(--color-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.nav-tabs-custom .nav-item {
+  margin: 0;
+}
+
+.nav-tabs-custom .nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-tabs-custom .nav-link:hover {
+  background-color: var(--color-elevated);
+  color: var(--text-main);
+}
+
+.nav-tabs-custom .nav-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.nav-tabs-custom .nav-link.active {
+  background: linear-gradient(135deg, var(--color-primary), #7D95FF);
+  color: #fff;
+  box-shadow: 0 10px 20px -12px rgba(91, 124, 250, 0.95);
+}
+
+/* Keep tab scroll targets clear of the sticky topbar */
+.settings-section {
+  scroll-margin-top: 96px;
+}
+
+/* ================= Form controls ================= */
+.form-label-custom {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.form-select-dark {
+  height: 44px;
+  padding: 8px 36px 8px 14px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238B94A7'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-select-dark:hover {
+  border-color: var(--border-strong);
+}
+
+.form-select-dark:focus {
+  background-color: var(--color-elevated);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.form-select-dark option {
+  background-color: var(--color-surface);
+  color: var(--text-main);
+}
+
+/* ================= Toggle switches ================= */
+.form-switch-custom .form-check-input {
+  width: 2.6rem;
+  height: 1.35rem;
+  margin-top: 0;
+  background-color: var(--color-canvas);
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+  --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%238B94A7'/%3e%3c/svg%3e");
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-switch-custom .form-check-input:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.form-switch-custom .form-check-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+/* ================= Theme selector ================= */
+.theme-selector {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--color-canvas);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.theme-selector:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+.theme-selector:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.theme-selector.active {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.theme-preview {
+  padding: 10px;
+}
+
+.theme-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--color-surface);
+}
+
+.theme-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.theme-check {
+  color: var(--color-primary);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.theme-circle {
+  color: var(--text-muted);
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.theme-selector.active .theme-check {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(91, 124, 250, 0.7));
+}
+
+.theme-selector.active .theme-circle {
+  opacity: 0;
+}
+
+/* ================= Theme preview skeleton ================= */
+.skeleton-window {
+  display: flex;
+  gap: 8px;
+  height: 74px;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.skeleton-sidebar {
+  width: 22%;
+  border-radius: 4px;
+}
+
+.skeleton-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skeleton-header {
+  width: 40%;
+  height: 11px;
+  border-radius: 4px;
+}
+
+.skeleton-row {
+  display: flex;
+  flex: 1;
+  gap: 6px;
+}
+
+.skeleton-box {
+  flex: 1;
+  border-radius: 4px;
+}
+
+/* ================= Buttons ================= */
+.btn-secondary-custom {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--color-elevated);
+  color: var(--text-main);
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary-custom:hover {
+  background-color: var(--border-color);
+  border-color: var(--border-strong);
+  color: #fff;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), #7D95FF);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 12px 26px -14px rgba(91, 124, 250, 0.95);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background: linear-gradient(135deg, var(--color-primary), #7D95FF);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 16px 30px -14px rgba(91, 124, 250, 1);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-soft), 0 16px 30px -14px rgba(91, 124, 250, 1);
+}
+
+/* ================= Current session box ================= */
+.session-current {
+  border-radius: 12px !important;
+  background-color: var(--color-canvas) !important;
+}
+
+/* ================= Footer action bar ================= */
+.settings-actionbar {
+  position: sticky;
+  bottom: 16px;
+  z-index: 1010;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  padding: 14px 18px;
+  background: rgba(20, 24, 33, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 -10px 30px -22px rgba(0, 0, 0, 0.95);
+}
+
+/* ================= Toast ================= */
+.app-toast {
+  background-color: var(--color-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-main);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.95);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 575.98px) {
+  .nav-tabs-custom {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav-tabs-custom .nav-item {
+    flex: 1;
+  }
+
+  .nav-tabs-custom .nav-link {
+    width: 100%;
+    padding: 9px 10px;
+    font-size: 12.5px;
+  }
+
+  .skeleton-window {
+    height: 64px;
+  }
+
+  .settings-actionbar {
+    position: static;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .settings-actionbar > .d-flex {
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes - Connectly</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B7CFA'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/d-note.css">
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- ================= SIDEBAR (Offcanvas on Mobile, Fixed on Desktop) ================= -->
+    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+
+      <!-- Offcanvas Header (Mobile Only) -->
+      <div class="offcanvas-header d-lg-none border-bottom border-custom">
+        <h5 class="offcanvas-title d-flex align-items-center gap-2 mb-0" id="sidebarMenuLabel">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span class="fw-bold">Connectly</span>
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+      </div>
+
+      <!-- Offcanvas Body -->
+      <div class="offcanvas-body p-3">
+
+        <!-- Desktop Logo -->
+        <a href="dashboard.html" class="brand d-none d-lg-flex align-items-center gap-2 mb-4 text-decoration-none">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span class="fs-5 fw-bold text-white">Connectly</span>
+        </a>
+
+        <!-- Workspace Selector -->
+        <button type="button" class="workspace-selector mb-4">
+          <span class="workspace-icon"><i class="bi bi-person-vcard"></i></span>
+          <span class="workspace-text">
+            <span class="workspace-title">Personal workspace</span>
+            <span class="workspace-sub">Contacts &amp; connections</span>
+          </span>
+          <i class="bi bi-chevron-expand ms-auto text-muted-custom"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <p class="nav-heading">WORKSPACE</p>
+        <ul class="nav nav-pills flex-column mb-4">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link"><i class="bi bi-grid"></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link"><i class="bi bi-person-lines-fill"></i> Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a href="favorites.html" class="nav-link"><i class="bi bi-star"></i> Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a href="categories.html" class="nav-link"><i class="bi bi-tags"></i> Categories</a>
+          </li>
+          <li class="nav-item">
+            <a href="notes.html" class="nav-link active" aria-current="page"><i class="bi bi-journal-text"></i> Notes</a>
+          </li>
+        </ul>
+
+        <p class="nav-heading">ACCOUNT</p>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="profile.html" class="nav-link"><i class="bi bi-person"></i> My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="setting.html" class="nav-link"><i class="bi bi-sliders"></i> Settings</a>
+          </li>
+        </ul>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer mt-auto pt-3 border-top border-custom footer-step">
+          <div class="d-flex align-items-center gap-2 px-2 mb-3">
+            <span class="status-dot"></span>
+            <small class="text-muted-custom">All systems operational</small>
+          </div>
+          <div class="d-flex align-items-center justify-content-between gap-2">
+            <div class="d-flex align-items-center gap-2">
+              <div class="avatar avatar-md avatar-info">AM</div>
+              <div class="lh-sm">
+                <div class="fw-semibold text-white user-name">Alex Morgan</div>
+                <div class="text-muted-custom user-role">Member</div>
+              </div>
+            </div>
+            <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="app-main">
+
+      <!-- Top Navbar -->
+      <nav class="topbar px-3 px-md-4 py-2">
+        <div class="d-flex justify-content-between align-items-center gap-2">
+
+          <div class="d-flex align-items-center gap-2">
+            <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-label="Open menu">
+              <i class="bi bi-list fs-5"></i>
+            </button>
+
+            <div class="breadcrumb-text d-none d-sm-flex align-items-center gap-1">
+              <span class="text-muted-custom">Personal workspace</span>
+              <i class="bi bi-chevron-right"></i>
+              <span class="text-white">Notes</span>
+            </div>
+            <div class="fw-semibold d-sm-none">Notes</div>
+          </div>
+
+          <div class="d-flex align-items-center gap-2 gap-md-3">
+            <div class="search-box d-none d-md-flex">
+              <i class="bi bi-search"></i>
+              <input type="text" placeholder="Search notes..." aria-label="Search notes">
+            </div>
+
+            <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
+
+            <button class="icon-btn position-relative" aria-label="Notifications">
+              <i class="bi bi-bell"></i>
+              <span class="notif-dot"></span>
+            </button>
+
+            <div class="avatar avatar-sm avatar-info">AM</div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Notes Container -->
+      <div class="container-fluid p-3 p-md-4">
+
+        <!-- Page Header -->
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
+          <div>
+            <h3 class="page-title mb-1">Notes</h3>
+            <p class="text-muted-custom mb-0 small">Remember the little things that make every connection meaningful.</p>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn-export" type="button"><i class="bi bi-download"></i> Export</button>
+            <button class="btn-primary-glow" type="button" id="newNoteBtn"><i class="bi bi-plus-lg"></i> Create note</button>
+          </div>
+        </div>
+
+        <!-- Notes Layout -->
+        <div class="row g-3 notes-layout">
+
+          <!-- ================= LEFT: NOTES LIST ================= -->
+          <div class="col-12 col-lg-4 d-flex">
+            <div class="card notes-panel w-100 p-3">
+
+              <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="note-panel-icon"><i class="bi bi-journal-text"></i></span>
+                  <div>
+                    <div class="note-panel-title">Your notes</div>
+                    <div class="note-panel-sub"><span id="noteCount">5</span> notes in this workspace</div>
+                  </div>
+                </div>
+                <button class="icon-btn icon-btn-sm" type="button" aria-label="Note options">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+              </div>
+
+              <!-- Search -->
+              <div class="search-box notes-search mb-3">
+                <i class="bi bi-search"></i>
+                <input type="text" id="noteSearch" placeholder="Search notes..." aria-label="Search notes">
+              </div>
+
+              <!-- Tabs -->
+              <ul class="notes-tabs mb-3">
+                <li>
+                  <button class="notes-tab active" type="button" data-filter="all">
+                    All notes <span class="notes-tab-count" id="allCount">5</span>
+                  </button>
+                </li>
+                <li>
+                  <button class="notes-tab" type="button" data-filter="pinned">
+                    Pinned <span class="notes-tab-count" id="pinnedCount">1</span>
+                  </button>
+                </li>
+              </ul>
+
+              <!-- Scrollable list -->
+              <div class="note-list" id="noteList">
+
+                <!-- Note 1 (active, pinned) -->
+                <article class="note-card active" data-id="design-catchup" data-title="Design catch-up &amp; coffee"
+                  data-contact="Maya Chen" data-avatar="MC" data-avatar-class="avatar-primary"
+                  data-time="Today, 9:15 AM" data-pinned="true" role="button" tabindex="0" aria-pressed="true">
+                  <div class="note-card-head">
+                    <h6 class="note-title">Design catch-up &amp; coffee</h6>
+                    <button type="button" class="note-pin is-pinned" data-pin aria-label="Unpin note" aria-pressed="true">
+                      <i class="bi bi-pin-angle-fill"></i>
+                    </button>
+                  </div>
+                  <p class="note-snippet">Met Maya at the Config design meetup. Follow up with the component library...</p>
+                  <div class="note-card-footer">
+                    <span class="note-contact">
+                      <span class="avatar avatar-xs avatar-primary">MC</span>
+                      <span>Maya Chen</span>
+                    </span>
+                    <span class="note-time">Today, 9:15 AM</span>
+                  </div>
+                </article>
+
+                <!-- Note 2 -->
+                <article class="note-card" data-id="project-kickoff" data-title="Project kickoff notes"
+                  data-contact="Emma Davis" data-avatar="ED" data-avatar-class="avatar-warning"
+                  data-time="Yesterday" data-pinned="false" role="button" tabindex="0" aria-pressed="false">
+                  <div class="note-card-head">
+                    <h6 class="note-title">Project kickoff notes</h6>
+                    <button type="button" class="note-pin" data-pin aria-label="Pin note" aria-pressed="false">
+                      <i class="bi bi-pin-angle"></i>
+                    </button>
+                  </div>
+                  <p class="note-snippet">Brand direction for the Studio North launch. Explore warmer colors and...</p>
+                  <div class="note-card-footer">
+                    <span class="note-contact">
+                      <span class="avatar avatar-xs avatar-warning">ED</span>
+                      <span>Emma Davis</span>
+                    </span>
+                    <span class="note-time">Yesterday</span>
+                  </div>
+                </article>
+
+                <!-- Note 3 -->
+                <article class="note-card" data-id="book-recs" data-title="Book recommendations"
+                  data-contact="James Wilson" data-avatar="JW" data-avatar-class="avatar-success"
+                  data-time="Nov 2" data-pinned="false" role="button" tabindex="0" aria-pressed="false">
+                  <div class="note-card-head">
+                    <h6 class="note-title">Book recommendations</h6>
+                    <button type="button" class="note-pin" data-pin aria-label="Pin note" aria-pressed="false">
+                      <i class="bi bi-pin-angle"></i>
+                    </button>
+                  </div>
+                  <p class="note-snippet">James recommended The Creative Act and a few favorites on leadership.</p>
+                  <div class="note-card-footer">
+                    <span class="note-contact">
+                      <span class="avatar avatar-xs avatar-success">JW</span>
+                      <span>James Wilson</span>
+                    </span>
+                    <span class="note-time">Nov 2</span>
+                  </div>
+                </article>
+
+                <!-- Note 4 -->
+                <article class="note-card" data-id="followups" data-title="November follow-ups"
+                  data-contact="Personal note" data-avatar="PN" data-avatar-class="avatar-info"
+                  data-time="Nov 1" data-pinned="false" role="button" tabindex="0" aria-pressed="false">
+                  <div class="note-card-head">
+                    <h6 class="note-title">November follow-ups</h6>
+                    <button type="button" class="note-pin" data-pin aria-label="Pin note" aria-pressed="false">
+                      <i class="bi bi-pin-angle"></i>
+                    </button>
+                  </div>
+                  <p class="note-snippet">Reach out to Liam about the partnership proposal before the end of the week.</p>
+                  <div class="note-card-footer">
+                    <span class="note-contact">
+                      <span class="avatar avatar-xs avatar-info">PN</span>
+                      <span>Personal note</span>
+                    </span>
+                    <span class="note-time">Nov 1</span>
+                  </div>
+                </article>
+
+                <!-- Note 5 -->
+                <article class="note-card" data-id="dinner" data-title="Dinner plans"
+                  data-contact="Olivia Martinez" data-avatar="OM" data-avatar-class="avatar-danger"
+                  data-time="Oct 30" data-pinned="false" role="button" tabindex="0" aria-pressed="false">
+                  <div class="note-card-head">
+                    <h6 class="note-title">Dinner plans</h6>
+                    <button type="button" class="note-pin" data-pin aria-label="Pin note" aria-pressed="false">
+                      <i class="bi bi-pin-angle"></i>
+                    </button>
+                  </div>
+                  <p class="note-snippet">Friday at 7 PM. Check the new place on Valencia. Bring the others along.</p>
+                  <div class="note-card-footer">
+                    <span class="note-contact">
+                      <span class="avatar avatar-xs avatar-danger">OM</span>
+                      <span>Olivia Martinez</span>
+                    </span>
+                    <span class="note-time">Oct 30</span>
+                  </div>
+                </article>
+
+              </div>
+
+              <!-- Empty state -->
+              <div class="note-empty d-none" id="noteEmpty">
+                <i class="bi bi-journal-x"></i>
+                <p>No notes match your search. Try a different keyword or tab.</p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- ================= RIGHT: EDITOR ================= -->
+          <div class="col-12 col-lg-8 d-flex">
+            <div class="card note-editor w-100 p-3 p-md-4" id="noteEditor">
+
+              <!-- Editor Header -->
+              <div class="editor-head">
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                  <span class="editor-status" id="editorStatus"><i class="bi bi-pencil-square"></i> Editing</span>
+                  <span class="editor-saved text-muted-custom" id="editorSaved">Unsaved changes</span>
+                </div>
+                <div class="editor-actions">
+                  <button class="icon-btn editor-icon-btn is-pinned" type="button" id="pinBtn" aria-label="Unpin note" aria-pressed="true" title="Pin or unpin note">
+                    <i class="bi bi-pin-angle-fill"></i>
+                  </button>
+                  <button class="icon-btn editor-icon-btn editor-icon-danger" type="button" id="deleteBtn" aria-label="Delete note" title="Delete note">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                  <button class="btn-primary-glow" type="button" id="saveBtn"><i class="bi bi-check2"></i> Save</button>
+                </div>
+              </div>
+
+              <!-- Title -->
+              <input type="text" class="note-title-input" id="noteTitle" value="Design catch-up &amp; coffee" placeholder="Untitled note" aria-label="Note title">
+
+              <!-- Linked contact -->
+              <div class="note-meta">
+                <span class="note-meta-label">Linked to</span>
+                <div class="linked-tag" id="linkedTag">
+                  <span class="avatar avatar-xs avatar-primary" id="linkedAvatar">MC</span>
+                  <span id="linkedName">Maya Chen</span>
+                  <button type="button" class="remove-link" id="removeLink" aria-label="Remove linked contact">
+                    <i class="bi bi-x"></i>
+                  </button>
+                </div>
+                <span class="note-meta-empty d-none" id="linkedEmpty">No contact linked</span>
+                <a href="contact.html" class="linked-add" aria-label="Link a contact" title="Link a contact">
+                  <i class="bi bi-plus"></i>
+                </a>
+              </div>
+
+              <!-- Formatting Toolbar -->
+              <div class="editor-toolbar" id="editorToolbar" role="toolbar" aria-label="Text formatting">
+                <button class="editor-btn" type="button" data-command="bold" aria-label="Bold" title="Bold"><i class="bi bi-type-bold"></i></button>
+                <button class="editor-btn" type="button" data-command="italic" aria-label="Italic" title="Italic"><i class="bi bi-type-italic"></i></button>
+                <button class="editor-btn" type="button" data-command="underline" aria-label="Underline" title="Underline"><i class="bi bi-type-underline"></i></button>
+                <span class="editor-divider" aria-hidden="true"></span>
+                <button class="editor-btn" type="button" data-command="formatBlock" data-value="h5" aria-label="Heading" title="Heading"><i class="bi bi-type-h1"></i></button>
+                <button class="editor-btn" type="button" data-command="insertUnorderedList" aria-label="Bulleted list" title="Bulleted list"><i class="bi bi-list-ul"></i></button>
+                <button class="editor-btn" type="button" data-command="insertOrderedList" aria-label="Numbered list" title="Numbered list"><i class="bi bi-list-ol"></i></button>
+                <span class="editor-divider" aria-hidden="true"></span>
+                <button class="editor-btn" type="button" data-command="createLink" aria-label="Insert link" title="Insert link"><i class="bi bi-link-45deg"></i></button>
+                <button class="editor-btn" type="button" data-command="formatBlock" data-value="blockquote" aria-label="Quote" title="Quote"><i class="bi bi-quote"></i></button>
+              </div>
+
+              <!-- Note Content -->
+              <div class="note-content" id="noteContent" contenteditable="true" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Note content" data-placeholder="Start writing...">
+                <p>Met Maya at the Config design meetup. She's leading the new onboarding experience at Linear and is interested in exchanging ideas on design systems.</p>
+
+                <h5>Things to follow up on</h5>
+
+                <div class="note-checklist">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="task1">
+                    <label class="form-check-label" for="task1">Share our component library and documentation</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="task2">
+                    <label class="form-check-label" for="task2">Send the article on approachable onboarding</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="task3">
+                    <label class="form-check-label" for="task3">Find a time for coffee next week</label>
+                  </div>
+                </div>
+
+                <p>She prefers a quick email over a call, and loves a good oat latte. Try the café on Valencia next time.</p>
+
+                <blockquote>"The best systems make the thoughtful thing the easy thing."</blockquote>
+              </div>
+
+              <!-- Editor Footer -->
+              <div class="editor-footer">
+                <span id="noteMeta">Last edited Today, 9:15 AM &bull; Only visible to you</span>
+                <span><span id="wordCount">0</span> words</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- New note card template -->
+  <template id="noteCardTemplate">
+    <article class="note-card" role="button" tabindex="0" aria-pressed="false">
+      <div class="note-card-head">
+        <h6 class="note-title"></h6>
+        <button type="button" class="note-pin" data-pin aria-label="Pin note" aria-pressed="false">
+          <i class="bi bi-pin-angle"></i>
+        </button>
+      </div>
+      <p class="note-snippet"></p>
+      <div class="note-card-footer">
+        <span class="note-contact">
+          <span class="avatar avatar-xs"></span>
+          <span class="note-contact-name"></span>
+        </span>
+        <span class="note-time"></span>
+      </div>
+    </article>
+  </template>
+
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="noteToast" class="toast app-toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex align-items-center gap-2 p-3">
+        <i class="bi bi-check-circle-fill text-success"></i>
+        <span id="noteToastText">Note saved</span>
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      const list = document.getElementById('noteList');
+      const search = document.getElementById('noteSearch');
+      const empty = document.getElementById('noteEmpty');
+      const allCount = document.getElementById('allCount');
+      const pinnedCount = document.getElementById('pinnedCount');
+      const noteCount = document.getElementById('noteCount');
+      const noteTitle = document.getElementById('noteTitle');
+      const noteContent = document.getElementById('noteContent');
+      const noteMeta = document.getElementById('noteMeta');
+      const wordCount = document.getElementById('wordCount');
+      const linkedTag = document.getElementById('linkedTag');
+      const linkedAvatar = document.getElementById('linkedAvatar');
+      const linkedName = document.getElementById('linkedName');
+      const linkedEmpty = document.getElementById('linkedEmpty');
+      const removeLink = document.getElementById('removeLink');
+      const editorStatus = document.getElementById('editorStatus');
+      const editorSaved = document.getElementById('editorSaved');
+      const pinBtn = document.getElementById('pinBtn');
+      const deleteBtn = document.getElementById('deleteBtn');
+      const saveBtn = document.getElementById('saveBtn');
+      const newNoteBtn = document.getElementById('newNoteBtn');
+      const toolbar = document.getElementById('editorToolbar');
+      const template = document.getElementById('noteCardTemplate');
+      const toastEl = document.getElementById('noteToast');
+      const toastText = document.getElementById('noteToastText');
+
+      const noteBodies = {
+        'design-catchup': [
+          "<p>Met Maya at the Config design meetup. She's leading the new onboarding experience at Linear and is interested in exchanging ideas on design systems.</p>",
+          '<h5>Things to follow up on</h5>',
+          '<div class="note-checklist">',
+          '<div class="form-check"><input class="form-check-input" type="checkbox" id="d1"><label class="form-check-label" for="d1">Share our component library and documentation</label></div>',
+          '<div class="form-check"><input class="form-check-input" type="checkbox" id="d2"><label class="form-check-label" for="d2">Send the article on approachable onboarding</label></div>',
+          '<div class="form-check"><input class="form-check-input" type="checkbox" id="d3"><label class="form-check-label" for="d3">Find a time for coffee next week</label></div>',
+          '</div>',
+          '<p>She prefers a quick email over a call, and loves a good oat latte. Try the café on Valencia next time.</p>',
+          '<blockquote>"The best systems make the thoughtful thing the easy thing."</blockquote>'
+        ].join(''),
+        'project-kickoff': [
+          '<p>Kicked off the Studio North brand refresh with Emma. The team wants a warmer, more human direction while keeping the existing grid system intact.</p>',
+          '<h5>Next steps</h5>',
+          '<ul><li>Collect three moodboard directions</li><li>Review typography pairings</li><li>Schedule a follow-up for next Thursday</li></ul>',
+          '<p>Emma prefers async updates over long meetings. Keep the feedback short and visual.</p>'
+        ].join(''),
+        'book-recs': [
+          '<p>James shared a short reading list on leadership and creative practice. Start with The Creative Act, then revisit the notes on taste and attention.</p>',
+          '<blockquote>"Make the obvious interesting, and the interesting obvious."</blockquote>',
+          '<p>Ask him which chapter resonated most — a good conversation starter for the next catch-up.</p>'
+        ].join(''),
+        'followups': [
+          '<p>Reach out to Liam about the partnership proposal before the end of the week. He mentioned needing a one-page summary and a rough timeline.</p>',
+          '<div class="note-checklist">',
+          '<div class="form-check"><input class="form-check-input" type="checkbox" id="f1"><label class="form-check-label" for="f1">Draft a one-page summary</label></div>',
+          '<div class="form-check"><input class="form-check-input" type="checkbox" id="f2"><label class="form-check-label" for="f2">Confirm the timeline with Liam</label></div>',
+          '<div class="form-check"><input class="form-check-input" type="checkbox" id="f3"><label class="form-check-label" for="f3">Send a follow-up email by Friday</label></div>',
+          '</div>'
+        ].join(''),
+        'dinner': [
+          '<p>Friday at 7 PM at the new place on Valencia. Table for four — bring the others along and book ahead if the weather looks good.</p>',
+          '<p>Olivia is vegetarian, so check the menu before confirming.</p>'
+        ].join('')
+      };
+
+      let activeCard = null;
+      let currentFilter = 'all';
+
+      const cards = () => Array.from(list.querySelectorAll('.note-card'));
+      const isPinned = (card) => card.dataset.pinned === 'true';
+
+      function showToast(message) {
+        toastText.textContent = message;
+        bootstrap.Toast.getOrCreateInstance(toastEl, { delay: 2200 }).show();
+      }
+
+      function setSaved(saved) {
+        editorStatus.classList.toggle('is-saved', saved);
+        editorStatus.innerHTML = saved
+          ? '<i class="bi bi-check2-circle"></i> Saved'
+          : '<i class="bi bi-pencil-square"></i> Editing';
+        editorSaved.textContent = saved ? 'All changes saved' : 'Unsaved changes';
+      }
+
+      function updateWordCount() {
+        const text = noteContent.innerText.replace(/\s+/g, ' ').trim();
+        wordCount.textContent = text ? text.split(' ').length : 0;
+      }
+
+      function updateLinked(name, initials, avatarClass) {
+        if (!name) {
+          linkedTag.classList.add('d-none');
+          linkedEmpty.classList.remove('d-none');
+          return;
+        }
+        linkedTag.classList.remove('d-none');
+        linkedEmpty.classList.add('d-none');
+        linkedName.textContent = name;
+        linkedAvatar.textContent = initials || '';
+        linkedAvatar.className = 'avatar avatar-xs ' + (avatarClass || 'avatar-primary');
+      }
+
+      function applyPinUI(card) {
+        const pinned = isPinned(card);
+        const cardPin = card.querySelector('[data-pin]');
+        if (cardPin) {
+          cardPin.classList.toggle('is-pinned', pinned);
+          cardPin.innerHTML = pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '<i class="bi bi-pin-angle"></i>';
+          cardPin.setAttribute('aria-label', pinned ? 'Unpin note' : 'Pin note');
+          cardPin.setAttribute('aria-pressed', String(pinned));
+        }
+        if (card === activeCard) {
+          pinBtn.classList.toggle('is-pinned', pinned);
+          pinBtn.innerHTML = pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '<i class="bi bi-pin-angle"></i>';
+          pinBtn.setAttribute('aria-label', pinned ? 'Unpin note' : 'Pin note');
+          pinBtn.setAttribute('aria-pressed', String(pinned));
+        }
+      }
+
+      function updateCounts() {
+        const all = cards();
+        const pinned = all.filter(isPinned).length;
+        allCount.textContent = all.length;
+        pinnedCount.textContent = pinned;
+        noteCount.textContent = all.length;
+      }
+
+      function applyFilter() {
+        const query = search.value.trim().toLowerCase();
+        let visible = 0;
+
+        cards().forEach(function (card) {
+          const matchesQuery = !query || card.textContent.toLowerCase().includes(query);
+          const matchesTab = currentFilter === 'all' || isPinned(card);
+          const show = matchesQuery && matchesTab;
+          card.classList.toggle('d-none', !show);
+          if (show) visible += 1;
+        });
+
+        empty.classList.toggle('d-none', visible !== 0);
+      }
+
+      function selectNote(card, focusTitle) {
+        if (!card) return;
+        activeCard = card;
+
+        cards().forEach(function (item) {
+          const selected = item === card;
+          item.classList.toggle('active', selected);
+          item.setAttribute('aria-pressed', String(selected));
+        });
+
+        noteTitle.value = card.dataset.title || '';
+        noteContent.innerHTML = noteBodies[card.dataset.id] || '';
+        updateLinked(card.dataset.contact, card.dataset.avatar, card.dataset.avatarClass);
+        noteMeta.textContent = 'Last edited ' + (card.dataset.time || 'just now') + ' • Only visible to you';
+        applyPinUI(card);
+        setSaved(false);
+        updateWordCount();
+
+        if (focusTitle) {
+          noteTitle.focus();
+          noteTitle.select();
+        }
+      }
+
+      function clearEditor() {
+        activeCard = null;
+        noteTitle.value = '';
+        noteContent.innerHTML = '';
+        updateLinked('', '', '');
+        noteMeta.textContent = 'No note selected';
+        updateWordCount();
+        setSaved(true);
+      }
+
+      function togglePin(card) {
+        card.dataset.pinned = isPinned(card) ? 'false' : 'true';
+        applyPinUI(card);
+        updateCounts();
+        applyFilter();
+        setSaved(false);
+        showToast(isPinned(card) ? 'Note pinned' : 'Note unpinned');
+      }
+
+      function createNote() {
+        const fragment = template.content.cloneNode(true);
+        const card = fragment.querySelector('.note-card');
+        const id = 'note-' + Date.now();
+
+        noteBodies[id] = '<p><br></p>';
+        card.dataset.id = id;
+        card.dataset.title = 'Untitled note';
+        card.dataset.contact = 'Personal note';
+        card.dataset.avatar = 'PN';
+        card.dataset.avatarClass = 'avatar-info';
+        card.dataset.time = 'Just now';
+        card.dataset.pinned = 'false';
+
+        card.querySelector('.note-title').textContent = 'Untitled note';
+        card.querySelector('.note-snippet').textContent = 'Start writing to capture what matters...';
+        const avatar = card.querySelector('.avatar');
+        avatar.textContent = 'PN';
+        avatar.classList.add('avatar-info');
+        card.querySelector('.note-contact-name').textContent = 'Personal note';
+        card.querySelector('.note-time').textContent = 'Just now';
+
+        list.prepend(card);
+        updateCounts();
+
+        currentFilter = 'all';
+        document.querySelectorAll('.notes-tab').forEach(function (tab) {
+          tab.classList.toggle('active', tab.dataset.filter === 'all');
+        });
+        search.value = '';
+        applyFilter();
+        selectNote(card, true);
+        showToast('New note created');
+      }
+
+      // List interactions
+      list.addEventListener('click', function (event) {
+        const pin = event.target.closest('[data-pin]');
+        const card = event.target.closest('.note-card');
+        if (!card) return;
+
+        if (pin) {
+          event.stopPropagation();
+          togglePin(card);
+          return;
+        }
+        selectNote(card);
+      });
+
+      list.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        if (event.target.closest('[data-pin]')) return;
+        const card = event.target.closest('.note-card');
+        if (!card) return;
+        event.preventDefault();
+        selectNote(card);
+      });
+
+      // Search and tabs
+      search.addEventListener('input', applyFilter);
+
+      document.querySelectorAll('.notes-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          currentFilter = tab.dataset.filter;
+          document.querySelectorAll('.notes-tab').forEach(function (item) {
+            item.classList.toggle('active', item === tab);
+          });
+          applyFilter();
+        });
+      });
+
+      // Editor actions
+      pinBtn.addEventListener('click', function () {
+        if (activeCard) togglePin(activeCard);
+      });
+
+      saveBtn.addEventListener('click', function () {
+        setSaved(true);
+        showToast('Note saved');
+      });
+
+      deleteBtn.addEventListener('click', function () {
+        if (!activeCard) return;
+        const card = activeCard;
+        const next = card.nextElementSibling || card.previousElementSibling;
+        delete noteBodies[card.dataset.id];
+        card.remove();
+        updateCounts();
+        applyFilter();
+        if (next) {
+          selectNote(next);
+        } else {
+          clearEditor();
+        }
+        showToast('Note deleted');
+      });
+
+      removeLink.addEventListener('click', function () {
+        updateLinked('', '', '');
+        setSaved(false);
+        showToast('Contact link removed');
+      });
+
+      newNoteBtn.addEventListener('click', createNote);
+
+      noteTitle.addEventListener('input', function () {
+        if (activeCard) {
+          activeCard.dataset.title = noteTitle.value || 'Untitled note';
+          activeCard.querySelector('.note-title').textContent = noteTitle.value || 'Untitled note';
+        }
+        setSaved(false);
+      });
+
+      noteContent.addEventListener('input', function () {
+        const snippet = noteContent.innerText.replace(/\s+/g, ' ').trim();
+        if (activeCard) {
+          activeCard.querySelector('.note-snippet').textContent = snippet.slice(0, 120) || 'Start writing to capture what matters...';
+          if (noteBodies[activeCard.dataset.id] !== undefined) {
+            noteBodies[activeCard.dataset.id] = noteContent.innerHTML;
+          }
+        }
+        updateWordCount();
+        setSaved(false);
+      });
+
+      // Formatting toolbar
+      toolbar.addEventListener('click', function (event) {
+        const button = event.target.closest('.editor-btn');
+        if (!button) return;
+        event.preventDefault();
+
+        noteContent.focus();
+        const command = button.dataset.command;
+        const value = button.dataset.value || null;
+
+        if (command === 'createLink') {
+          const url = window.prompt('Link URL', 'https://');
+          if (url) document.execCommand('createLink', false, url);
+        } else {
+          document.execCommand(command, false, value);
+        }
+
+        updateToolbarState();
+        setSaved(false);
+      });
+
+      function updateToolbarState() {
+        if (document.activeElement !== noteContent) return;
+        toolbar.querySelectorAll('[data-command]').forEach(function (button) {
+          const command = button.dataset.command;
+          if (['bold', 'italic', 'underline', 'insertUnorderedList', 'insertOrderedList'].indexOf(command) === -1) return;
+          let active = false;
+          try {
+            active = document.queryCommandState(command);
+          } catch (error) {
+            active = false;
+          }
+          button.classList.toggle('active', active);
+        });
+      }
+
+      document.addEventListener('selectionchange', updateToolbarState);
+
+      // Init
+      updateCounts();
+      applyFilter();
+      selectNote(document.querySelector('.note-card.active'));
+    })();
+  </script>
+</body>
+</html>

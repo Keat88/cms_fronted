@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Connectly</title>
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B7CFA'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/u-settings.css">
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- ================= SIDEBAR (Offcanvas on Mobile, Fixed on Desktop) ================= -->
+        <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu"
+            aria-labelledby="sidebarMenuLabel">
+
+            <!-- Offcanvas Header (Mobile Only) -->
+            <div class="offcanvas-header d-lg-none border-bottom border-custom">
+                <h5 class="offcanvas-title d-flex align-items-center gap-2 mb-0" id="sidebarMenuLabel">
+                    <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+                    <span class="fw-bold">Connectly</span>
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    data-bs-target="#sidebarMenu" aria-label="Close"></button>
+            </div>
+
+            <!-- Offcanvas Body -->
+            <div class="offcanvas-body p-3">
+
+                <!-- Desktop Logo -->
+                <a href="../index.html"
+                    class="brand d-none d-lg-flex align-items-center gap-2 mb-4 text-decoration-none">
+                    <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+                    <span class="fs-5 fw-bold text-white">Connectly</span>
+                </a>
+
+                <!-- Workspace Selector -->
+                <button type="button" class="workspace-selector mb-4">
+                    <span class="workspace-icon"><i class="bi bi-person-vcard"></i></span>
+                    <span class="workspace-text">
+                        <span class="workspace-title">Personal workspace</span>
+                        <span class="workspace-sub">Contacts & connections</span>
+                    </span>
+                    <i class="bi bi-chevron-expand ms-auto text-muted-custom"></i>
+                </button>
+
+                <!-- Nav Links -->
+                <p class="nav-heading">WORKSPACE</p>
+                <ul class="nav nav-pills flex-column mb-4">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link"><i class="bi bi-grid"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link"><i class="bi bi-person-lines-fill"></i> Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="favorites.html" class="nav-link"><i class="bi bi-star"></i> Favorites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="categories.html" class="nav-link"><i class="bi bi-tags"></i> Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="notes.html" class="nav-link"><i class="bi bi-journal-text"></i> Notes</a>
+                    </li>
+                </ul>
+
+                <p class="nav-heading">ACCOUNT</p>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="profile.html" class="nav-link"><i class="bi bi-person"></i> My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="setting.html" class="nav-link active"><i class="bi bi-sliders"></i> Settings</a>
+                    </li>
+                </ul>
+
+                <!-- Sidebar Footer -->
+                <div class="sidebar-footer mt-auto pt-3 border-top border-custom px-2 footer-step">
+                    <div class="d-flex align-items-center gap-2 px-2 mb-3">
+                        <span class="status-dot"></span>
+                        <small class="text-muted-custom">All systems operational</small>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="avatar avatar-md avatar-info">AM</div>
+                            <div class="lh-sm">
+                                <div class="fw-semibold text-white user-name">Alex Morgan</div>
+                                <div class="text-muted-custom user-role">Member</div>
+                            </div>
+                        </div>
+                        <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="app-main">
+
+            <!-- Top Navbar -->
+            <nav class="topbar px-3 px-md-4 py-2">
+                <div class="d-flex justify-content-between align-items-center gap-2">
+
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-label="Open menu">
+                            <i class="bi bi-list fs-5"></i>
+                        </button>
+
+                        <div class="breadcrumb-text d-none d-sm-flex align-items-center gap-1">
+                            <span class="text-muted-custom">Personal workspace</span>
+                            <i class="bi bi-chevron-right"></i>
+                            <span class="text-white">Settings</span>
+                        </div>
+                        <div class="fw-semibold d-sm-none">Settings</div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2 gap-md-3">
+                        <div class="search-box d-none d-md-flex">
+                            <i class="bi bi-search"></i>
+                            <input type="text" placeholder="Search contacts...">
+                        </div>
+
+                        <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
+
+                        <button class="icon-btn position-relative" aria-label="Notifications">
+                            <i class="bi bi-bell"></i>
+                            <span class="notif-dot"></span>
+                        </button>
+
+                        <div class="avatar avatar-sm avatar-info">AM</div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Content -->
+            <div class="container-fluid p-3 p-md-4">
+
+                <!-- Header -->
+                <div
+                    class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
+                    <div>
+                        <h3 class="page-title mb-1">Settings</h3>
+                        <p class="text-muted-custom mb-0 small">Your workspace, your way. Make Connectly work for you.
+                        </p>
+                    </div>
+                    <span class="role-chip"><i class="bi bi-person-check"></i> Personal account</span>
+                </div>
+
+                <!-- Tabs -->
+                <ul class="nav nav-tabs-custom mb-4" role="tablist" aria-label="Settings sections">
+                    <li class="nav-item">
+                        <button type="button" class="nav-link active" data-target="#appearance" role="tab"
+                            aria-selected="true">General</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link" data-target="#notifications" role="tab"
+                            aria-selected="false">Notifications</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link" data-target="#security" role="tab"
+                            aria-selected="false">Security</button>
+                    </li>
+                </ul>
+
+                    <!-- Settings Grid -->
+                    <div class="row g-4 mb-5">
+
+                        <!-- ================= LEFT COLUMN ================= -->
+                        <div class="col-lg-7 d-flex flex-column gap-4">
+
+                            <!-- Appearance & language Card -->
+                            <div class="card p-4 shadow-sm border-custom bg-surface settings-section"
+                                id="appearance">
+                                <div class="mb-4">
+                                    <h5 class="fw-semibold mb-1">Appearance & language</h5>
+                                    <p class="text-muted-custom small mb-0">Make Connectly feel right for you.</p>
+                                </div>
+
+                                <!-- Interface Theme -->
+                                <div class="mb-4">
+                                    <label class="form-label-custom mb-3">Interface theme</label>
+                                    <div class="row g-3">
+
+                                        <!-- Dark Theme (Active) -->
+                                        <div class="col-sm-6">
+                                            <button type="button" class="theme-selector active w-100"
+                                                aria-pressed="true">
+                                                <div class="theme-preview">
+                                                    <div class="skeleton-window bg-surface">
+                                                        <div class="skeleton-sidebar bg-elevated"></div>
+                                                        <div class="skeleton-content">
+                                                            <div class="skeleton-header bg-elevated"></div>
+                                                            <div class="skeleton-row">
+                                                                <div class="skeleton-box bg-elevated"></div>
+                                                                <div class="skeleton-box bg-elevated"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="theme-footer">
+                                                    <span class="theme-name">Dark</span>
+                                                    <i class="bi bi-check-circle theme-check"></i>
+                                                    <i class="bi bi-circle theme-circle"></i>
+                                                </div>
+                                            </button>
+                                        </div>
+
+                                        <!-- Light Theme -->
+                                        <div class="col-sm-6">
+                                            <button type="button" class="theme-selector w-100" aria-pressed="false">
+                                                <div class="theme-preview">
+                                                    <div class="skeleton-window"
+                                                        style="background-color: #F9FAFB; border-color: #E5E7EB;">
+                                                        <div class="skeleton-sidebar"
+                                                            style="background-color: #E5E7EB;"></div>
+                                                        <div class="skeleton-content">
+                                                            <div class="skeleton-header"
+                                                                style="background-color: #D1D5DB;"></div>
+                                                            <div class="skeleton-row">
+                                                                <div class="skeleton-box"
+                                                                    style="background-color: #FFFFFF; border: 1px solid #E5E7EB;">
+                                                                </div>
+                                                                <div class="skeleton-box"
+                                                                    style="background-color: #FFFFFF; border: 1px solid #E5E7EB;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="theme-footer">
+                                                    <span class="theme-name">Light</span>
+                                                    <i class="bi bi-check-circle theme-check"></i>
+                                                    <i class="bi bi-circle theme-circle"></i>
+                                                </div>
+                                            </button>
+                                        </div>
+                                        <p class="text-muted-custom mt-2" style="font-size: 11px;">Dark theme is
+                                            currently applied across your workspace.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Language & Timezone Dropdowns -->
+                                <div class="row g-3 border-top border-custom pt-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Language</label>
+                                        <select class="form-select form-select-dark">
+                                            <option>English (US)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Timezone</label>
+                                        <select class="form-select form-select-dark">
+                                            <option>Pacific Time (UTC−08:00)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Notifications Card (User Specific) -->
+                            <div class="card p-4 shadow-sm border-custom bg-surface settings-section"
+                                id="notifications">
+                                <div class="mb-4">
+                                    <h5 class="fw-semibold mb-1">Notifications</h5>
+                                    <p class="text-muted-custom small mb-0">Choose what reaches you and where.</p>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div>
+                                        <div class="text-white fw-medium small">Birthday reminders</div>
+                                        <div class="text-muted-custom" style="font-size: 12px;">A friendly reminder on
+                                            your contacts' birthdays.</div>
+                                    </div>
+                                    <div class="form-check form-switch form-switch-custom">
+                                        <input class="form-check-input" type="checkbox" checked>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div>
+                                        <div class="text-white fw-medium small">Email notifications</div>
+                                        <div class="text-muted-custom" style="font-size: 12px;">Receive important
+                                            updates in your inbox.</div>
+                                    </div>
+                                    <div class="form-check form-switch form-switch-custom">
+                                        <input class="form-check-input" type="checkbox" checked>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div>
+                                        <div class="text-white fw-medium small">Desktop notifications</div>
+                                        <div class="text-muted-custom" style="font-size: 12px;">Show alerts while
+                                            Connectly is open.</div>
+                                    </div>
+                                    <div class="form-check form-switch form-switch-custom">
+                                        <input class="form-check-input" type="checkbox">
+                                    </div>
+                                </div>
+
+                                <div class="border-top border-custom pt-4">
+                                    <label class="form-label-custom">Birthday reminder timing</label>
+                                    <select class="form-select form-select-dark">
+                                        <option>On the day - 9:00 AM</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- ================= RIGHT COLUMN ================= -->
+                        <div class="col-lg-5 d-flex flex-column gap-4">
+
+                            <!-- Account Security Card -->
+                            <div class="card p-4 shadow-sm border-custom bg-surface settings-section"
+                                id="security">
+                                <div class="mb-4">
+                                    <h5 class="fw-semibold mb-1">Account security</h5>
+                                    <p class="text-muted-custom small mb-0">A few simple ways to keep your account safe.
+                                    </p>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <div class="text-white fw-medium small">Two-factor authentication</div>
+                                        <div class="text-muted-custom mb-2" style="font-size: 12px;">An extra layer of
+                                            security when you sign in.</div>
+                                        <span
+                                            class="badge rounded-pill bg-success bg-opacity-25 text-success border border-success border-opacity-50 fw-medium px-2"><i
+                                                class="bi bi-circle-fill"
+                                                style="font-size: 6px; vertical-align: middle; margin-right: 4px;"></i>
+                                            Authenticator app connected</span>
+                                    </div>
+                                    <div class="form-check form-switch form-switch-custom">
+                                        <input class="form-check-input" type="checkbox" checked>
+                                    </div>
+                                </div>
+
+                                <hr class="border-custom my-4">
+
+                                <div class="d-flex justify-content-between align-items-start mb-4">
+                                    <div>
+                                        <div class="text-white fw-medium small">Login alerts</div>
+                                        <div class="text-muted-custom" style="font-size: 12px;">Get notified about
+                                            sign-ins on new devices.</div>
+                                    </div>
+                                    <div class="form-check form-switch form-switch-custom">
+                                        <input class="form-check-input" type="checkbox" checked>
+                                    </div>
+                                </div>
+
+                                <!-- Current Session -->
+                                <div
+                                    class="d-flex justify-content-between align-items-center bg-canvas border-custom p-3 rounded session-current mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-display text-muted-custom fs-4 me-3"></i>
+                                        <div>
+                                            <div class="text-white fw-medium" style="font-size: 13px;">Chrome on macOS
+                                            </div>
+                                            <div class="text-muted-custom" style="font-size: 11px;">San Francisco, US •
+                                                Current session</div>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-50">Active</span>
+                                </div>
+
+                                <button
+                                    class="btn btn-secondary-custom btn-sm w-100 d-flex justify-content-center align-items-center mb-3 py-2">
+                                    <i class="bi bi-arrow-up-right me-2"></i> Manage active sessions
+                                </button>
+
+                                <a href="#"
+                                    class="text-muted-custom text-decoration-none small d-flex align-items-center">
+                                    <i class="bi bi-box-arrow-right me-2"></i> Sign out other devices
+                                </a>
+                            </div>
+
+                            <!-- Privacy & Data Card -->
+                            <div class="card p-4 shadow-sm border-custom bg-surface settings-section"
+                                id="privacy">
+                                <div class="mb-4">
+                                    <h5 class="fw-semibold mb-1">Privacy & data</h5>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label-custom">Default contact visibility</label>
+                                    <select class="form-select form-select-dark">
+                                        <option>Private - Only you</option>
+                                    </select>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div>
+                                        <div class="text-white fw-medium small">Automatic backups</div>
+                                        <div class="text-muted-custom" style="font-size: 12px;">Keep a secure daily copy
+                                            of your workspace.</div>
+                                    </div>
+                                    <div class="form-check form-switch form-switch-custom">
+                                        <input class="form-check-input" type="checkbox" checked>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="btn btn-secondary-custom btn-sm w-auto d-inline-flex justify-content-center align-items-center py-2 px-3">
+                                    <i class="bi bi-download me-2"></i> Export my data
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Footer Action Bar -->
+                    <div class="settings-actionbar">
+                        <span class="text-muted-custom small mb-3 mb-sm-0">Preferences apply only to your personal
+                            workspace.</span>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="button" class="btn btn-secondary-custom px-4 py-2"
+                                id="discardSettings">Discard changes</button>
+                            <button type="button" class="btn btn-primary px-4 py-2" id="saveSettings">Save
+                                preferences</button>
+                        </div>
+                    </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Save toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="saveToast" class="toast app-toast" role="status" aria-live="polite" aria-atomic="true">
+            <div class="d-flex align-items-center gap-2 p-3">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Preferences saved successfully</span>
+                <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function () {
+            const tabs = document.querySelectorAll('.nav-tabs-custom .nav-link');
+            tabs.forEach((tab) => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach((t) => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+
+                    const target = document.querySelector(tab.dataset.target);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            const themeSelectors = document.querySelectorAll('.theme-selector');
+            themeSelectors.forEach((selector) => {
+                selector.addEventListener('click', () => {
+                    themeSelectors.forEach((s) => {
+                        s.classList.remove('active');
+                        s.setAttribute('aria-pressed', 'false');
+                    });
+                    selector.classList.add('active');
+                    selector.setAttribute('aria-pressed', 'true');
+                });
+            });
+
+            const saveButton = document.getElementById('saveSettings');
+            const saveToastEl = document.getElementById('saveToast');
+            if (saveButton && saveToastEl) {
+                saveButton.addEventListener('click', () => {
+                    new bootstrap.Toast(saveToastEl, { delay: 2500 }).show();
+                });
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

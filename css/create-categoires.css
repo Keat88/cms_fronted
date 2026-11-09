@@ -1,0 +1,109 @@
+/* ================= Category Checklist Items ================= */
+.category-check-item {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.category-check-item:last-child {
+  border-bottom: none;
+}
+.category-check-item .form-check-label {
+  color: var(--text-main);
+  font-size: 13px;
+  cursor: pointer;
+}
+.category-check-item .category-count {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* ================= Color Swatches ================= */
+.color-option {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.color-option i {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.selected {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 3px var(--color-canvas), 0 0 0 4px rgba(255, 255, 255, 0.28);
+}
+
+.color-option.selected i {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Red folder tile (matches the color picker palette) */
+.folder-red {
+  background-color: rgba(241, 98, 137, 0.14);
+  color: var(--color-danger);
+}
+
+/* ================= Live Preview ================= */
+.category-preview {
+  border: 1px dashed var(--border-strong) !important;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(91, 124, 250, 0.1), rgba(91, 124, 250, 0.02));
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.category-preview:hover {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 18px 40px -24px rgba(91, 124, 250, 0.7);
+}
+
+.preview-folder {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.preview-empty {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ================= Darker Blue Info Alert ================= */
+.alert-dark-blue {
+  background-color: #242B42; /* Specific dark blue from the design */
+  border: 1px solid #2D3654;
+  border-radius: 8px;
+}
+
+/* ================= Bottom Action Bar ================= */
+.action-bar-footer {
+  position: sticky;
+  bottom: 0;
+  background-color: var(--color-canvas);
+  border-top: 1px solid var(--border-color);
+  padding: 16px 24px;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+/* ================= Calendar Input Icon ================= */
+.input-group-dark .bi-calendar3 {
+  color: var(--text-muted);
+}
