@@ -90,7 +90,10 @@
   font-size: 1.35rem;
   font-weight: 700;
   line-height: 1.1;
+  display: flex;
+  justify-content: center;
   letter-spacing: -0.01em;
+  color: white;
 }
 
 .mini-stat-label {

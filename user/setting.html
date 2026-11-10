@@ -82,12 +82,12 @@
                 </ul>
 
                 <!-- Sidebar Footer -->
-                <div class="sidebar-footer mt-auto pt-3 border-top border-custom px-2 footer-step">
+                <div class="sidebar-footer mt-auto pt-3 border-top border-custom footer-step">
                     <div class="d-flex align-items-center gap-2 px-2 mb-3">
                         <span class="status-dot"></span>
                         <small class="text-muted-custom">All systems operational</small>
                     </div>
-                    <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                    <div class="d-flex align-items-center justify-content-between gap-2">
                         <div class="d-flex align-items-center gap-2">
                             <div class="avatar avatar-md avatar-info">AM</div>
                             <div class="lh-sm">
@@ -171,264 +171,258 @@
                     </li>
                 </ul>
 
-                    <!-- Settings Grid -->
-                    <div class="row g-4 mb-5">
+                <!-- Settings Grid -->
+                <div class="row g-4 mb-5">
 
-                        <!-- ================= LEFT COLUMN ================= -->
-                        <div class="col-lg-7 d-flex flex-column gap-4">
+                    <!-- ================= LEFT COLUMN ================= -->
+                    <div class="col-lg-7 d-flex flex-column gap-4">
 
-                            <!-- Appearance & language Card -->
-                            <div class="card p-4 shadow-sm border-custom bg-surface settings-section"
-                                id="appearance">
-                                <div class="mb-4">
-                                    <h5 class="fw-semibold mb-1">Appearance & language</h5>
-                                    <p class="text-muted-custom small mb-0">Make Connectly feel right for you.</p>
-                                </div>
+                        <!-- Appearance & language Card -->
+                        <div class="card p-4 shadow-sm border-custom bg-surface settings-section" id="appearance">
+                            <div class="mb-4">
+                                <h5 class="fw-semibold mb-1">Appearance & language</h5>
+                                <p class="text-muted-custom small mb-0">Make Connectly feel right for you.</p>
+                            </div>
 
-                                <!-- Interface Theme -->
-                                <div class="mb-4">
-                                    <label class="form-label-custom mb-3">Interface theme</label>
-                                    <div class="row g-3">
+                            <!-- Interface Theme -->
+                            <div class="mb-4">
+                                <label class="form-label-custom mb-3">Interface theme</label>
+                                <div class="row g-3">
 
-                                        <!-- Dark Theme (Active) -->
-                                        <div class="col-sm-6">
-                                            <button type="button" class="theme-selector active w-100"
-                                                aria-pressed="true">
-                                                <div class="theme-preview">
-                                                    <div class="skeleton-window bg-surface">
-                                                        <div class="skeleton-sidebar bg-elevated"></div>
-                                                        <div class="skeleton-content">
-                                                            <div class="skeleton-header bg-elevated"></div>
-                                                            <div class="skeleton-row">
-                                                                <div class="skeleton-box bg-elevated"></div>
-                                                                <div class="skeleton-box bg-elevated"></div>
-                                                            </div>
+                                    <!-- Dark Theme (Active) -->
+                                    <div class="col-sm-6">
+                                        <button type="button" class="theme-selector active w-100" aria-pressed="true">
+                                            <div class="theme-preview">
+                                                <div class="skeleton-window bg-surface">
+                                                    <div class="skeleton-sidebar bg-elevated"></div>
+                                                    <div class="skeleton-content">
+                                                        <div class="skeleton-header bg-elevated"></div>
+                                                        <div class="skeleton-row">
+                                                            <div class="skeleton-box bg-elevated"></div>
+                                                            <div class="skeleton-box bg-elevated"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="theme-footer">
-                                                    <span class="theme-name">Dark</span>
-                                                    <i class="bi bi-check-circle theme-check"></i>
-                                                    <i class="bi bi-circle theme-circle"></i>
-                                                </div>
-                                            </button>
-                                        </div>
-
-                                        <!-- Light Theme -->
-                                        <div class="col-sm-6">
-                                            <button type="button" class="theme-selector w-100" aria-pressed="false">
-                                                <div class="theme-preview">
-                                                    <div class="skeleton-window"
-                                                        style="background-color: #F9FAFB; border-color: #E5E7EB;">
-                                                        <div class="skeleton-sidebar"
-                                                            style="background-color: #E5E7EB;"></div>
-                                                        <div class="skeleton-content">
-                                                            <div class="skeleton-header"
-                                                                style="background-color: #D1D5DB;"></div>
-                                                            <div class="skeleton-row">
-                                                                <div class="skeleton-box"
-                                                                    style="background-color: #FFFFFF; border: 1px solid #E5E7EB;">
-                                                                </div>
-                                                                <div class="skeleton-box"
-                                                                    style="background-color: #FFFFFF; border: 1px solid #E5E7EB;">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="theme-footer">
-                                                    <span class="theme-name">Light</span>
-                                                    <i class="bi bi-check-circle theme-check"></i>
-                                                    <i class="bi bi-circle theme-circle"></i>
-                                                </div>
-                                            </button>
-                                        </div>
-                                        <p class="text-muted-custom mt-2" style="font-size: 11px;">Dark theme is
-                                            currently applied across your workspace.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Language & Timezone Dropdowns -->
-                                <div class="row g-3 border-top border-custom pt-4">
-                                    <div class="col-md-6">
-                                        <label class="form-label-custom">Language</label>
-                                        <select class="form-select form-select-dark">
-                                            <option>English (US)</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label-custom">Timezone</label>
-                                        <select class="form-select form-select-dark">
-                                            <option>Pacific Time (UTC−08:00)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Notifications Card (User Specific) -->
-                            <div class="card p-4 shadow-sm border-custom bg-surface settings-section"
-                                id="notifications">
-                                <div class="mb-4">
-                                    <h5 class="fw-semibold mb-1">Notifications</h5>
-                                    <p class="text-muted-custom small mb-0">Choose what reaches you and where.</p>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <div>
-                                        <div class="text-white fw-medium small">Birthday reminders</div>
-                                        <div class="text-muted-custom" style="font-size: 12px;">A friendly reminder on
-                                            your contacts' birthdays.</div>
-                                    </div>
-                                    <div class="form-check form-switch form-switch-custom">
-                                        <input class="form-check-input" type="checkbox" checked>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <div>
-                                        <div class="text-white fw-medium small">Email notifications</div>
-                                        <div class="text-muted-custom" style="font-size: 12px;">Receive important
-                                            updates in your inbox.</div>
-                                    </div>
-                                    <div class="form-check form-switch form-switch-custom">
-                                        <input class="form-check-input" type="checkbox" checked>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <div>
-                                        <div class="text-white fw-medium small">Desktop notifications</div>
-                                        <div class="text-muted-custom" style="font-size: 12px;">Show alerts while
-                                            Connectly is open.</div>
-                                    </div>
-                                    <div class="form-check form-switch form-switch-custom">
-                                        <input class="form-check-input" type="checkbox">
-                                    </div>
-                                </div>
-
-                                <div class="border-top border-custom pt-4">
-                                    <label class="form-label-custom">Birthday reminder timing</label>
-                                    <select class="form-select form-select-dark">
-                                        <option>On the day - 9:00 AM</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- ================= RIGHT COLUMN ================= -->
-                        <div class="col-lg-5 d-flex flex-column gap-4">
-
-                            <!-- Account Security Card -->
-                            <div class="card p-4 shadow-sm border-custom bg-surface settings-section"
-                                id="security">
-                                <div class="mb-4">
-                                    <h5 class="fw-semibold mb-1">Account security</h5>
-                                    <p class="text-muted-custom small mb-0">A few simple ways to keep your account safe.
-                                    </p>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <div>
-                                        <div class="text-white fw-medium small">Two-factor authentication</div>
-                                        <div class="text-muted-custom mb-2" style="font-size: 12px;">An extra layer of
-                                            security when you sign in.</div>
-                                        <span
-                                            class="badge rounded-pill bg-success bg-opacity-25 text-success border border-success border-opacity-50 fw-medium px-2"><i
-                                                class="bi bi-circle-fill"
-                                                style="font-size: 6px; vertical-align: middle; margin-right: 4px;"></i>
-                                            Authenticator app connected</span>
-                                    </div>
-                                    <div class="form-check form-switch form-switch-custom">
-                                        <input class="form-check-input" type="checkbox" checked>
-                                    </div>
-                                </div>
-
-                                <hr class="border-custom my-4">
-
-                                <div class="d-flex justify-content-between align-items-start mb-4">
-                                    <div>
-                                        <div class="text-white fw-medium small">Login alerts</div>
-                                        <div class="text-muted-custom" style="font-size: 12px;">Get notified about
-                                            sign-ins on new devices.</div>
-                                    </div>
-                                    <div class="form-check form-switch form-switch-custom">
-                                        <input class="form-check-input" type="checkbox" checked>
-                                    </div>
-                                </div>
-
-                                <!-- Current Session -->
-                                <div
-                                    class="d-flex justify-content-between align-items-center bg-canvas border-custom p-3 rounded session-current mb-3">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-display text-muted-custom fs-4 me-3"></i>
-                                        <div>
-                                            <div class="text-white fw-medium" style="font-size: 13px;">Chrome on macOS
                                             </div>
-                                            <div class="text-muted-custom" style="font-size: 11px;">San Francisco, US •
-                                                Current session</div>
-                                        </div>
+                                            <div class="theme-footer">
+                                                <span class="theme-name">Dark</span>
+                                                <i class="bi bi-check-circle theme-check"></i>
+                                                <i class="bi bi-circle theme-circle"></i>
+                                            </div>
+                                        </button>
                                     </div>
-                                    <span
-                                        class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-50">Active</span>
+
+                                    <!-- Light Theme -->
+                                    <div class="col-sm-6">
+                                        <button type="button" class="theme-selector w-100" aria-pressed="false">
+                                            <div class="theme-preview">
+                                                <div class="skeleton-window"
+                                                    style="background-color: #F9FAFB; border-color: #E5E7EB;">
+                                                    <div class="skeleton-sidebar" style="background-color: #E5E7EB;">
+                                                    </div>
+                                                    <div class="skeleton-content">
+                                                        <div class="skeleton-header" style="background-color: #D1D5DB;">
+                                                        </div>
+                                                        <div class="skeleton-row">
+                                                            <div class="skeleton-box"
+                                                                style="background-color: #FFFFFF; border: 1px solid #E5E7EB;">
+                                                            </div>
+                                                            <div class="skeleton-box"
+                                                                style="background-color: #FFFFFF; border: 1px solid #E5E7EB;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="theme-footer">
+                                                <span class="theme-name">Light</span>
+                                                <i class="bi bi-check-circle theme-check"></i>
+                                                <i class="bi bi-circle theme-circle"></i>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <p class="text-muted-custom mt-2" style="font-size: 11px;">Dark theme is
+                                        currently applied across your workspace.</p>
                                 </div>
-
-                                <button
-                                    class="btn btn-secondary-custom btn-sm w-100 d-flex justify-content-center align-items-center mb-3 py-2">
-                                    <i class="bi bi-arrow-up-right me-2"></i> Manage active sessions
-                                </button>
-
-                                <a href="#"
-                                    class="text-muted-custom text-decoration-none small d-flex align-items-center">
-                                    <i class="bi bi-box-arrow-right me-2"></i> Sign out other devices
-                                </a>
                             </div>
 
-                            <!-- Privacy & Data Card -->
-                            <div class="card p-4 shadow-sm border-custom bg-surface settings-section"
-                                id="privacy">
-                                <div class="mb-4">
-                                    <h5 class="fw-semibold mb-1">Privacy & data</h5>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label class="form-label-custom">Default contact visibility</label>
+                            <!-- Language & Timezone Dropdowns -->
+                            <div class="row g-3 border-top border-custom pt-4">
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Language</label>
                                     <select class="form-select form-select-dark">
-                                        <option>Private - Only you</option>
+                                        <option>English (US)</option>
                                     </select>
                                 </div>
-
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <div>
-                                        <div class="text-white fw-medium small">Automatic backups</div>
-                                        <div class="text-muted-custom" style="font-size: 12px;">Keep a secure daily copy
-                                            of your workspace.</div>
-                                    </div>
-                                    <div class="form-check form-switch form-switch-custom">
-                                        <input class="form-check-input" type="checkbox" checked>
-                                    </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Timezone</label>
+                                    <select class="form-select form-select-dark">
+                                        <option>Pacific Time (UTC−08:00)</option>
+                                    </select>
                                 </div>
+                            </div>
+                        </div>
 
-                                <button
-                                    class="btn btn-secondary-custom btn-sm w-auto d-inline-flex justify-content-center align-items-center py-2 px-3">
-                                    <i class="bi bi-download me-2"></i> Export my data
-                                </button>
+                        <!-- Notifications Card (User Specific) -->
+                        <div class="card p-4 shadow-sm border-custom bg-surface settings-section" id="notifications">
+                            <div class="mb-4">
+                                <h5 class="fw-semibold mb-1">Notifications</h5>
+                                <p class="text-muted-custom small mb-0">Choose what reaches you and where.</p>
                             </div>
 
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <div class="text-white fw-medium small">Birthday reminders</div>
+                                    <div class="text-muted-custom" style="font-size: 12px;">A friendly reminder on
+                                        your contacts' birthdays.</div>
+                                </div>
+                                <div class="form-check form-switch form-switch-custom">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <div class="text-white fw-medium small">Email notifications</div>
+                                    <div class="text-muted-custom" style="font-size: 12px;">Receive important
+                                        updates in your inbox.</div>
+                                </div>
+                                <div class="form-check form-switch form-switch-custom">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <div class="text-white fw-medium small">Desktop notifications</div>
+                                    <div class="text-muted-custom" style="font-size: 12px;">Show alerts while
+                                        Connectly is open.</div>
+                                </div>
+                                <div class="form-check form-switch form-switch-custom">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
+                            </div>
+
+                            <div class="border-top border-custom pt-4">
+                                <label class="form-label-custom">Birthday reminder timing</label>
+                                <select class="form-select form-select-dark">
+                                    <option>On the day - 9:00 AM</option>
+                                </select>
+                            </div>
                         </div>
+
                     </div>
 
-                    <!-- Footer Action Bar -->
-                    <div class="settings-actionbar">
-                        <span class="text-muted-custom small mb-3 mb-sm-0">Preferences apply only to your personal
-                            workspace.</span>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="button" class="btn btn-secondary-custom px-4 py-2"
-                                id="discardSettings">Discard changes</button>
-                            <button type="button" class="btn btn-primary px-4 py-2" id="saveSettings">Save
-                                preferences</button>
+                    <!-- ================= RIGHT COLUMN ================= -->
+                    <div class="col-lg-5 d-flex flex-column gap-4">
+
+                        <!-- Account Security Card -->
+                        <div class="card p-4 shadow-sm border-custom bg-surface settings-section" id="security">
+                            <div class="mb-4">
+                                <h5 class="fw-semibold mb-1">Account security</h5>
+                                <p class="text-muted-custom small mb-0">A few simple ways to keep your account safe.
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <div class="text-white fw-medium small">Two-factor authentication</div>
+                                    <div class="text-muted-custom mb-2" style="font-size: 12px;">An extra layer of
+                                        security when you sign in.</div>
+                                    <span
+                                        class="badge rounded-pill bg-success bg-opacity-25 text-success border border-success border-opacity-50 fw-medium px-2"><i
+                                            class="bi bi-circle-fill"
+                                            style="font-size: 6px; vertical-align: middle; margin-right: 4px;"></i>
+                                        Authenticator app connected</span>
+                                </div>
+                                <div class="form-check form-switch form-switch-custom">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                </div>
+                            </div>
+
+                            <hr class="border-custom my-4">
+
+                            <div class="d-flex justify-content-between align-items-start mb-4">
+                                <div>
+                                    <div class="text-white fw-medium small">Login alerts</div>
+                                    <div class="text-muted-custom" style="font-size: 12px;">Get notified about
+                                        sign-ins on new devices.</div>
+                                </div>
+                                <div class="form-check form-switch form-switch-custom">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                </div>
+                            </div>
+
+                            <!-- Current Session -->
+                            <div
+                                class="d-flex justify-content-between align-items-center bg-canvas border-custom p-3 rounded session-current mb-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-display text-muted-custom fs-4 me-3"></i>
+                                    <div>
+                                        <div class="text-white fw-medium" style="font-size: 13px;">Chrome on macOS
+                                        </div>
+                                        <div class="text-muted-custom" style="font-size: 11px;">San Francisco, US •
+                                            Current session</div>
+                                    </div>
+                                </div>
+                                <span
+                                    class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-50">Active</span>
+                            </div>
+
+                            <button
+                                class="btn btn-secondary-custom btn-sm w-100 d-flex justify-content-center align-items-center mb-3 py-2">
+                                <i class="bi bi-arrow-up-right me-2"></i> Manage active sessions
+                            </button>
+
+                            <a href="#" class="text-muted-custom text-decoration-none small d-flex align-items-center">
+                                <i class="bi bi-box-arrow-right me-2"></i> Sign out other devices
+                            </a>
                         </div>
+
+                        <!-- Privacy & Data Card -->
+                        <div class="card p-4 shadow-sm border-custom bg-surface settings-section" id="privacy">
+                            <div class="mb-4">
+                                <h5 class="fw-semibold mb-1">Privacy & data</h5>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label-custom">Default contact visibility</label>
+                                <select class="form-select form-select-dark">
+                                    <option>Private - Only you</option>
+                                </select>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <div class="text-white fw-medium small">Automatic backups</div>
+                                    <div class="text-muted-custom" style="font-size: 12px;">Keep a secure daily copy
+                                        of your workspace.</div>
+                                </div>
+                                <div class="form-check form-switch form-switch-custom">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                </div>
+                            </div>
+
+                            <button
+                                class="btn btn-secondary-custom btn-sm w-auto d-inline-flex justify-content-center align-items-center py-2 px-3">
+                                <i class="bi bi-download me-2"></i> Export my data
+                            </button>
+                        </div>
+
                     </div>
+                </div>
+
+                <!-- Footer Action Bar -->
+                <div class="settings-actionbar">
+                    <span class="text-muted-custom small mb-3 mb-sm-0">Preferences apply only to your personal
+                        workspace.</span>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button type="button" class="btn btn-secondary-custom px-4 py-2" id="discardSettings">Discard
+                            changes</button>
+                        <button type="button" class="btn btn-primary px-4 py-2" id="saveSettings">Save
+                            preferences</button>
+                    </div>
+                </div>
 
             </div>
         </main>
