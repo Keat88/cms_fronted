@@ -3,22 +3,21 @@
   align-items: center;
   gap: 8px;
   padding: 9px 16px;
-  border: 1px solid transparent;
+  border: 1px solid var(--color-primary);
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--color-primary), #7D95FF);
+  background-color: var(--color-primary);
   color: #fff;
   font-size: 13.5px;
   font-weight: 600;
   white-space: nowrap;
-  box-shadow: 0 12px 26px -14px rgba(91, 124, 250, 0.95);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-primary-glow:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
   color: #fff;
-  transform: translateY(-1px);
-  filter: brightness(1.06);
-  box-shadow: 0 16px 30px -14px rgba(91, 124, 250, 1);
 }
 
 .stat-warning {
@@ -62,7 +61,7 @@
   height: 200px;
   padding-top: 10px;
   border-bottom: 1px solid var(--border-color);
-  background-image: linear-gradient(to top, rgba(35, 42, 54, 0.55) 1px, transparent 1px);
+  background-image: linear-gradient(to top, var(--grid-line) 1px, transparent 1px);
   background-size: 100% 25%;
 }
 
@@ -71,20 +70,19 @@
   min-width: 12px;
   max-width: 54px;
   margin: 0 6px;
-  border-radius: 8px 8px 3px 3px;
-  background: linear-gradient(180deg, rgba(91, 124, 250, 0.55), rgba(91, 124, 250, 0.1));
+  border-radius: 5px 5px 2px 2px;
+  background-color: var(--color-primary-soft);
   cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
 .chart-bar-lg:hover {
-  background: linear-gradient(180deg, #7D95FF, rgba(91, 124, 250, 0.4));
+  background-color: rgba(91, 124, 250, 0.42);
   transform: translateY(-2px);
 }
 
 .chart-bar-lg.active {
-  background: linear-gradient(180deg, #8AA0FF, var(--color-primary));
-  box-shadow: 0 0 22px rgba(91, 124, 250, 0.45);
+  background-color: var(--color-primary);
 }
 
 .chart-labels {
@@ -103,8 +101,8 @@
 
 /* ================= Birthdays ================= */
 .birthday-highlight {
-  background: linear-gradient(135deg, rgba(91, 124, 250, 0.18), rgba(91, 124, 250, 0.05));
-  border: 1px solid rgba(91, 124, 250, 0.32);
+  background-color: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-line);
   border-radius: 12px;
 }
 

@@ -31,7 +31,6 @@
 .settings-tab.active {
   background-color: var(--color-primary);
   color: #fff;
-  box-shadow: 0 10px 20px -12px rgba(91, 124, 250, 0.95);
 }
 
 .section-head {
@@ -55,12 +54,12 @@
 }
 
 .section-icon.success {
-  background-color: rgba(61, 220, 151, 0.13);
+  background-color: var(--color-success-soft);
   color: var(--color-success);
 }
 
 .section-icon.warning {
-  background-color: rgba(245, 183, 89, 0.13);
+  background-color: var(--color-warning-soft);
   color: var(--color-warning);
 }
 
@@ -96,8 +95,8 @@
   gap: 6px;
   padding: 7px 14px;
   border-radius: 999px;
-  background-color: rgba(61, 220, 151, 0.13);
-  border: 1px solid rgba(61, 220, 151, 0.32);
+  background-color: var(--color-success-soft);
+  border: 1px solid color-mix(in srgb, var(--color-success) 32%, transparent);
   color: var(--color-success);
   font-size: 12.5px;
   font-weight: 600;
@@ -325,8 +324,8 @@
 
 /* ================= Alert ================= */
 .alert-custom-blue {
-  background: linear-gradient(135deg, rgba(91, 124, 250, 0.16), rgba(91, 124, 250, 0.05));
-  border: 1px solid rgba(91, 124, 250, 0.28);
+  background-color: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-line);
   border-radius: var(--radius-lg);
 }
 
@@ -336,22 +335,21 @@
   align-items: center;
   gap: 8px;
   padding: 9px 18px;
-  border: 1px solid transparent;
+  border: 1px solid var(--color-primary);
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--color-primary), #7D95FF);
+  background-color: var(--color-primary);
   color: #fff;
   font-size: 13.5px;
   font-weight: 600;
   white-space: nowrap;
-  box-shadow: 0 12px 26px -14px rgba(91, 124, 250, 0.95);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-primary-glow:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
   color: #fff;
-  transform: translateY(-1px);
-  filter: brightness(1.06);
-  box-shadow: 0 16px 30px -14px rgba(91, 124, 250, 1);
 }
 
 .btn-secondary-custom {
@@ -372,7 +370,7 @@
 .btn-secondary-custom:hover {
   background-color: var(--border-color);
   border-color: var(--border-strong);
-  color: #fff;
+  color: var(--text-main);
 }
 
 /* ================= Sticky action bar ================= */
@@ -386,12 +384,12 @@
   gap: 12px;
   margin-top: 24px;
   padding: 14px 16px;
-  background: rgba(20, 24, 33, 0.82);
+  background: var(--surface-glass);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  box-shadow: 0 -10px 30px -20px rgba(0, 0, 0, 0.9);
+  box-shadow: var(--shadow-pop);
 }
 
 .app-toast {

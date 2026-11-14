@@ -61,13 +61,12 @@
 .category-preview {
   border: 1px dashed var(--border-strong) !important;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(91, 124, 250, 0.1), rgba(91, 124, 250, 0.02));
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  background-color: var(--color-primary-soft);
+  transition: border-color 0.15s ease;
 }
 
 .category-preview:hover {
   border-color: var(--color-primary) !important;
-  box-shadow: 0 18px 40px -24px rgba(91, 124, 250, 0.7);
 }
 
 .preview-folder {
@@ -87,8 +86,8 @@
 
 /* ================= Darker Blue Info Alert ================= */
 .alert-dark-blue {
-  background-color: #242B42; /* Specific dark blue from the design */
-  border: 1px solid #2D3654;
+  background-color: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-line);
   border-radius: 8px;
 }
 

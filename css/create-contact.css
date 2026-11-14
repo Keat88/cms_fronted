@@ -157,7 +157,7 @@ textarea.form-control-dark {
 .btn-secondary-custom:hover {
   background-color: var(--border-color);
   border-color: var(--border-strong);
-  color: #fff;
+  color: var(--text-main);
 }
 
 .btn-primary-glow {
@@ -165,22 +165,21 @@ textarea.form-control-dark {
   align-items: center;
   gap: 8px;
   padding: 9px 18px;
-  border: 1px solid transparent;
+  border: 1px solid var(--color-primary);
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--color-primary), #7D95FF);
+  background-color: var(--color-primary);
   color: #fff;
   font-size: 13.5px;
   font-weight: 600;
   white-space: nowrap;
-  box-shadow: 0 12px 26px -14px rgba(91, 124, 250, 0.95);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-primary-glow:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
   color: #fff;
-  transform: translateY(-1px);
-  filter: brightness(1.06);
-  box-shadow: 0 16px 30px -14px rgba(91, 124, 250, 1);
 }
 
 /* ================= Contact preview ================= */
@@ -190,8 +189,8 @@ textarea.form-control-dark {
   gap: 14px;
   padding: 16px;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(91, 124, 250, 0.16), rgba(91, 124, 250, 0.04));
-  border: 1px solid rgba(91, 124, 250, 0.28);
+  background-color: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-line);
 }
 
 .contact-preview .contact-name {
@@ -303,8 +302,8 @@ textarea.form-control-dark {
 
 /* ================= Info alert ================= */
 .alert-dark-blue {
-  background: linear-gradient(135deg, rgba(91, 124, 250, 0.16), rgba(91, 124, 250, 0.04));
-  border: 1px solid rgba(91, 124, 250, 0.3);
+  background-color: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-line);
   border-radius: 12px;
 }
 
@@ -320,7 +319,7 @@ textarea.form-control-dark {
   z-index: 10;
   margin: 24px -1rem -1rem;
   padding: 14px 1rem;
-  background-color: rgba(11, 13, 18, 0.85);
+  background-color: var(--surface-glass);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid var(--border-color);
