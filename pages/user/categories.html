@@ -11,8 +11,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../assets/css/style.css">
-  <link rel="stylesheet" href="../../assets/css/d-dash.css">
-  <link rel="stylesheet" href="../../assets/css/u-category.css">
+  <link rel="stylesheet" href="../../assets/css/user/dashboard.css">
+  <link rel="stylesheet" href="../../assets/css/user/u-category.css">
 </head>
 
 <body>
@@ -20,7 +20,86 @@
   <div class="app-shell">
 
     <!-- ================= SIDEBAR (Offcanvas on Mobile, Fixed on Desktop) ================= -->
-    <div id="sidebar-container"></div>
+    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+
+      <!-- Offcanvas Header (Mobile Only) -->
+      <div class="offcanvas-header d-lg-none border-bottom border-custom">
+        <h5 class="offcanvas-title d-flex align-items-center gap-2 mb-0" id="sidebarMenuLabel">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span class="fw-bold">Connectly</span>
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+      </div>
+
+      <!-- Offcanvas Body -->
+      <div class="offcanvas-body p-3">
+
+        <!-- Desktop Logo -->
+        <a href="dashboard.html" class="brand d-none d-lg-flex align-items-center gap-2 mb-4 text-decoration-none">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span class="fs-5 fw-bold text-white">Connectly</span>
+        </a>
+
+        <!-- Workspace Selector -->
+        <button type="button" class="workspace-selector mb-4">
+          <span class="workspace-icon"><i class="bi bi-shield-check"></i></span>
+          <span class="workspace-text">
+            <span class="workspace-title">Admin workspace</span>
+            <span class="workspace-sub">Platform administration</span>
+          </span>
+          <i class="bi bi-chevron-expand ms-auto text-muted-custom"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <p class="nav-heading">WORKSPACE</p>
+        <ul class="nav nav-pills flex-column mb-4">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link"><i class="bi bi-grid"></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link"><i class="bi bi-person-lines-fill"></i> Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a href="favorites.html" class="nav-link"><i class="bi bi-star"></i> Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a href="categories.html" class="nav-link active" aria-current="page"><i class="bi bi-tags"></i> Categories</a>
+          </li>
+          <li class="nav-item">
+            <a href="notes.html" class="nav-link"><i class="bi bi-journal-text"></i> Notes</a>
+          </li>
+        </ul>
+
+        <p class="nav-heading">ACCOUNT</p>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="profile.html" class="nav-link"><i class="bi bi-person"></i> My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="setting.html" class="nav-link"><i class="bi bi-sliders"></i> Settings</a>
+          </li>
+        </ul>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer mt-auto pt-3 border-top border-custom px-2 rounded-2">
+          <div class="d-flex align-items-center gap-2 px-2 mb-3">
+            <span class="status-dot"></span>
+            <small class="text-muted-custom">All systems operational</small>
+          </div>
+          <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <div class="avatar avatar-md">JL</div>
+              <div class="lh-sm">
+                <div class="fw-semibold text-white user-name">Jordan Lee</div>
+                <div class="text-muted-custom user-role">Administrator</div>
+              </div>
+            </div>
+            <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </aside>
 
 
     <!-- ================= MAIN CONTENT ================= -->
@@ -63,7 +142,26 @@
               <span class="notif-dot"></span>
             </button>
 
-            <div class="avatar avatar-sm avatar-info">AM</div>
+            <div class="dropdown">
+              <button type="button" class="avatar-dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Account menu">
+                <span class="avatar avatar-sm avatar-info">AM</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end account-dropdown">
+                <li>
+                  <div class="account-dropdown__user">
+                    <span class="avatar avatar-md avatar-info">AM</span>
+                    <div class="lh-sm">
+                      <div class="account-dropdown__name">Alex Morgan</div>
+                      <div class="account-dropdown__role text-muted-custom">Member</div>
+                    </div>
+                  </div>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> My Profile</a></li>
+                <li><a class="dropdown-item" href="setting.html"><i class="bi bi-sliders"></i> Settings</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -109,10 +207,9 @@
       </div>
     </main>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module">
     import { categoriesData } from "../../assets/js/mockU.js";
-    import { renderSidebar } from '../../assets/js/sidebar.js';
-    renderSidebar();
     const categories = document.getElementById("categories_data");
     const fetchCategories = () => {
       categories.innerHTML = categoriesData.map(i => `
@@ -134,7 +231,6 @@
     };
     fetchCategories();
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

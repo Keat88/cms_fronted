@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create account - Connectly</title>
+  <script src="../../assets/js/theme.js"></script>
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B7CFA'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/auth.css">
+</head>
+
+<body>
+  <div class="auth-page">
+    <!-- ================= BRAND PANEL ================= -->
+    <aside class="auth-aside">
+      <a href="../../index.html" class="auth-brand">
+        <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+        <span>Connectly</span>
+      </a>
+
+      <div class="auth-hero">
+        <span class="auth-eyebrow">Get started in minutes</span>
+        <h1>Good relationships<br>start organized.</h1>
+        <p>Bring your contacts, categories and notes into one place. Connectly keeps the details that matter close at hand.</p>
+
+        <ul class="auth-features">
+          <li>
+            <span class="auth-feature-icon"><i class="bi bi-person-plus"></i></span>
+            <span>Add contacts in just a few clicks</span>
+          </li>
+          <li>
+            <span class="auth-feature-icon"><i class="bi bi-star"></i></span>
+            <span>Star the people you stay closest to</span>
+          </li>
+          <li>
+            <span class="auth-feature-icon"><i class="bi bi-cake2"></i></span>
+            <span>Remember birthdays automatically</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="auth-quote">
+        <div class="auth-quote-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill"></i><i
+            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+            class="bi bi-star-fill"></i></div>
+        <p>"I set it up over coffee and never went back to my old notes app."</p>
+        <div class="auth-quote-footer">
+          <span class="avatar avatar-sm avatar-success">JW</span>
+          <div>
+            <strong>James Wilson</strong>
+            <span>Engineering Lead</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ================= FORM PANEL ================= -->
+    <main class="auth-panel">
+      <div class="auth-top-actions">
+        <button type="button" class="icon-btn theme-toggle" data-theme="dark" aria-label="Switch to light theme"
+          title="Switch to light theme">
+          <i class="bi bi-moon theme-icon-dark"></i>
+          <i class="bi bi-sun theme-icon-light"></i>
+        </button>
+      </div>
+
+      <div class="auth-form-wrap">
+        <div class="auth-card">
+        <a href="../../index.html" class="auth-mobile-brand">
+          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
+          <span>Connectly</span>
+        </a>
+
+        <div class="auth-heading">
+          <h2>Create your account</h2>
+          <p>A better way to keep track of your people.</p>
+        </div>
+
+          <form data-auth-form novalidate>
+            <div class="auth-field">
+              <label for="fullName" class="form-label">Full name</label>
+              <input type="text" class="form-control auth-input" id="fullName" name="fullName" placeholder="Alex Morgan"
+                autocomplete="name" required>
+              <div class="invalid-feedback">Enter your name.</div>
+            </div>
+
+            <div class="auth-field">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control auth-input" id="email" name="email" placeholder="you@example.com"
+                autocomplete="email" required>
+              <div class="invalid-feedback">Enter a valid email address.</div>
+            </div>
+
+            <div class="auth-field">
+              <label for="password" class="form-label">Password</label>
+              <div class="auth-password">
+                <input type="password" class="form-control auth-input" id="password" name="password"
+                  placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required>
+                <button type="button" class="auth-password-toggle" data-password-toggle="#password" aria-label="Show password"
+                  title="Show password"><i class="bi bi-eye"></i></button>
+                <div class="invalid-feedback">Password must be at least 8 characters.</div>
+              </div>
+            </div>
+
+            <div class="auth-field">
+              <label for="confirmPassword" class="form-label">Confirm password</label>
+              <div class="auth-password">
+                <input type="password" class="form-control auth-input" id="confirmPassword" name="confirmPassword"
+                  placeholder="Repeat your password" autocomplete="new-password" minlength="8" required>
+                <button type="button" class="auth-password-toggle" data-password-toggle="#confirmPassword"
+                  aria-label="Show password" title="Show password"><i class="bi bi-eye"></i></button>
+                <div class="invalid-feedback">Passwords do not match.</div>
+              </div>
+            </div>
+
+            <label class="auth-check auth-terms">
+              <input type="checkbox" name="terms" required>
+              <span>I agree to the <a href="#" class="auth-link">Terms of Service</a> and <a href="#" class="auth-link">Privacy
+                  Policy</a>.</span>
+            </label>
+
+            <button type="submit" class="auth-submit">
+              <i class="bi bi-person-plus"></i> Create account
+            </button>
+
+            <div class="auth-status" data-auth-status role="status" aria-live="polite"></div>
+
+            <div class="auth-divider">or sign up with</div>
+
+            <div class="auth-social">
+              <button type="button" class="auth-social-btn"><i class="bi bi-google"></i> Google</button>
+              <button type="button" class="auth-social-btn"><i class="bi bi-github"></i> GitHub</button>
+            </div>
+          </form>
+        </div>
+
+        <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/auth-form.js"></script>
+</body>
+
+</html>

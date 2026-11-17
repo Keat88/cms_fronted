@@ -126,7 +126,26 @@
               <span class="notif-dot"></span>
             </button>
 
-            <div class="avatar avatar-sm">JL</div>
+            <div class="dropdown">
+              <button type="button" class="avatar-dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Account menu">
+                <span class="avatar avatar-sm">JL</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end account-dropdown">
+                <li>
+                  <div class="account-dropdown__user">
+                    <span class="avatar avatar-md">JL</span>
+                    <div class="lh-sm">
+                      <div class="account-dropdown__name">Jordan Lee</div>
+                      <div class="account-dropdown__role text-muted-custom">Administrator</div>
+                    </div>
+                  </div>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item active" href="profile.html" aria-current="page"><i class="bi bi-person"></i> My Profile</a></li>
+                <li><a class="dropdown-item" href="setting.html"><i class="bi bi-sliders"></i> Settings</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
