@@ -116,6 +116,11 @@
 
             <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
 
+            <button type="button" class="icon-btn theme-toggle" data-theme="dark" aria-label="Switch to light theme" title="Switch to light theme">
+              <i class="bi bi-moon theme-icon-dark"></i>
+              <i class="bi bi-sun theme-icon-light"></i>
+            </button>
+
             <button class="icon-btn position-relative" aria-label="Notifications">
               <i class="bi bi-bell"></i>
               <span class="notif-dot"></span>
@@ -166,55 +171,7 @@
                   </div>
                 </div>
 
-                <label class="form-label-custom mb-2">Interface theme</label>
-                <div class="row g-3">
-                  <div class="col-sm-6">
-                    <button type="button" class="theme-selector active w-100" data-theme="dark" aria-pressed="true">
-                      <div class="theme-preview">
-                        <div class="skeleton-window" style="background-color: #161B22; border-color: #30363D;">
-                          <div class="skeleton-sidebar" style="background-color: #1C232D;"></div>
-                          <div class="skeleton-content">
-                            <div class="skeleton-header" style="background-color: #30363D;"></div>
-                            <div class="skeleton-row">
-                              <div class="skeleton-box" style="background-color: #0D1117; border: 1px solid #30363D;"></div>
-                              <div class="skeleton-box" style="background-color: #0D1117; border: 1px solid #30363D;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="theme-footer">
-                        <span class="theme-name">Dark</span>
-                        <i class="bi bi-check-circle theme-check"></i>
-                        <i class="bi bi-circle theme-circle"></i>
-                      </div>
-                    </button>
-                  </div>
-
-                  <div class="col-sm-6">
-                    <button type="button" class="theme-selector w-100" data-theme="light" aria-pressed="false">
-                      <div class="theme-preview">
-                        <div class="skeleton-window" style="background-color: #F9FAFB; border-color: #E5E7EB;">
-                          <div class="skeleton-sidebar" style="background-color: #E5E7EB;"></div>
-                          <div class="skeleton-content">
-                            <div class="skeleton-header" style="background-color: #D1D5DB;"></div>
-                            <div class="skeleton-row">
-                              <div class="skeleton-box" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;"></div>
-                              <div class="skeleton-box" style="background-color: #FFFFFF; border: 1px solid #E5E7EB;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="theme-footer">
-                        <span class="theme-name">Light</span>
-                        <i class="bi bi-check-circle theme-check"></i>
-                        <i class="bi bi-circle theme-circle"></i>
-                      </div>
-                    </button>
-                  </div>
-                </div>
-                <p class="text-muted-custom mt-2 mb-0" style="font-size: 11px;" data-theme-note>Dark theme is currently applied across your workspace.</p>
-
-                <div class="row g-3 border-top border-custom pt-4 mt-4">
+                <div class="row g-3  pt-4 mt-4">
                   <div class="col-md-6">
                     <label class="form-label-custom" for="language">Language</label>
                     <select id="language" class="form-select form-select-dark">
@@ -538,17 +495,6 @@
         settingsPanels.forEach((panel) => {
           panel.classList.toggle('d-none', panel.dataset.panel !== tab.dataset.tab);
         });
-      });
-    });
-
-    document.querySelectorAll('.theme-selector').forEach((selector) => {
-      selector.addEventListener('click', () => {
-        document.querySelectorAll('.theme-selector').forEach((s) => {
-          s.classList.remove('active');
-          s.setAttribute('aria-pressed', 'false');
-        });
-        selector.classList.add('active');
-        selector.setAttribute('aria-pressed', 'true');
       });
     });
 

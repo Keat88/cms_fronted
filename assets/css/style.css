@@ -426,6 +426,15 @@ a:hover {
   border-color: var(--border-strong);
 }
 
+.theme-toggle .theme-icon-light,
+.theme-toggle[data-theme="light"] .theme-icon-dark {
+  display: none;
+}
+
+.theme-toggle[data-theme="light"] .theme-icon-light {
+  display: inline-block;
+}
+
 .icon-btn-sm {
   width: 30px;
   height: 30px;
@@ -786,11 +795,9 @@ a:hover {
   }
 }
 
-/* ===================================================================
-   Light theme corrections
-   The app was built dark-first, so a few components use literal light
-   colors. These scoped overrides keep them readable on light surfaces.
-   =================================================================== */
+
+   /* Light theme corrections */
+
 [data-theme="light"] .text-white,
 [data-theme="light"] .stat-value,
 [data-theme="light"] .mini-stat-value {

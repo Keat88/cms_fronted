@@ -1,100 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notes - Connectly</title>
   <script src="../../assets/js/theme.js"></script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B7CFA'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B7CFA'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/d-note.css">
 </head>
+
 <body>
 
   <div class="app-shell">
 
-    <!-- ================= SIDEBAR (Offcanvas on Mobile, Fixed on Desktop) ================= -->
-    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-
-      <!-- Offcanvas Header (Mobile Only) -->
-      <div class="offcanvas-header d-lg-none border-bottom border-custom">
-        <h5 class="offcanvas-title d-flex align-items-center gap-2 mb-0" id="sidebarMenuLabel">
-          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
-          <span class="fw-bold">Connectly</span>
-        </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
-      </div>
-
-      <!-- Offcanvas Body -->
-      <div class="offcanvas-body p-3">
-
-        <!-- Desktop Logo -->
-        <a href="dashboard.html" class="brand d-none d-lg-flex align-items-center gap-2 mb-4 text-decoration-none">
-          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
-          <span class="fs-5 fw-bold text-white">Connectly</span>
-        </a>
-
-        <!-- Workspace Selector -->
-        <button type="button" class="workspace-selector mb-4">
-          <span class="workspace-icon"><i class="bi bi-person-vcard"></i></span>
-          <span class="workspace-text">
-            <span class="workspace-title">Personal workspace</span>
-            <span class="workspace-sub">Contacts &amp; connections</span>
-          </span>
-          <i class="bi bi-chevron-expand ms-auto text-muted-custom"></i>
-        </button>
-
-        <!-- Nav Links -->
-        <p class="nav-heading">WORKSPACE</p>
-        <ul class="nav nav-pills flex-column mb-4">
-          <li class="nav-item">
-            <a href="dashboard.html" class="nav-link"><i class="bi bi-grid"></i> Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a href="contact.html" class="nav-link"><i class="bi bi-person-lines-fill"></i> Contacts</a>
-          </li>
-          <li class="nav-item">
-            <a href="favorites.html" class="nav-link"><i class="bi bi-star"></i> Favorites</a>
-          </li>
-          <li class="nav-item">
-            <a href="categories.html" class="nav-link"><i class="bi bi-tags"></i> Categories</a>
-          </li>
-          <li class="nav-item">
-            <a href="notes.html" class="nav-link active" aria-current="page"><i class="bi bi-journal-text"></i> Notes</a>
-          </li>
-        </ul>
-
-        <p class="nav-heading">ACCOUNT</p>
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <a href="profile.html" class="nav-link"><i class="bi bi-person"></i> My Profile</a>
-          </li>
-          <li class="nav-item">
-            <a href="setting.html" class="nav-link"><i class="bi bi-sliders"></i> Settings</a>
-          </li>
-        </ul>
-
-        <!-- Sidebar Footer -->
-        <div class="sidebar-footer mt-auto pt-3 border-top border-custom footer-step">
-          <div class="d-flex align-items-center gap-2 px-2 mb-3">
-            <span class="status-dot"></span>
-            <small class="text-muted-custom">All systems operational</small>
-          </div>
-          <div class="d-flex align-items-center justify-content-between gap-2">
-            <div class="d-flex align-items-center gap-2">
-              <div class="avatar avatar-md avatar-info">AM</div>
-              <div class="lh-sm">
-                <div class="fw-semibold text-white user-name">Alex Morgan</div>
-                <div class="text-muted-custom user-role">Member</div>
-              </div>
-            </div>
-            <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </aside>
+    <div id="sidebar-container"></div>
 
 
     <!-- ================= MAIN CONTENT ================= -->
@@ -105,7 +29,8 @@
         <div class="d-flex justify-content-between align-items-center gap-2">
 
           <div class="d-flex align-items-center gap-2">
-            <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-label="Open menu">
+            <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
+              aria-controls="sidebarMenu" aria-label="Open menu">
               <i class="bi bi-list fs-5"></i>
             </button>
 
@@ -125,6 +50,12 @@
 
             <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
 
+            <button type="button" class="icon-btn theme-toggle" data-theme="dark" aria-label="Switch to light theme"
+              title="Switch to light theme">
+              <i class="bi bi-moon theme-icon-dark"></i>
+              <i class="bi bi-sun theme-icon-light"></i>
+            </button>
+
             <button class="icon-btn position-relative" aria-label="Notifications">
               <i class="bi bi-bell"></i>
               <span class="notif-dot"></span>
@@ -139,14 +70,17 @@
       <div class="container-fluid p-3 p-md-4">
 
         <!-- Page Header -->
-        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
           <div>
             <h3 class="page-title mb-1">Notes</h3>
-            <p class="text-muted-custom mb-0 small">Remember the little things that make every connection meaningful.</p>
+            <p class="text-muted-custom mb-0 small">Remember the little things that make every connection meaningful.
+            </p>
           </div>
           <div class="d-flex flex-wrap gap-2">
             <button class="btn-export" type="button"><i class="bi bi-download"></i> Export</button>
-            <button class="btn-primary-glow" type="button" id="newNoteBtn"><i class="bi bi-plus-lg"></i> Create note</button>
+            <button class="btn-danger rounded-3" type="button" id="newNoteBtn"><i class="bi bi-plus-lg"></i> Create
+              note</button>
           </div>
         </div>
 
@@ -199,11 +133,13 @@
                   data-time="Today, 9:15 AM" data-pinned="true" role="button" tabindex="0" aria-pressed="true">
                   <div class="note-card-head">
                     <h6 class="note-title">Design catch-up &amp; coffee</h6>
-                    <button type="button" class="note-pin is-pinned" data-pin aria-label="Unpin note" aria-pressed="true">
+                    <button type="button" class="note-pin is-pinned" data-pin aria-label="Unpin note"
+                      aria-pressed="true">
                       <i class="bi bi-pin-angle-fill"></i>
                     </button>
                   </div>
-                  <p class="note-snippet">Met Maya at the Config design meetup. Follow up with the component library...</p>
+                  <p class="note-snippet">Met Maya at the Config design meetup. Follow up with the component library...
+                  </p>
                   <div class="note-card-footer">
                     <span class="note-contact">
                       <span class="avatar avatar-xs avatar-primary">MC</span>
@@ -215,8 +151,8 @@
 
                 <!-- Note 2 -->
                 <article class="note-card" data-id="project-kickoff" data-title="Project kickoff notes"
-                  data-contact="Emma Davis" data-avatar="ED" data-avatar-class="avatar-warning"
-                  data-time="Yesterday" data-pinned="false" role="button" tabindex="0" aria-pressed="false">
+                  data-contact="Emma Davis" data-avatar="ED" data-avatar-class="avatar-warning" data-time="Yesterday"
+                  data-pinned="false" role="button" tabindex="0" aria-pressed="false">
                   <div class="note-card-head">
                     <h6 class="note-title">Project kickoff notes</h6>
                     <button type="button" class="note-pin" data-pin aria-label="Pin note" aria-pressed="false">
@@ -235,8 +171,8 @@
 
                 <!-- Note 3 -->
                 <article class="note-card" data-id="book-recs" data-title="Book recommendations"
-                  data-contact="James Wilson" data-avatar="JW" data-avatar-class="avatar-success"
-                  data-time="Nov 2" data-pinned="false" role="button" tabindex="0" aria-pressed="false">
+                  data-contact="James Wilson" data-avatar="JW" data-avatar-class="avatar-success" data-time="Nov 2"
+                  data-pinned="false" role="button" tabindex="0" aria-pressed="false">
                   <div class="note-card-head">
                     <h6 class="note-title">Book recommendations</h6>
                     <button type="button" class="note-pin" data-pin aria-label="Pin note" aria-pressed="false">
@@ -255,15 +191,16 @@
 
                 <!-- Note 4 -->
                 <article class="note-card" data-id="followups" data-title="November follow-ups"
-                  data-contact="Personal note" data-avatar="PN" data-avatar-class="avatar-info"
-                  data-time="Nov 1" data-pinned="false" role="button" tabindex="0" aria-pressed="false">
+                  data-contact="Personal note" data-avatar="PN" data-avatar-class="avatar-info" data-time="Nov 1"
+                  data-pinned="false" role="button" tabindex="0" aria-pressed="false">
                   <div class="note-card-head">
                     <h6 class="note-title">November follow-ups</h6>
                     <button type="button" class="note-pin" data-pin aria-label="Pin note" aria-pressed="false">
                       <i class="bi bi-pin-angle"></i>
                     </button>
                   </div>
-                  <p class="note-snippet">Reach out to Liam about the partnership proposal before the end of the week.</p>
+                  <p class="note-snippet">Reach out to Liam about the partnership proposal before the end of the week.
+                  </p>
                   <div class="note-card-footer">
                     <span class="note-contact">
                       <span class="avatar avatar-xs avatar-info">PN</span>
@@ -274,9 +211,9 @@
                 </article>
 
                 <!-- Note 5 -->
-                <article class="note-card" data-id="dinner" data-title="Dinner plans"
-                  data-contact="Olivia Martinez" data-avatar="OM" data-avatar-class="avatar-danger"
-                  data-time="Oct 30" data-pinned="false" role="button" tabindex="0" aria-pressed="false">
+                <article class="note-card" data-id="dinner" data-title="Dinner plans" data-contact="Olivia Martinez"
+                  data-avatar="OM" data-avatar-class="avatar-danger" data-time="Oct 30" data-pinned="false"
+                  role="button" tabindex="0" aria-pressed="false">
                   <div class="note-card-head">
                     <h6 class="note-title">Dinner plans</h6>
                     <button type="button" class="note-pin" data-pin aria-label="Pin note" aria-pressed="false">
@@ -316,10 +253,12 @@
                   <span class="editor-saved text-muted-custom" id="editorSaved">Unsaved changes</span>
                 </div>
                 <div class="editor-actions">
-                  <button class="icon-btn editor-icon-btn is-pinned" type="button" id="pinBtn" aria-label="Unpin note" aria-pressed="true" title="Pin or unpin note">
+                  <button class="icon-btn editor-icon-btn is-pinned" type="button" id="pinBtn" aria-label="Unpin note"
+                    aria-pressed="true" title="Pin or unpin note">
                     <i class="bi bi-pin-angle-fill"></i>
                   </button>
-                  <button class="icon-btn editor-icon-btn editor-icon-danger" type="button" id="deleteBtn" aria-label="Delete note" title="Delete note">
+                  <button class="icon-btn editor-icon-btn editor-icon-danger" type="button" id="deleteBtn"
+                    aria-label="Delete note" title="Delete note">
                     <i class="bi bi-trash"></i>
                   </button>
                   <button class="btn-primary-glow" type="button" id="saveBtn"><i class="bi bi-check2"></i> Save</button>
@@ -327,7 +266,8 @@
               </div>
 
               <!-- Title -->
-              <input type="text" class="note-title-input" id="noteTitle" value="Design catch-up &amp; coffee" placeholder="Untitled note" aria-label="Note title">
+              <input type="text" class="note-title-input" id="noteTitle" value="Design catch-up &amp; coffee"
+                placeholder="Untitled note" aria-label="Note title">
 
               <!-- Linked contact -->
               <div class="note-meta">
@@ -347,21 +287,31 @@
 
               <!-- Formatting Toolbar -->
               <div class="editor-toolbar" id="editorToolbar" role="toolbar" aria-label="Text formatting">
-                <button class="editor-btn" type="button" data-command="bold" aria-label="Bold" title="Bold"><i class="bi bi-type-bold"></i></button>
-                <button class="editor-btn" type="button" data-command="italic" aria-label="Italic" title="Italic"><i class="bi bi-type-italic"></i></button>
-                <button class="editor-btn" type="button" data-command="underline" aria-label="Underline" title="Underline"><i class="bi bi-type-underline"></i></button>
+                <button class="editor-btn" type="button" data-command="bold" aria-label="Bold" title="Bold"><i
+                    class="bi bi-type-bold"></i></button>
+                <button class="editor-btn" type="button" data-command="italic" aria-label="Italic" title="Italic"><i
+                    class="bi bi-type-italic"></i></button>
+                <button class="editor-btn" type="button" data-command="underline" aria-label="Underline"
+                  title="Underline"><i class="bi bi-type-underline"></i></button>
                 <span class="editor-divider" aria-hidden="true"></span>
-                <button class="editor-btn" type="button" data-command="formatBlock" data-value="h5" aria-label="Heading" title="Heading"><i class="bi bi-type-h1"></i></button>
-                <button class="editor-btn" type="button" data-command="insertUnorderedList" aria-label="Bulleted list" title="Bulleted list"><i class="bi bi-list-ul"></i></button>
-                <button class="editor-btn" type="button" data-command="insertOrderedList" aria-label="Numbered list" title="Numbered list"><i class="bi bi-list-ol"></i></button>
+                <button class="editor-btn" type="button" data-command="formatBlock" data-value="h5" aria-label="Heading"
+                  title="Heading"><i class="bi bi-type-h1"></i></button>
+                <button class="editor-btn" type="button" data-command="insertUnorderedList" aria-label="Bulleted list"
+                  title="Bulleted list"><i class="bi bi-list-ul"></i></button>
+                <button class="editor-btn" type="button" data-command="insertOrderedList" aria-label="Numbered list"
+                  title="Numbered list"><i class="bi bi-list-ol"></i></button>
                 <span class="editor-divider" aria-hidden="true"></span>
-                <button class="editor-btn" type="button" data-command="createLink" aria-label="Insert link" title="Insert link"><i class="bi bi-link-45deg"></i></button>
-                <button class="editor-btn" type="button" data-command="formatBlock" data-value="blockquote" aria-label="Quote" title="Quote"><i class="bi bi-quote"></i></button>
+                <button class="editor-btn" type="button" data-command="createLink" aria-label="Insert link"
+                  title="Insert link"><i class="bi bi-link-45deg"></i></button>
+                <button class="editor-btn" type="button" data-command="formatBlock" data-value="blockquote"
+                  aria-label="Quote" title="Quote"><i class="bi bi-quote"></i></button>
               </div>
 
               <!-- Note Content -->
-              <div class="note-content" id="noteContent" contenteditable="true" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Note content" data-placeholder="Start writing...">
-                <p>Met Maya at the Config design meetup. She's leading the new onboarding experience at Linear and is interested in exchanging ideas on design systems.</p>
+              <div class="note-content" id="noteContent" contenteditable="true" spellcheck="false" role="textbox"
+                aria-multiline="true" aria-label="Note content" data-placeholder="Start writing...">
+                <p>Met Maya at the Config design meetup. She's leading the new onboarding experience at Linear and is
+                  interested in exchanging ideas on design systems.</p>
 
                 <h5>Things to follow up on</h5>
 
@@ -380,7 +330,8 @@
                   </div>
                 </div>
 
-                <p>She prefers a quick email over a call, and loves a good oat latte. Try the café on Valencia next time.</p>
+                <p>She prefers a quick email over a call, and loves a good oat latte. Try the café on Valencia next
+                  time.</p>
 
                 <blockquote>"The best systems make the thoughtful thing the easy thing."</blockquote>
               </div>
@@ -425,11 +376,15 @@
       <div class="d-flex align-items-center gap-2 p-3">
         <i class="bi bi-check-circle-fill text-success"></i>
         <span id="noteToastText">Note saved</span>
-        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
       </div>
     </div>
   </div>
-
+  <script type="module">
+    import { renderSidebar } from '../../assets/js/sidebar.js';
+    renderSidebar();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     (function () {
@@ -786,4 +741,5 @@
     })();
   </script>
 </body>
+
 </html>

@@ -28,12 +28,26 @@
     syncControls(next);
   }
 
+  function activeTheme() {
+    return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+
   function selectorValue(selector) {
     var explicit = selector.getAttribute('data-theme');
     if (explicit === 'light' || explicit === 'dark') {
       return explicit;
     }
     return /light/i.test(selector.textContent) ? 'light' : 'dark';
+  }
+
+  function syncThemeToggles(theme) {
+    var toggles = document.querySelectorAll('.theme-toggle');
+    var label = theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme';
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      toggle.setAttribute('data-theme', theme);
+      toggle.setAttribute('aria-label', label);
+      toggle.setAttribute('title', label);
+    });
   }
 
   function syncControls(theme) {
@@ -43,6 +57,8 @@
       selector.classList.toggle('active', active);
       selector.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
+
+    syncThemeToggles(theme);
 
     var notes = document.querySelectorAll('[data-theme-note]');
     Array.prototype.forEach.call(notes, function (note) {
@@ -58,6 +74,12 @@
     if (!target || typeof target.closest !== 'function') {
       return;
     }
+    var toggle = target.closest('.theme-toggle');
+    if (toggle) {
+      applyTheme(activeTheme() === 'light' ? 'dark' : 'light');
+      return;
+    }
+
     var selector = target.closest('.theme-selector');
     if (!selector) {
       return;
@@ -66,12 +88,12 @@
   });
 
   document.addEventListener('DOMContentLoaded', function () {
-    syncControls(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+    syncControls(activeTheme());
   });
 
   window.ConnectlyTheme = {
     get: function () {
-      return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      return activeTheme();
     },
     set: applyTheme
   };

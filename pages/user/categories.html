@@ -20,88 +20,7 @@
   <div class="app-shell">
 
     <!-- ================= SIDEBAR (Offcanvas on Mobile, Fixed on Desktop) ================= -->
-    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu"
-      aria-labelledby="sidebarMenuLabel">
-
-      <!-- Offcanvas Header (Mobile Only) -->
-      <div class="offcanvas-header d-lg-none border-bottom border-custom">
-        <h5 class="offcanvas-title d-flex align-items-center gap-2 mb-0" id="sidebarMenuLabel">
-          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
-          <span class="fw-bold">Connectly</span>
-        </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-          data-bs-target="#sidebarMenu" aria-label="Close"></button>
-      </div>
-
-      <!-- Offcanvas Body -->
-      <div class="offcanvas-body p-3">
-
-        <!-- Desktop Logo -->
-        <a href="dashboard.html" class="brand d-none d-lg-flex align-items-center gap-2 mb-4 text-decoration-none">
-          <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
-          <span class="fs-5 fw-bold text-white">Connectly</span>
-        </a>
-
-        <!-- Workspace Selector -->
-        <button type="button" class="workspace-selector mb-4">
-          <span class="workspace-icon"><i class="bi bi-person-vcard"></i></span>
-          <span class="workspace-text">
-            <span class="workspace-title">Personal workspace</span>
-            <span class="workspace-sub">Contacts & connections</span>
-          </span>
-          <i class="bi bi-chevron-expand ms-auto text-muted-custom"></i>
-        </button>
-
-        <!-- Nav Links -->
-        <p class="nav-heading">WORKSPACE</p>
-        <ul class="nav nav-pills flex-column mb-4">
-          <li class="nav-item">
-            <a href="dashboard.html" class="nav-link"><i class="bi bi-grid"></i> Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a href="contact.html" class="nav-link"><i class="bi bi-person-lines-fill"></i> Contacts</a>
-          </li>
-          <li class="nav-item">
-            <a href="favorites.html" class="nav-link"><i class="bi bi-star"></i> Favorites</a>
-          </li>
-          <li class="nav-item">
-            <a href="categories.html" class="nav-link active" aria-current="page"><i class="bi bi-tags"></i>
-              Categories</a>
-          </li>
-          <li class="nav-item">
-            <a href="notes.html" class="nav-link"><i class="bi bi-journal-text"></i> Notes</a>
-          </li>
-        </ul>
-
-        <p class="nav-heading">ACCOUNT</p>
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <a href="profile.html" class="nav-link"><i class="bi bi-person"></i> My Profile</a>
-          </li>
-          <li class="nav-item">
-            <a href="setting.html" class="nav-link"><i class="bi bi-sliders"></i> Settings</a>
-          </li>
-        </ul>
-
-        <!-- Sidebar Footer -->
-        <div class="sidebar-footer mt-auto pt-3 border-top border-custom footer-step">
-          <div class="d-flex align-items-center gap-2 px-2 mb-3">
-            <span class="status-dot"></span>
-            <small class="text-muted-custom">All systems operational</small>
-          </div>
-          <div class="d-flex align-items-center justify-content-between gap-2">
-            <div class="d-flex align-items-center gap-2">
-              <div class="avatar avatar-md avatar-info">AM</div>
-              <div class="lh-sm">
-                <div class="fw-semibold text-white user-name">Alex Morgan</div>
-                <div class="text-muted-custom user-role">Member</div>
-              </div>
-            </div>
-            <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </aside>
+    <div id="sidebar-container"></div>
 
 
     <!-- ================= MAIN CONTENT ================= -->
@@ -132,6 +51,12 @@
             </div>
 
             <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
+
+            <button type="button" class="icon-btn theme-toggle" data-theme="dark" aria-label="Switch to light theme"
+              title="Switch to light theme">
+              <i class="bi bi-moon theme-icon-dark"></i>
+              <i class="bi bi-sun theme-icon-light"></i>
+            </button>
 
             <button class="icon-btn position-relative" aria-label="Notifications">
               <i class="bi bi-bell"></i>
@@ -166,133 +91,7 @@
 
         <!-- Split Layout: Grid (Left) and Side Panels (Right) -->
         <div class="row g-4 mb-4">
-
-          <!-- ================= LEFT COLUMN: CATEGORIES GRID ================= -->
-
-          <div class="row g-3">
-
-            <!-- 1. Work (Active State) -->
-            <div class="col-12 col-md-6 col-xl-3">
-              <div class="card p-3 h-100 category-card active d-flex flex-column">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                  <div class="folder-icon folder-blue"><i class="bi bi-folder"></i></div>
-                  <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
-                </div>
-                <h6 class="fw-semibold text-white mb-1">Work</h6>
-                <p class="contact-role mb-4">Professional connections</p>
-                <div class="mt-auto d-flex justify-content-between align-items-center">
-                  <span class="contact-time">86 contacts</span>
-                  <i class="bi bi-check-circle text-primary fs-5"></i>
-                </div>
-              </div>
-            </div>
-
-            <!-- 2. Friends -->
-            <div class="col-12 col-md-6 col-xl-3">
-              <div class="card p-3 h-100 category-card d-flex flex-column">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                  <div class="folder-icon folder-green"><i class="bi bi-folder"></i></div>
-                  <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
-                </div>
-                <h6 class="fw-semibold text-white mb-1">Friends</h6>
-                <p class="contact-role mb-4">The people who know you best</p>
-                <div class="mt-auto d-flex justify-content-between align-items-center">
-                  <span class="contact-time">64 contacts</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 3. Family -->
-            <div class="col-12 col-md-6 col-xl-3">
-              <div class="card p-3 h-100 category-card d-flex flex-column">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                  <div class="folder-icon folder-yellow"><i class="bi bi-folder"></i></div>
-                  <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
-                </div>
-                <h6 class="fw-semibold text-white mb-1">Family</h6>
-                <p class="contact-role mb-4">Your closest circle</p>
-                <div class="mt-auto d-flex justify-content-between align-items-center">
-                  <span class="contact-time">28 contacts</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 4. Clients -->
-            <div class="col-12 col-md-6 col-xl-3">
-              <div class="card p-3 h-100 category-card d-flex flex-column">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                  <div class="folder-icon folder-purple"><i class="bi bi-folder"></i></div>
-                  <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
-                </div>
-                <h6 class="fw-semibold text-white mb-1">Clients</h6>
-                <p class="contact-role mb-4">Building things together</p>
-                <div class="mt-auto d-flex justify-content-between align-items-center">
-                  <span class="contact-time">42 contacts</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 5. Community -->
-            <div class="col-12 col-md-6 col-xl-3">
-              <div class="card p-3 h-100 category-card d-flex flex-column">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                  <div class="folder-icon folder-teal"><i class="bi bi-folder"></i></div>
-                  <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
-                </div>
-                <h6 class="fw-semibold text-white mb-1">Community</h6>
-                <p class="contact-role mb-4">People with shared interests</p>
-                <div class="mt-auto d-flex justify-content-between align-items-center">
-                  <span class="contact-time">18 contacts</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 6. Design -->
-            <div class="col-12 col-md-6 col-xl-3">
-              <div class="card p-3 h-100 category-card d-flex flex-column">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                  <div class="folder-icon folder-purple"><i class="bi bi-folder"></i></div>
-                  <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
-                </div>
-                <h6 class="fw-semibold text-white mb-1">Design</h6>
-                <p class="contact-role mb-4">Ideas, craft and inspiration</p>
-                <div class="mt-auto d-flex justify-content-between align-items-center">
-                  <span class="contact-time">31 contacts</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 7. Partners -->
-            <div class="col-12 col-md-6 col-xl-3">
-              <div class="card p-3 h-100 category-card d-flex flex-column">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                  <div class="folder-icon folder-blue"><i class="bi bi-folder"></i></div>
-                  <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
-                </div>
-                <h6 class="fw-semibold text-white mb-1">Partners</h6>
-                <p class="contact-role mb-4">Better together</p>
-                <div class="mt-auto d-flex justify-content-between align-items-center">
-                  <span class="contact-time">22 contacts</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 8. Other -->
-            <div class="col-12 col-md-6 col-xl-3">
-              <div class="card p-3 h-100 category-card d-flex flex-column">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                  <div class="folder-icon folder-grey"><i class="bi bi-folder"></i></div>
-                  <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
-                </div>
-                <h6 class="fw-semibold text-white mb-1">Other</h6>
-                <p class="contact-role mb-4">A place for everyone else</p>
-                <div class="mt-auto d-flex justify-content-between align-items-center">
-                  <span class="contact-time">15 contacts</span>
-                </div>
-              </div>
-            </div>
-
-
+          <div class="row g-3" id="categories_data">
           </div>
         </div>
 
@@ -310,7 +109,31 @@
       </div>
     </main>
   </div>
-
+  <script type="module">
+    import { categoriesData } from "../../assets/js/mockU.js";
+    import { renderSidebar } from '../../assets/js/sidebar.js';
+    renderSidebar();
+    const categories = document.getElementById("categories_data");
+    const fetchCategories = () => {
+      categories.innerHTML = categoriesData.map(i => `
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card p-3 h-100 category-card ${i.active ? 'active' : ''} d-flex flex-column">
+        <div class="d-flex justify-content-between align-items-start mb-3">
+          <div class="folder-icon ${i.folderClass}"><i class="bi bi-folder"></i></div>
+          <i class="bi bi-three-dots text-muted-custom cursor-pointer hover-white"></i>
+        </div>
+        <h6 class="fw-semibold text-white mb-1">${i.title}</h6>
+        <p class="contact-role mb-4">${i.description}</p>
+        <div class="mt-auto d-flex justify-content-between align-items-center">
+          <span class="contact-time">${i.contactsCount}</span>
+          ${i.active ? '<i class="bi bi-check-circle text-primary fs-5"></i>' : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+    };
+    fetchCategories();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
