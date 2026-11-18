@@ -1,8 +1,5 @@
-// assets/js/feedback-modal.js
 
 "use strict";
-
-// Automatically resolve base URL relative to this script file location
 const base = new URL("../", import.meta.url).href;
 
 const ICONS = {

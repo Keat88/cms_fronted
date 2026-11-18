@@ -115,10 +115,19 @@
             <div class="auth-status" data-auth-status role="status" aria-live="polite"></div>
 
             <div class="auth-divider">or continue with</div>
-
-            <div class="auth-social">
-              <button type="button" class="auth-social-btn"><i class="bi bi-google"></i> Google</button>
-              <button type="button" class="auth-social-btn"><i class="bi bi-github"></i> GitHub</button>
+            <div class="w-100 d-flex justify-content-center align-items-center">
+              <div class="auth-social">
+                <div class="d-flex justify-content-center w-100 gap-3 align-items-center">
+                  <button type="button" class="btn border w-100 p-0 shadow-lg bg-white">
+                    <img src="https://i.pinimg.com/236x/35/49/11/354911d729a1fab997a31bdc70960435.jpg" class="w-100 rounded-2"
+                      alt="Design option 1">
+                  </button>
+                  <button type="button" class="btn border w-100 shadow-lg bg-white px-2 p-0">
+                    <img src="https://i.pinimg.com/236x/f8/6b/3c/f86b3cddf360a229e9abb71468c851a9.jpg" class="w-100"
+                      alt="Design option 2">
+                  </button>
+                </div>
+              </div>
             </div>
           </form>
         </div>
@@ -131,14 +140,15 @@
 
   <script src="../../assets/js/auth-form.js"></script>
   <script type="module">
+    import {dataDate} from '../../assets/js/app.js';
     import FeedbackModal from '../../assets/js/feedback-modal.js';
     const login = document.getElementById("login");
     login.addEventListener("click", async (e) => {
       e.preventDefault();
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
-      FeedbackModal.loading("Authenticating...", { title: "Please wait" });
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      FeedbackModal.loading("login...", { title: "Please wait" });
+      await new Promise(resolve => setTimeout(resolve, 5000));
       if (email === "keatkeng88@gmail.com" && password === "keat2007") {
         FeedbackModal.success("Login Successful", "Welcome back, Keng Keat!", {
           duration: 1500,

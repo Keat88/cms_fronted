@@ -16,7 +16,8 @@
 
 <body>
   <div class="app-shell">
-    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu"
+      aria-labelledby="sidebarMenuLabel">
 
       <!-- Offcanvas Header (Mobile Only) -->
       <div class="offcanvas-header d-lg-none border-bottom border-custom">
@@ -24,7 +25,8 @@
           <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
           <span class="fw-bold">Connectly</span>
         </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+          data-bs-target="#sidebarMenu" aria-label="Close"></button>
       </div>
 
       <!-- Offcanvas Body -->
@@ -69,7 +71,8 @@
         <p class="nav-heading">ACCOUNT</p>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="profile.html" class="nav-link active" aria-current="page"><i class="bi bi-person"></i> My Profile</a>
+            <a href="profile.html" class="nav-link active" aria-current="page"><i class="bi bi-person"></i> My
+              Profile</a>
           </li>
           <li class="nav-item">
             <a href="setting.html" class="nav-link"><i class="bi bi-sliders"></i> Settings</a>
@@ -90,7 +93,7 @@
                 <div class="text-muted-custom user-role">Administrator</div>
               </div>
             </div>
-            <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
+            <a href="#" class="logout-btn" aria-label="Log out" id="logout"><i class="bi bi-box-arrow-right"></i></a>
           </div>
         </div>
 
@@ -119,7 +122,7 @@
               <i class="bi bi-search"></i>
               <input type="text" placeholder="Search anything...">
             </div>
-            <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
+            <span class="date-text d-none d-sm-block" id="dateData"></span>
             <button type="button" class="icon-btn theme-toggle" data-theme="dark" aria-label="Switch to light theme"
               title="Switch to light theme">
               <i class="bi bi-moon theme-icon-dark"></i>
@@ -130,7 +133,8 @@
               <span class="notif-dot"></span>
             </button>
             <div class="dropdown">
-              <button type="button" class="avatar-dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Account menu">
+              <button type="button" class="avatar-dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static"
+                aria-expanded="false" aria-label="Account menu">
                 <span class="avatar avatar-sm">JL</span>
                 <i class="bi bi-chevron-down"></i>
               </button>
@@ -144,8 +148,11 @@
                     </div>
                   </div>
                 </li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item active" href="profile.html" aria-current="page"><i class="bi bi-person"></i> My Profile</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item active" href="profile.html" aria-current="page"><i class="bi bi-person"></i>
+                    My Profile</a></li>
                 <li><a class="dropdown-item" href="setting.html"><i class="bi bi-sliders"></i> Settings</a></li>
               </ul>
             </div>
@@ -161,7 +168,7 @@
             <h3 class="page-title mb-1">My Profile</h3>
             <p class="text-muted-custom mb-0 small">Your personal information and account credentials.</p>
           </div>
-          <span class="role-chip"><i class="bi bi-shield-check"></i> Administrator</span>
+
         </div>
         <div class="row g-4">
           <!-- ================= LEFT COLUMN ================= -->
@@ -305,7 +312,7 @@
                   </div>
                 </div>
 
-                <div class="d-flex justify-content-end gap-2 border-top border-custom pt-4">
+                <div class="d-flex justify-content-end gap-2 pt-4">
                   <button type="button" class="btn-secondary-custom">Cancel</button>
                   <button type="button" class="btn-primary-glow" id="saveProfile"><i class="bi bi-check2"></i> Save
                     changes</button>
@@ -313,58 +320,6 @@
               </form>
             </div>
             <!-- Change Password Card -->
-            <div class="card p-3 p-md-4">
-              <div class="mb-4">
-                <h5 class="card-title mb-1">Change password</h5>
-                <p class="text-muted-custom small mb-0">Use a strong password that you don't use elsewhere.</p>
-              </div>
-              <form>
-                <div class="mb-3">
-                  <label class="form-label-custom" for="currentPassword">Current password</label>
-                  <div class="input-group input-group-dark">
-                    <input id="currentPassword" type="password" class="form-control form-control-dark"
-                      value="password123">
-                    <button type="button" class="input-group-text toggle-password" aria-label="Show current password">
-                      <i class="bi bi-eye-slash"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="row g-3 mb-4">
-                  <div class="col-md-6">
-                    <label class="form-label-custom" for="newPassword">New password</label>
-                    <div class="input-group input-group-dark">
-                      <input id="newPassword" type="password" class="form-control form-control-dark"
-                        value="password123">
-                      <button type="button" class="input-group-text toggle-password" aria-label="Show new password">
-                        <i class="bi bi-eye-slash"></i>
-                      </button>
-                    </div>
-                    <div class="strength level-3">
-                      <span></span><span></span><span></span><span></span>
-                    </div>
-                    <span class="strength-label">Strong password</span>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label-custom" for="confirmPassword">Confirm new password</label>
-                    <div class="input-group input-group-dark">
-                      <input id="confirmPassword" type="password" class="form-control form-control-dark"
-                        value="password123">
-                      <button type="button" class="input-group-text toggle-password" aria-label="Show confirm password">
-                        <i class="bi bi-eye-slash"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center rounded-3">
-                  <span class="text-success small fw-medium d-flex align-items-center">
-                    <i class="bi bi-check2-circle me-1"></i> 12+ characters, a number and a symbol
-                  </span>
-                  <button type="button" class="btn-secondary-custom">
-                    <i class="bi bi-key"></i> Update password
-                  </button>
-                </div>
-              </form>
-            </div>
           </div>
         </div>
       </div>
@@ -382,6 +337,16 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module">
+    import { LogOut } from '../../assets/js/auth.js';
+    import { dataDate } from '../../assets/js/app.js';
+    document.getElementById('dateData').innerText = `${dataDate.date},${dataDate.month}, ${dataDate.year},${dataDate.dayName},${dataDate.time}`;
+    const logout = document.getElementById("logout");
+    logout.addEventListener("click", (e) => {
+      e.preventDefault()
+      LogOut()
+    })
+  </script>
   <script>
     document.querySelectorAll('.toggle-password').forEach((button) => {
       button.addEventListener('click', () => {

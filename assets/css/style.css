@@ -1,11 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-/* ===================================================================
-   Connectly — design tokens
-   Dark is the default. Light is applied with [data-theme="light"] on
-   <html>. Keep component styles using these variables so both themes
-   stay in sync.
-   =================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 :root {
   color-scheme: dark;
 
@@ -49,13 +42,16 @@
   --radius-lg: 14px;
   --radius-md: 10px;
   --radius-sm: 8px;
-  --shadow-card: 0 1px 0 0 rgba(255, 255, 255, 0.02) inset, 0 10px 30px -26px rgba(0, 0, 0, 0.95);
+  --shadow-card:
+    0 1px 0 0 rgba(255, 255, 255, 0.02) inset,
+    0 10px 30px -26px rgba(0, 0, 0, 0.95);
   --shadow-pop: 0 18px 44px -28px rgba(0, 0, 0, 0.95);
 
   /* Bootstrap overrides */
   --bs-primary: var(--color-primary);
   --bs-success: var(--color-success);
-  --bs-body-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --bs-body-font-family:
+    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 [data-theme="light"] {
@@ -96,7 +92,8 @@
   --overlay-hover: rgba(15, 23, 42, 0.055);
   --grid-line: rgba(15, 23, 42, 0.06);
 
-  --shadow-card: 0 1px 2px rgba(27, 31, 36, 0.06), 0 12px 30px -26px rgba(27, 31, 36, 0.45);
+  --shadow-card:
+    0 1px 2px rgba(27, 31, 36, 0.06), 0 12px 30px -26px rgba(27, 31, 36, 0.45);
   --shadow-pop: 0 18px 44px -30px rgba(27, 31, 36, 0.45);
 }
 
@@ -113,7 +110,12 @@ body {
   margin: 0;
   background-color: var(--color-canvas);
   color: var(--text-main);
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -133,10 +135,18 @@ a:hover {
 }
 
 /* ================= Utilities ================= */
-.bg-surface { background-color: var(--color-surface) !important; }
-.bg-elevated { background-color: var(--color-elevated) !important; }
-.border-custom { border: 1px solid var(--border-color) !important; }
-.text-muted-custom { color: var(--text-muted) !important; }
+.bg-surface {
+  background-color: var(--color-surface) !important;
+}
+.bg-elevated {
+  background-color: var(--color-elevated) !important;
+}
+.border-custom {
+  border: 1px solid var(--border-color) !important;
+}
+.text-muted-custom {
+  color: var(--text-muted) !important;
+}
 
 /* ================= Shell ================= */
 .app-shell {
@@ -184,7 +194,9 @@ a:hover {
   background-color: var(--color-elevated);
   color: var(--text-main);
   text-align: left;
-  transition: border-color 0.15s ease, background-color 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
 }
 
 .workspace-selector:hover {
@@ -248,7 +260,9 @@ a:hover {
   color: var(--text-muted);
   font-size: 13.5px;
   font-weight: 500;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .sidebar .nav-link i {
@@ -294,8 +308,12 @@ a:hover {
   box-shadow: 0 0 0 4px var(--color-success-soft);
 }
 
-.user-name { font-size: 13px; }
-.user-role { font-size: 11.5px; }
+.user-name {
+  font-size: 13px;
+}
+.user-role {
+  font-size: 11.5px;
+}
 
 .logout-btn {
   width: 34px;
@@ -305,7 +323,9 @@ a:hover {
   justify-content: center;
   border-radius: var(--radius-sm);
   color: var(--text-muted);
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .logout-btn:hover {
@@ -379,7 +399,9 @@ a:hover {
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
   color: var(--text-muted);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .search-box:focus-within {
@@ -417,7 +439,10 @@ a:hover {
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
   color: var(--text-muted);
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .icon-btn:hover {
@@ -465,7 +490,10 @@ a:hover {
   color: var(--text-muted);
   font-size: 11px;
   cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .avatar-dropdown-toggle:hover,
@@ -555,14 +583,32 @@ a:hover {
   letter-spacing: 0.01em;
 }
 
-.avatar-sm { width: 34px; height: 34px; font-size: 12px; }
-.avatar-md { width: 36px; height: 36px; font-size: 12.5px; }
+.avatar-sm {
+  width: 34px;
+  height: 34px;
+  font-size: 12px;
+}
+.avatar-md {
+  width: 36px;
+  height: 36px;
+  font-size: 12.5px;
+}
 
-.avatar-primary { background: linear-gradient(135deg, #5b7cfa, #8aa0ff); }
-.avatar-info { background: linear-gradient(135deg, #2fa8d8, #6fd8f5); }
-.avatar-warning { background: linear-gradient(135deg, #d9952f, #f5c876); }
-.avatar-success { background: linear-gradient(135deg, #26a774, #6fe3b4); }
-.avatar-danger { background: linear-gradient(135deg, #d14d72, #f58ca9); }
+.avatar-primary {
+  background: linear-gradient(135deg, #5b7cfa, #8aa0ff);
+}
+.avatar-info {
+  background: linear-gradient(135deg, #2fa8d8, #6fd8f5);
+}
+.avatar-warning {
+  background: linear-gradient(135deg, #d9952f, #f5c876);
+}
+.avatar-success {
+  background: linear-gradient(135deg, #26a774, #6fe3b4);
+}
+.avatar-danger {
+  background: linear-gradient(135deg, #d14d72, #f58ca9);
+}
 
 /* ================= Page / Cards ================= */
 .page-title {
@@ -583,27 +629,76 @@ a:hover {
   font-weight: 600;
 }
 
-.btn-export {
+/* ================= Buttons ================= */
+.btn-secondary-custom {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 16px;
+  padding: 9px 18px;
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  background-color: var(--color-surface);
+  border-radius: 10px;
+  background-color: var(--color-elevated);
   color: var(--text-main);
   font-size: 13.5px;
   font-weight: 500;
   white-space: nowrap;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.btn-primary-glow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
 }
 
-.btn-export:hover {
-  background-color: var(--color-elevated);
-  border-color: var(--border-strong);
-  color: var(--text-main);
+.btn-primary-glow:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: #fff;
 }
 
+/* ================= Sticky action bar ================= */
+.create-action-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  margin: 24px -1rem -1rem;
+  padding: 14px 1rem;
+  background-color: var(--surface-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border-color);
+}
+
+.action-hint {
+  font-size: 11.5px;
+}
+
+@media (min-width: 768px) {
+  .create-action-bar {
+    margin: 24px -1.5rem -1.5rem;
+    padding: 14px 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .create-action-bar .btn-secondary-custom,
+  .create-action-bar .btn-primary-glow {
+    flex: 1;
+    justify-content: center;
+  }
+}
 .btn-filter {
   display: inline-flex;
   align-items: center;
@@ -626,7 +721,10 @@ a:hover {
 /* ================= Stat cards ================= */
 .stat-card {
   padding: 1.25rem;
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .stat-card:hover {
@@ -651,10 +749,22 @@ a:hover {
   font-size: 1.1rem;
 }
 
-.stat-primary { background: var(--color-primary-soft); color: var(--color-primary); }
-.stat-success { background: var(--color-success-soft); color: var(--color-success); }
-.stat-danger { background: var(--color-danger-soft); color: var(--color-danger); }
-.stat-info { background: var(--color-info-soft); color: var(--color-info); }
+.stat-primary {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+.stat-success {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+.stat-danger {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+.stat-info {
+  background: var(--color-info-soft);
+  color: var(--color-info);
+}
 
 .stat-value {
   font-size: 1.9rem;
@@ -682,7 +792,11 @@ a:hover {
   height: 190px;
   padding-top: 12px;
   border-bottom: 1px solid var(--border-color);
-  background-image: linear-gradient(to top, var(--grid-line) 1px, transparent 1px);
+  background-image: linear-gradient(
+    to top,
+    var(--grid-line) 1px,
+    transparent 1px
+  );
   background-size: 100% 25%;
 }
 
@@ -740,9 +854,18 @@ a:hover {
   font-size: 0.95rem;
 }
 
-.activity-primary { background: var(--color-primary-soft); color: var(--color-primary); }
-.activity-success { background: var(--color-success-soft); color: var(--color-success); }
-.activity-warning { background: var(--color-warning-soft); color: var(--color-warning); }
+.activity-primary {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+.activity-success {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+.activity-warning {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
 
 .activity-title {
   font-size: 13px;
@@ -884,8 +1007,7 @@ a:hover {
   }
 }
 
-
-   /* Light theme corrections */
+/* Light theme corrections */
 
 [data-theme="light"] .text-white,
 [data-theme="light"] .stat-value,

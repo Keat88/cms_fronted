@@ -18,7 +18,8 @@
 
   <div class="app-shell">
 
-    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu"
+      aria-labelledby="sidebarMenuLabel">
 
       <!-- Offcanvas Header (Mobile Only) -->
       <div class="offcanvas-header d-lg-none border-bottom border-custom">
@@ -26,7 +27,8 @@
           <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
           <span class="fw-bold">Connectly</span>
         </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+          data-bs-target="#sidebarMenu" aria-label="Close"></button>
       </div>
 
       <!-- Offcanvas Body -->
@@ -64,7 +66,8 @@
             <a href="categories.html" class="nav-link"><i class="bi bi-tags"></i> Categories</a>
           </li>
           <li class="nav-item">
-            <a href="notes.html" class="nav-link active" aria-current="page"><i class="bi bi-journal-text"></i> Notes</a>
+            <a href="notes.html" class="nav-link active" aria-current="page"><i class="bi bi-journal-text"></i>
+              Notes</a>
           </li>
         </ul>
 
@@ -92,7 +95,7 @@
                 <div class="text-muted-custom user-role">Administrator</div>
               </div>
             </div>
-            <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
+            <a href="#" class="logout-btn" aria-label="Log out" id="logout"><i class="bi bi-box-arrow-right"></i></a>
           </div>
         </div>
 
@@ -127,7 +130,7 @@
               <input type="text" placeholder="Search notes..." aria-label="Search notes">
             </div>
 
-            <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
+            <span class="date-text d-none d-sm-block" id="dateData"></span>
 
             <button type="button" class="icon-btn theme-toggle" data-theme="dark" aria-label="Switch to light theme"
               title="Switch to light theme">
@@ -141,7 +144,8 @@
             </button>
 
             <div class="dropdown">
-              <button type="button" class="avatar-dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Account menu">
+              <button type="button" class="avatar-dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static"
+                aria-expanded="false" aria-label="Account menu">
                 <span class="avatar avatar-sm avatar-info">AM</span>
                 <i class="bi bi-chevron-down"></i>
               </button>
@@ -155,7 +159,9 @@
                     </div>
                   </div>
                 </li>
-                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> My Profile</a></li>
                 <li><a class="dropdown-item" href="setting.html"><i class="bi bi-sliders"></i> Settings</a></li>
               </ul>
@@ -176,15 +182,13 @@
             </p>
           </div>
           <div class="d-flex flex-wrap gap-2">
-            <button class="btn-export" type="button"><i class="bi bi-download"></i> Export</button>
-            <button class="btn-danger rounded-3" type="button" id="newNoteBtn"><i class="bi bi-plus-lg"></i> Create
+            <button class="btn-primary-glow" type="button" id="newNoteBtn"><i class="bi bi-plus-lg"></i> Create
               note</button>
           </div>
         </div>
 
         <!-- Notes Layout -->
         <div class="row g-3 notes-layout">
-
           <!-- ================= LEFT: NOTES LIST ================= -->
           <div class="col-12 col-lg-4 d-flex">
             <div class="card notes-panel w-100 p-3">
@@ -479,360 +483,370 @@
       </div>
     </div>
   </div>
+  <script type="module">
+    import { LogOut } from '../../assets/js/auth.js';
+    import { dataDate } from '../../assets/js/app.js';
+    document.getElementById('dateData').innerText = `${dataDate.date},${dataDate.month}, ${dataDate.year},${dataDate.dayName},${dataDate.time}`;
+    const logout = document.getElementById("logout");
+    logout.addEventListener("click", (e) => {
+      e.preventDefault()
+      LogOut()
+    })
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    (function () {
-      const list = document.getElementById('noteList');
-      const search = document.getElementById('noteSearch');
-      const empty = document.getElementById('noteEmpty');
-      const allCount = document.getElementById('allCount');
-      const pinnedCount = document.getElementById('pinnedCount');
-      const noteCount = document.getElementById('noteCount');
-      const noteTitle = document.getElementById('noteTitle');
-      const noteContent = document.getElementById('noteContent');
-      const noteMeta = document.getElementById('noteMeta');
-      const wordCount = document.getElementById('wordCount');
-      const linkedTag = document.getElementById('linkedTag');
-      const linkedAvatar = document.getElementById('linkedAvatar');
-      const linkedName = document.getElementById('linkedName');
-      const linkedEmpty = document.getElementById('linkedEmpty');
-      const removeLink = document.getElementById('removeLink');
-      const editorStatus = document.getElementById('editorStatus');
-      const editorSaved = document.getElementById('editorSaved');
-      const pinBtn = document.getElementById('pinBtn');
-      const deleteBtn = document.getElementById('deleteBtn');
-      const saveBtn = document.getElementById('saveBtn');
-      const newNoteBtn = document.getElementById('newNoteBtn');
-      const toolbar = document.getElementById('editorToolbar');
-      const template = document.getElementById('noteCardTemplate');
-      const toastEl = document.getElementById('noteToast');
-      const toastText = document.getElementById('noteToastText');
+      (function () {
+        const list = document.getElementById('noteList');
+        const search = document.getElementById('noteSearch');
+        const empty = document.getElementById('noteEmpty');
+        const allCount = document.getElementById('allCount');
+        const pinnedCount = document.getElementById('pinnedCount');
+        const noteCount = document.getElementById('noteCount');
+        const noteTitle = document.getElementById('noteTitle');
+        const noteContent = document.getElementById('noteContent');
+        const noteMeta = document.getElementById('noteMeta');
+        const wordCount = document.getElementById('wordCount');
+        const linkedTag = document.getElementById('linkedTag');
+        const linkedAvatar = document.getElementById('linkedAvatar');
+        const linkedName = document.getElementById('linkedName');
+        const linkedEmpty = document.getElementById('linkedEmpty');
+        const removeLink = document.getElementById('removeLink');
+        const editorStatus = document.getElementById('editorStatus');
+        const editorSaved = document.getElementById('editorSaved');
+        const pinBtn = document.getElementById('pinBtn');
+        const deleteBtn = document.getElementById('deleteBtn');
+        const saveBtn = document.getElementById('saveBtn');
+        const newNoteBtn = document.getElementById('newNoteBtn');
+        const toolbar = document.getElementById('editorToolbar');
+        const template = document.getElementById('noteCardTemplate');
+        const toastEl = document.getElementById('noteToast');
+        const toastText = document.getElementById('noteToastText');
 
-      const noteBodies = {
-        'design-catchup': [
-          "<p>Met Maya at the Config design meetup. She's leading the new onboarding experience at Linear and is interested in exchanging ideas on design systems.</p>",
-          '<h5>Things to follow up on</h5>',
-          '<div class="note-checklist">',
-          '<div class="form-check"><input class="form-check-input" type="checkbox" id="d1"><label class="form-check-label" for="d1">Share our component library and documentation</label></div>',
-          '<div class="form-check"><input class="form-check-input" type="checkbox" id="d2"><label class="form-check-label" for="d2">Send the article on approachable onboarding</label></div>',
-          '<div class="form-check"><input class="form-check-input" type="checkbox" id="d3"><label class="form-check-label" for="d3">Find a time for coffee next week</label></div>',
-          '</div>',
-          '<p>She prefers a quick email over a call, and loves a good oat latte. Try the café on Valencia next time.</p>',
-          '<blockquote>"The best systems make the thoughtful thing the easy thing."</blockquote>'
-        ].join(''),
-        'project-kickoff': [
-          '<p>Kicked off the Studio North brand refresh with Emma. The team wants a warmer, more human direction while keeping the existing grid system intact.</p>',
-          '<h5>Next steps</h5>',
-          '<ul><li>Collect three moodboard directions</li><li>Review typography pairings</li><li>Schedule a follow-up for next Thursday</li></ul>',
-          '<p>Emma prefers async updates over long meetings. Keep the feedback short and visual.</p>'
-        ].join(''),
-        'book-recs': [
-          '<p>James shared a short reading list on leadership and creative practice. Start with The Creative Act, then revisit the notes on taste and attention.</p>',
-          '<blockquote>"Make the obvious interesting, and the interesting obvious."</blockquote>',
-          '<p>Ask him which chapter resonated most — a good conversation starter for the next catch-up.</p>'
-        ].join(''),
-        'followups': [
-          '<p>Reach out to Liam about the partnership proposal before the end of the week. He mentioned needing a one-page summary and a rough timeline.</p>',
-          '<div class="note-checklist">',
-          '<div class="form-check"><input class="form-check-input" type="checkbox" id="f1"><label class="form-check-label" for="f1">Draft a one-page summary</label></div>',
-          '<div class="form-check"><input class="form-check-input" type="checkbox" id="f2"><label class="form-check-label" for="f2">Confirm the timeline with Liam</label></div>',
-          '<div class="form-check"><input class="form-check-input" type="checkbox" id="f3"><label class="form-check-label" for="f3">Send a follow-up email by Friday</label></div>',
-          '</div>'
-        ].join(''),
-        'dinner': [
-          '<p>Friday at 7 PM at the new place on Valencia. Table for four — bring the others along and book ahead if the weather looks good.</p>',
-          '<p>Olivia is vegetarian, so check the menu before confirming.</p>'
-        ].join('')
-      };
+        const noteBodies = {
+          'design-catchup': [
+            "<p>Met Maya at the Config design meetup. She's leading the new onboarding experience at Linear and is interested in exchanging ideas on design systems.</p>",
+            '<h5>Things to follow up on</h5>',
+            '<div class="note-checklist">',
+            '<div class="form-check"><input class="form-check-input" type="checkbox" id="d1"><label class="form-check-label" for="d1">Share our component library and documentation</label></div>',
+            '<div class="form-check"><input class="form-check-input" type="checkbox" id="d2"><label class="form-check-label" for="d2">Send the article on approachable onboarding</label></div>',
+            '<div class="form-check"><input class="form-check-input" type="checkbox" id="d3"><label class="form-check-label" for="d3">Find a time for coffee next week</label></div>',
+            '</div>',
+            '<p>She prefers a quick email over a call, and loves a good oat latte. Try the café on Valencia next time.</p>',
+            '<blockquote>"The best systems make the thoughtful thing the easy thing."</blockquote>'
+          ].join(''),
+          'project-kickoff': [
+            '<p>Kicked off the Studio North brand refresh with Emma. The team wants a warmer, more human direction while keeping the existing grid system intact.</p>',
+            '<h5>Next steps</h5>',
+            '<ul><li>Collect three moodboard directions</li><li>Review typography pairings</li><li>Schedule a follow-up for next Thursday</li></ul>',
+            '<p>Emma prefers async updates over long meetings. Keep the feedback short and visual.</p>'
+          ].join(''),
+          'book-recs': [
+            '<p>James shared a short reading list on leadership and creative practice. Start with The Creative Act, then revisit the notes on taste and attention.</p>',
+            '<blockquote>"Make the obvious interesting, and the interesting obvious."</blockquote>',
+            '<p>Ask him which chapter resonated most — a good conversation starter for the next catch-up.</p>'
+          ].join(''),
+          'followups': [
+            '<p>Reach out to Liam about the partnership proposal before the end of the week. He mentioned needing a one-page summary and a rough timeline.</p>',
+            '<div class="note-checklist">',
+            '<div class="form-check"><input class="form-check-input" type="checkbox" id="f1"><label class="form-check-label" for="f1">Draft a one-page summary</label></div>',
+            '<div class="form-check"><input class="form-check-input" type="checkbox" id="f2"><label class="form-check-label" for="f2">Confirm the timeline with Liam</label></div>',
+            '<div class="form-check"><input class="form-check-input" type="checkbox" id="f3"><label class="form-check-label" for="f3">Send a follow-up email by Friday</label></div>',
+            '</div>'
+          ].join(''),
+          'dinner': [
+            '<p>Friday at 7 PM at the new place on Valencia. Table for four — bring the others along and book ahead if the weather looks good.</p>',
+            '<p>Olivia is vegetarian, so check the menu before confirming.</p>'
+          ].join('')
+        };
 
-      let activeCard = null;
-      let currentFilter = 'all';
+        let activeCard = null;
+        let currentFilter = 'all';
 
-      const cards = () => Array.from(list.querySelectorAll('.note-card'));
-      const isPinned = (card) => card.dataset.pinned === 'true';
+        const cards = () => Array.from(list.querySelectorAll('.note-card'));
+        const isPinned = (card) => card.dataset.pinned === 'true';
 
-      function showToast(message) {
-        toastText.textContent = message;
-        bootstrap.Toast.getOrCreateInstance(toastEl, { delay: 2200 }).show();
-      }
-
-      function setSaved(saved) {
-        editorStatus.classList.toggle('is-saved', saved);
-        editorStatus.innerHTML = saved
-          ? '<i class="bi bi-check2-circle"></i> Saved'
-          : '<i class="bi bi-pencil-square"></i> Editing';
-        editorSaved.textContent = saved ? 'All changes saved' : 'Unsaved changes';
-      }
-
-      function updateWordCount() {
-        const text = noteContent.innerText.replace(/\s+/g, ' ').trim();
-        wordCount.textContent = text ? text.split(' ').length : 0;
-      }
-
-      function updateLinked(name, initials, avatarClass) {
-        if (!name) {
-          linkedTag.classList.add('d-none');
-          linkedEmpty.classList.remove('d-none');
-          return;
+        function showToast(message) {
+          toastText.textContent = message;
+          bootstrap.Toast.getOrCreateInstance(toastEl, { delay: 2200 }).show();
         }
-        linkedTag.classList.remove('d-none');
-        linkedEmpty.classList.add('d-none');
-        linkedName.textContent = name;
-        linkedAvatar.textContent = initials || '';
-        linkedAvatar.className = 'avatar avatar-xs ' + (avatarClass || 'avatar-primary');
-      }
 
-      function applyPinUI(card) {
-        const pinned = isPinned(card);
-        const cardPin = card.querySelector('[data-pin]');
-        if (cardPin) {
-          cardPin.classList.toggle('is-pinned', pinned);
-          cardPin.innerHTML = pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '<i class="bi bi-pin-angle"></i>';
-          cardPin.setAttribute('aria-label', pinned ? 'Unpin note' : 'Pin note');
-          cardPin.setAttribute('aria-pressed', String(pinned));
+        function setSaved(saved) {
+          editorStatus.classList.toggle('is-saved', saved);
+          editorStatus.innerHTML = saved
+            ? '<i class="bi bi-check2-circle"></i> Saved'
+            : '<i class="bi bi-pencil-square"></i> Editing';
+          editorSaved.textContent = saved ? 'All changes saved' : 'Unsaved changes';
         }
-        if (card === activeCard) {
-          pinBtn.classList.toggle('is-pinned', pinned);
-          pinBtn.innerHTML = pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '<i class="bi bi-pin-angle"></i>';
-          pinBtn.setAttribute('aria-label', pinned ? 'Unpin note' : 'Pin note');
-          pinBtn.setAttribute('aria-pressed', String(pinned));
+
+        function updateWordCount() {
+          const text = noteContent.innerText.replace(/\s+/g, ' ').trim();
+          wordCount.textContent = text ? text.split(' ').length : 0;
         }
-      }
 
-      function updateCounts() {
-        const all = cards();
-        const pinned = all.filter(isPinned).length;
-        allCount.textContent = all.length;
-        pinnedCount.textContent = pinned;
-        noteCount.textContent = all.length;
-      }
-
-      function applyFilter() {
-        const query = search.value.trim().toLowerCase();
-        let visible = 0;
-
-        cards().forEach(function (card) {
-          const matchesQuery = !query || card.textContent.toLowerCase().includes(query);
-          const matchesTab = currentFilter === 'all' || isPinned(card);
-          const show = matchesQuery && matchesTab;
-          card.classList.toggle('d-none', !show);
-          if (show) visible += 1;
-        });
-
-        empty.classList.toggle('d-none', visible !== 0);
-      }
-
-      function selectNote(card, focusTitle) {
-        if (!card) return;
-        activeCard = card;
-
-        cards().forEach(function (item) {
-          const selected = item === card;
-          item.classList.toggle('active', selected);
-          item.setAttribute('aria-pressed', String(selected));
-        });
-
-        noteTitle.value = card.dataset.title || '';
-        noteContent.innerHTML = noteBodies[card.dataset.id] || '';
-        updateLinked(card.dataset.contact, card.dataset.avatar, card.dataset.avatarClass);
-        noteMeta.textContent = 'Last edited ' + (card.dataset.time || 'just now') + ' • Only visible to you';
-        applyPinUI(card);
-        setSaved(false);
-        updateWordCount();
-
-        if (focusTitle) {
-          noteTitle.focus();
-          noteTitle.select();
+        function updateLinked(name, initials, avatarClass) {
+          if (!name) {
+            linkedTag.classList.add('d-none');
+            linkedEmpty.classList.remove('d-none');
+            return;
+          }
+          linkedTag.classList.remove('d-none');
+          linkedEmpty.classList.add('d-none');
+          linkedName.textContent = name;
+          linkedAvatar.textContent = initials || '';
+          linkedAvatar.className = 'avatar avatar-xs ' + (avatarClass || 'avatar-primary');
         }
-      }
 
-      function clearEditor() {
-        activeCard = null;
-        noteTitle.value = '';
-        noteContent.innerHTML = '';
-        updateLinked('', '', '');
-        noteMeta.textContent = 'No note selected';
-        updateWordCount();
-        setSaved(true);
-      }
-
-      function togglePin(card) {
-        card.dataset.pinned = isPinned(card) ? 'false' : 'true';
-        applyPinUI(card);
-        updateCounts();
-        applyFilter();
-        setSaved(false);
-        showToast(isPinned(card) ? 'Note pinned' : 'Note unpinned');
-      }
-
-      function createNote() {
-        const fragment = template.content.cloneNode(true);
-        const card = fragment.querySelector('.note-card');
-        const id = 'note-' + Date.now();
-
-        noteBodies[id] = '<p><br></p>';
-        card.dataset.id = id;
-        card.dataset.title = 'Untitled note';
-        card.dataset.contact = 'Personal note';
-        card.dataset.avatar = 'PN';
-        card.dataset.avatarClass = 'avatar-info';
-        card.dataset.time = 'Just now';
-        card.dataset.pinned = 'false';
-
-        card.querySelector('.note-title').textContent = 'Untitled note';
-        card.querySelector('.note-snippet').textContent = 'Start writing to capture what matters...';
-        const avatar = card.querySelector('.avatar');
-        avatar.textContent = 'PN';
-        avatar.classList.add('avatar-info');
-        card.querySelector('.note-contact-name').textContent = 'Personal note';
-        card.querySelector('.note-time').textContent = 'Just now';
-
-        list.prepend(card);
-        updateCounts();
-
-        currentFilter = 'all';
-        document.querySelectorAll('.notes-tab').forEach(function (tab) {
-          tab.classList.toggle('active', tab.dataset.filter === 'all');
-        });
-        search.value = '';
-        applyFilter();
-        selectNote(card, true);
-        showToast('New note created');
-      }
-
-      // List interactions
-      list.addEventListener('click', function (event) {
-        const pin = event.target.closest('[data-pin]');
-        const card = event.target.closest('.note-card');
-        if (!card) return;
-
-        if (pin) {
-          event.stopPropagation();
-          togglePin(card);
-          return;
+        function applyPinUI(card) {
+          const pinned = isPinned(card);
+          const cardPin = card.querySelector('[data-pin]');
+          if (cardPin) {
+            cardPin.classList.toggle('is-pinned', pinned);
+            cardPin.innerHTML = pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '<i class="bi bi-pin-angle"></i>';
+            cardPin.setAttribute('aria-label', pinned ? 'Unpin note' : 'Pin note');
+            cardPin.setAttribute('aria-pressed', String(pinned));
+          }
+          if (card === activeCard) {
+            pinBtn.classList.toggle('is-pinned', pinned);
+            pinBtn.innerHTML = pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '<i class="bi bi-pin-angle"></i>';
+            pinBtn.setAttribute('aria-label', pinned ? 'Unpin note' : 'Pin note');
+            pinBtn.setAttribute('aria-pressed', String(pinned));
+          }
         }
-        selectNote(card);
-      });
 
-      list.addEventListener('keydown', function (event) {
-        if (event.key !== 'Enter' && event.key !== ' ') return;
-        if (event.target.closest('[data-pin]')) return;
-        const card = event.target.closest('.note-card');
-        if (!card) return;
-        event.preventDefault();
-        selectNote(card);
-      });
+        function updateCounts() {
+          const all = cards();
+          const pinned = all.filter(isPinned).length;
+          allCount.textContent = all.length;
+          pinnedCount.textContent = pinned;
+          noteCount.textContent = all.length;
+        }
 
-      // Search and tabs
-      search.addEventListener('input', applyFilter);
+        function applyFilter() {
+          const query = search.value.trim().toLowerCase();
+          let visible = 0;
 
-      document.querySelectorAll('.notes-tab').forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          currentFilter = tab.dataset.filter;
-          document.querySelectorAll('.notes-tab').forEach(function (item) {
-            item.classList.toggle('active', item === tab);
+          cards().forEach(function (card) {
+            const matchesQuery = !query || card.textContent.toLowerCase().includes(query);
+            const matchesTab = currentFilter === 'all' || isPinned(card);
+            const show = matchesQuery && matchesTab;
+            card.classList.toggle('d-none', !show);
+            if (show) visible += 1;
           });
+
+          empty.classList.toggle('d-none', visible !== 0);
+        }
+
+        function selectNote(card, focusTitle) {
+          if (!card) return;
+          activeCard = card;
+
+          cards().forEach(function (item) {
+            const selected = item === card;
+            item.classList.toggle('active', selected);
+            item.setAttribute('aria-pressed', String(selected));
+          });
+
+          noteTitle.value = card.dataset.title || '';
+          noteContent.innerHTML = noteBodies[card.dataset.id] || '';
+          updateLinked(card.dataset.contact, card.dataset.avatar, card.dataset.avatarClass);
+          noteMeta.textContent = 'Last edited ' + (card.dataset.time || 'just now') + ' • Only visible to you';
+          applyPinUI(card);
+          setSaved(false);
+          updateWordCount();
+
+          if (focusTitle) {
+            noteTitle.focus();
+            noteTitle.select();
+          }
+        }
+
+        function clearEditor() {
+          activeCard = null;
+          noteTitle.value = '';
+          noteContent.innerHTML = '';
+          updateLinked('', '', '');
+          noteMeta.textContent = 'No note selected';
+          updateWordCount();
+          setSaved(true);
+        }
+
+        function togglePin(card) {
+          card.dataset.pinned = isPinned(card) ? 'false' : 'true';
+          applyPinUI(card);
+          updateCounts();
           applyFilter();
+          setSaved(false);
+          showToast(isPinned(card) ? 'Note pinned' : 'Note unpinned');
+        }
+
+        function createNote() {
+          const fragment = template.content.cloneNode(true);
+          const card = fragment.querySelector('.note-card');
+          const id = 'note-' + Date.now();
+
+          noteBodies[id] = '<p><br></p>';
+          card.dataset.id = id;
+          card.dataset.title = 'Untitled note';
+          card.dataset.contact = 'Personal note';
+          card.dataset.avatar = 'PN';
+          card.dataset.avatarClass = 'avatar-info';
+          card.dataset.time = 'Just now';
+          card.dataset.pinned = 'false';
+
+          card.querySelector('.note-title').textContent = 'Untitled note';
+          card.querySelector('.note-snippet').textContent = 'Start writing to capture what matters...';
+          const avatar = card.querySelector('.avatar');
+          avatar.textContent = 'PN';
+          avatar.classList.add('avatar-info');
+          card.querySelector('.note-contact-name').textContent = 'Personal note';
+          card.querySelector('.note-time').textContent = 'Just now';
+
+          list.prepend(card);
+          updateCounts();
+
+          currentFilter = 'all';
+          document.querySelectorAll('.notes-tab').forEach(function (tab) {
+            tab.classList.toggle('active', tab.dataset.filter === 'all');
+          });
+          search.value = '';
+          applyFilter();
+          selectNote(card, true);
+          showToast('New note created');
+        }
+
+        // List interactions
+        list.addEventListener('click', function (event) {
+          const pin = event.target.closest('[data-pin]');
+          const card = event.target.closest('.note-card');
+          if (!card) return;
+
+          if (pin) {
+            event.stopPropagation();
+            togglePin(card);
+            return;
+          }
+          selectNote(card);
         });
-      });
 
-      // Editor actions
-      pinBtn.addEventListener('click', function () {
-        if (activeCard) togglePin(activeCard);
-      });
+        list.addEventListener('keydown', function (event) {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          if (event.target.closest('[data-pin]')) return;
+          const card = event.target.closest('.note-card');
+          if (!card) return;
+          event.preventDefault();
+          selectNote(card);
+        });
 
-      saveBtn.addEventListener('click', function () {
-        setSaved(true);
-        showToast('Note saved');
-      });
+        // Search and tabs
+        search.addEventListener('input', applyFilter);
 
-      deleteBtn.addEventListener('click', function () {
-        if (!activeCard) return;
-        const card = activeCard;
-        const next = card.nextElementSibling || card.previousElementSibling;
-        delete noteBodies[card.dataset.id];
-        card.remove();
+        document.querySelectorAll('.notes-tab').forEach(function (tab) {
+          tab.addEventListener('click', function () {
+            currentFilter = tab.dataset.filter;
+            document.querySelectorAll('.notes-tab').forEach(function (item) {
+              item.classList.toggle('active', item === tab);
+            });
+            applyFilter();
+          });
+        });
+
+        // Editor actions
+        pinBtn.addEventListener('click', function () {
+          if (activeCard) togglePin(activeCard);
+        });
+
+        saveBtn.addEventListener('click', function () {
+          setSaved(true);
+          showToast('Note saved');
+        });
+
+        deleteBtn.addEventListener('click', function () {
+          if (!activeCard) return;
+          const card = activeCard;
+          const next = card.nextElementSibling || card.previousElementSibling;
+          delete noteBodies[card.dataset.id];
+          card.remove();
+          updateCounts();
+          applyFilter();
+          if (next) {
+            selectNote(next);
+          } else {
+            clearEditor();
+          }
+          showToast('Note deleted');
+        });
+
+        removeLink.addEventListener('click', function () {
+          updateLinked('', '', '');
+          setSaved(false);
+          showToast('Contact link removed');
+        });
+
+        newNoteBtn.addEventListener('click', createNote);
+
+        noteTitle.addEventListener('input', function () {
+          if (activeCard) {
+            activeCard.dataset.title = noteTitle.value || 'Untitled note';
+            activeCard.querySelector('.note-title').textContent = noteTitle.value || 'Untitled note';
+          }
+          setSaved(false);
+        });
+
+        noteContent.addEventListener('input', function () {
+          const snippet = noteContent.innerText.replace(/\s+/g, ' ').trim();
+          if (activeCard) {
+            activeCard.querySelector('.note-snippet').textContent = snippet.slice(0, 120) || 'Start writing to capture what matters...';
+            if (noteBodies[activeCard.dataset.id] !== undefined) {
+              noteBodies[activeCard.dataset.id] = noteContent.innerHTML;
+            }
+          }
+          updateWordCount();
+          setSaved(false);
+        });
+
+        // Formatting toolbar
+        toolbar.addEventListener('click', function (event) {
+          const button = event.target.closest('.editor-btn');
+          if (!button) return;
+          event.preventDefault();
+
+          noteContent.focus();
+          const command = button.dataset.command;
+          const value = button.dataset.value || null;
+
+          if (command === 'createLink') {
+            const url = window.prompt('Link URL', 'https://');
+            if (url) document.execCommand('createLink', false, url);
+          } else {
+            document.execCommand(command, false, value);
+          }
+
+          updateToolbarState();
+          setSaved(false);
+        });
+
+        function updateToolbarState() {
+          if (document.activeElement !== noteContent) return;
+          toolbar.querySelectorAll('[data-command]').forEach(function (button) {
+            const command = button.dataset.command;
+            if (['bold', 'italic', 'underline', 'insertUnorderedList', 'insertOrderedList'].indexOf(command) === -1) return;
+            let active = false;
+            try {
+              active = document.queryCommandState(command);
+            } catch (error) {
+              active = false;
+            }
+            button.classList.toggle('active', active);
+          });
+        }
+
+        document.addEventListener('selectionchange', updateToolbarState);
+
+        // Init
         updateCounts();
         applyFilter();
-        if (next) {
-          selectNote(next);
-        } else {
-          clearEditor();
-        }
-        showToast('Note deleted');
-      });
-
-      removeLink.addEventListener('click', function () {
-        updateLinked('', '', '');
-        setSaved(false);
-        showToast('Contact link removed');
-      });
-
-      newNoteBtn.addEventListener('click', createNote);
-
-      noteTitle.addEventListener('input', function () {
-        if (activeCard) {
-          activeCard.dataset.title = noteTitle.value || 'Untitled note';
-          activeCard.querySelector('.note-title').textContent = noteTitle.value || 'Untitled note';
-        }
-        setSaved(false);
-      });
-
-      noteContent.addEventListener('input', function () {
-        const snippet = noteContent.innerText.replace(/\s+/g, ' ').trim();
-        if (activeCard) {
-          activeCard.querySelector('.note-snippet').textContent = snippet.slice(0, 120) || 'Start writing to capture what matters...';
-          if (noteBodies[activeCard.dataset.id] !== undefined) {
-            noteBodies[activeCard.dataset.id] = noteContent.innerHTML;
-          }
-        }
-        updateWordCount();
-        setSaved(false);
-      });
-
-      // Formatting toolbar
-      toolbar.addEventListener('click', function (event) {
-        const button = event.target.closest('.editor-btn');
-        if (!button) return;
-        event.preventDefault();
-
-        noteContent.focus();
-        const command = button.dataset.command;
-        const value = button.dataset.value || null;
-
-        if (command === 'createLink') {
-          const url = window.prompt('Link URL', 'https://');
-          if (url) document.execCommand('createLink', false, url);
-        } else {
-          document.execCommand(command, false, value);
-        }
-
-        updateToolbarState();
-        setSaved(false);
-      });
-
-      function updateToolbarState() {
-        if (document.activeElement !== noteContent) return;
-        toolbar.querySelectorAll('[data-command]').forEach(function (button) {
-          const command = button.dataset.command;
-          if (['bold', 'italic', 'underline', 'insertUnorderedList', 'insertOrderedList'].indexOf(command) === -1) return;
-          let active = false;
-          try {
-            active = document.queryCommandState(command);
-          } catch (error) {
-            active = false;
-          }
-          button.classList.toggle('active', active);
-        });
-      }
-
-      document.addEventListener('selectionchange', updateToolbarState);
-
-      // Init
-      updateCounts();
-      applyFilter();
-      selectNote(document.querySelector('.note-card.active'));
-    })();
+        selectNote(document.querySelector('.note-card.active'));
+      })();
   </script>
 </body>
 

@@ -19,7 +19,8 @@
   <div class="app-shell">
 
     <!-- ================= SIDEBAR (Offcanvas on Mobile, Fixed on Desktop) ================= -->
-    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+    <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu"
+      aria-labelledby="sidebarMenuLabel">
 
       <!-- Offcanvas Header (Mobile Only) -->
       <div class="offcanvas-header d-lg-none border-bottom border-custom">
@@ -27,7 +28,8 @@
           <span class="brand-logo"><i class="bi bi-app-indicator"></i></span>
           <span class="fw-bold">Connectly</span>
         </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+          data-bs-target="#sidebarMenu" aria-label="Close"></button>
       </div>
 
       <!-- Offcanvas Body -->
@@ -56,7 +58,8 @@
             <a href="dashboard.html" class="nav-link"><i class="bi bi-grid"></i> Dashboard</a>
           </li>
           <li class="nav-item">
-            <a href="contact.html" class="nav-link active" aria-current="page"><i class="bi bi-person-lines-fill"></i> Contacts</a>
+            <a href="contact.html" class="nav-link active" aria-current="page"><i class="bi bi-person-lines-fill"></i>
+              Contacts</a>
           </li>
           <li class="nav-item">
             <a href="favorites.html" class="nav-link"><i class="bi bi-star"></i> Favorites</a>
@@ -93,7 +96,7 @@
                 <div class="text-muted-custom user-role">Administrator</div>
               </div>
             </div>
-            <a href="#" class="logout-btn" aria-label="Log out"><i class="bi bi-box-arrow-right"></i></a>
+            <a href="#" class="logout-btn" aria-label="Log out" id="logout"><i class="bi bi-box-arrow-right"></i></a>
           </div>
         </div>
 
@@ -128,7 +131,7 @@
               <input type="text" placeholder="Search contacts..." aria-label="Search contacts">
             </div>
 
-            <span class="date-text d-none d-sm-block">Thu, Nov 5, 2026</span>
+            <span class="date-text d-none d-sm-block" id="dateData"></span>
 
             <button type="button" class="icon-btn theme-toggle" data-theme="dark" aria-label="Switch to light theme"
               title="Switch to light theme">
@@ -142,7 +145,8 @@
             </button>
 
             <div class="dropdown">
-              <button type="button" class="avatar-dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Account menu">
+              <button type="button" class="avatar-dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static"
+                aria-expanded="false" aria-label="Account menu">
                 <span class="avatar avatar-sm avatar-info">AM</span>
                 <i class="bi bi-chevron-down"></i>
               </button>
@@ -156,7 +160,9 @@
                     </div>
                   </div>
                 </li>
-                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> My Profile</a></li>
                 <li><a class="dropdown-item" href="setting.html"><i class="bi bi-sliders"></i> Settings</a></li>
               </ul>
@@ -176,7 +182,6 @@
             <p class="text-muted-custom mb-0 small">Good relationships start with keeping in touch. All 248 of them.</p>
           </div>
           <div class="d-flex flex-wrap gap-2">
-            <button class="btn-export" type="button"><i class="bi bi-upload"></i> Import</button>
             <a href="create-contact.html" class="btn-primary-glow" type="button"><i class="bi bi-plus-lg"></i> Add
               contact</a>
           </div>
@@ -246,6 +251,15 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module">
     import { contactsData } from '../../assets/js/mockU.js';
+    import { LogOut } from '../../assets/js/auth.js';
+    import { dataDate } from '../../assets/js/app.js';
+    document.getElementById('dateData').innerText = `${dataDate.date},${dataDate.month}, ${dataDate.year},${dataDate.dayName},${dataDate.time}`;
+    const logout = document.getElementById("logout");
+    logout.addEventListener("click", (e) => {
+      e.preventDefault()
+      LogOut()
+    })
+
     const contactsGrid = document.getElementById("contactsGrid");
     const fetchData = () => {
       contactsGrid.innerHTML = contactsData.map(e => {
